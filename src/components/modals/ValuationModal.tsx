@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Send, CheckCircle2, Building2, MapPin, Calculator, Phone, Mail, User } from "lucide-react";
+import { X, CheckCircle2, Calculator } from "lucide-react";
 
 interface ValuationModalProps {
   isOpen: boolean;
@@ -82,7 +82,7 @@ export default function ValuationModal({ isOpen, onClose }: ValuationModalProps)
                 Valuation Report Requested
               </h4>
               <p className="text-[#5E6778] text-sm max-w-sm mb-6">
-                Our RERA-licensed valuation experts will analyze recent comparable transactions in {community} and send your bespoke market appraisal within 24 hours.
+                Our licensed valuation experts will analyze recent comparable transactions in {community} and send your bespoke market appraisal within 24 hours.
               </p>
               <button
                 onClick={handleReset}

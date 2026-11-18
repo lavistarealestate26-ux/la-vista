@@ -39,15 +39,17 @@ export default function FeaturedProperties() {
 
           {/* Filter Pills aligned with client categories */}
           <div className="flex items-center gap-1.5 mt-6 md:mt-0 p-1 bg-white rounded-xl border border-[#E7DFCF] shadow-sm overflow-x-auto max-w-full no-scrollbar">
-            {[
-              { id: "all", label: "All Curated" },
-              { id: "residential", label: "Residential" },
-              { id: "commercial", label: "Commercial" },
-              { id: "leasing", label: "Leasing" },
-            ].map((tab) => (
+            {(
+              [
+                { id: "all", label: "All Curated" },
+                { id: "residential", label: "Residential" },
+                { id: "commercial", label: "Commercial" },
+                { id: "leasing", label: "Leasing" },
+              ] as const
+            ).map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveCategory(tab.id as any)}
+                onClick={() => setActiveCategory(tab.id)}
                 className={`px-3.5 sm:px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${
                   activeCategory === tab.id
                     ? "bg-[#111111] text-[#C99A3B]"

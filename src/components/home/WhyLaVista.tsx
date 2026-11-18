@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Shield, Gem, Users, Award, CheckCircle } from "lucide-react";
+import { Shield, Gem, Users, Award } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const VALUE_POINTS = [

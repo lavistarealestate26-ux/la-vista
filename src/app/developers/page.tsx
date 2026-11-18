@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { MOCK_DEVELOPERS } from "@/data/mockListings";
-import { Award, ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Master Developers | Umm Al Quwain & Wider UAE | La Vista Partners",

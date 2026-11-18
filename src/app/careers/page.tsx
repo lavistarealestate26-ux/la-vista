@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { Briefcase, ArrowRight, ShieldCheck, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contactInfo";
 
 export const metadata = {

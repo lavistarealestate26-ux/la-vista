@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { ShieldCheck, Award, Users, Gem } from "lucide-react";
 
 export const metadata = {

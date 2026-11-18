@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Calendar, Building, CreditCard, ArrowRight, Download, Sparkles } from "lucide-react";
+import { Calendar, Building, CreditCard, ArrowRight, Sparkles } from "lucide-react";
 import { MOCK_LISTINGS } from "@/data/mockListings";
 import EnquiryModal from "../modals/EnquiryModal";
 

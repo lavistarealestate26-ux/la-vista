@@ -1,7 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import { LATEST_INSIGHTS } from "@/data/mockListings";
-import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Real Estate Market Insights & Reports | Umm Al Quwain & Wider UAE | La Vista",

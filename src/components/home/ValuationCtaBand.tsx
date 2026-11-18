@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { Calculator, ArrowRight, ShieldCheck } from "lucide-react";
 import ValuationModal from "../modals/ValuationModal";
 import { useLanguage } from "@/context/LanguageContext";
 

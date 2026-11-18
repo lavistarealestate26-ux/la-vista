@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { MOCK_COMMUNITIES } from "@/data/mockListings";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Communities Guide | Umm Al Quwain & Wider UAE | La Vista Real Estate",

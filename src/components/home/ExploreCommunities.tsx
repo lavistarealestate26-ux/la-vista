@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { MOCK_COMMUNITIES } from "@/data/mockListings";
-import { MapPin, ArrowRight, Compass } from "lucide-react";
+import { ArrowRight, Compass } from "lucide-react";
 
 export default function ExploreCommunities() {
   return (

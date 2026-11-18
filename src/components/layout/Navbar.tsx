@@ -10,9 +10,6 @@ import {
   Phone,
   Calculator,
   Globe,
-  Sparkles,
-  Building,
-  Home,
   Check,
 } from "lucide-react";
 import Logo from "../common/Logo";
@@ -133,11 +130,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
+  // Close mobile menu on route change without effect cascade
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
     setActiveDropdown(null);
-  }, [pathname]);
+  }
 
   // Lock background scroll when mobile drawer is open
   useEffect(() => {

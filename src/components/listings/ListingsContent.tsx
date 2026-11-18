@@ -2,29 +2,18 @@
 
 import React, { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import {
   Search,
-  Filter,
-  Grid,
-  List as ListIcon,
-  MapPin,
   SlidersHorizontal,
-  ChevronDown,
   X,
   RotateCcw,
-  Building,
-  BedDouble,
-  Bath,
-  Maximize,
-  ArrowUpDown,
   Building2,
   KeyRound,
   Home,
 } from "lucide-react";
 import { MOCK_LISTINGS } from "@/data/mockListings";
 import PropertyCard from "@/components/properties/PropertyCard";
-import { Listing, PropertyCategory, PropertyPurpose, PropertyType } from "@/types/listing";
+import { PropertyCategory, PropertyPurpose } from "@/types/listing";
 
 export default function ListingsContent() {
   const searchParams = useSearchParams();
@@ -50,7 +39,6 @@ export default function ListingsContent() {
   const [maxPrice, setMaxPrice] = useState<string>(initialMaxPrice);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("featured");
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [mobileFilterOpen, setMobileFilterOpen] = useState<boolean>(false);
 
   // Filter listings dynamically

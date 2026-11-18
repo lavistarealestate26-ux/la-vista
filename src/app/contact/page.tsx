@@ -12,7 +12,6 @@ import {
   ExternalLink,
   ShieldCheck,
   Building2,
-  Share2,
 } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contactInfo";
 
@@ -52,7 +51,7 @@ export default function ContactPage() {
       } else {
         setErrorMessage(data.error || "Failed to submit your message. Please try again or reach us via WhatsApp.");
       }
-    } catch (err) {
+    } catch {
       setErrorMessage("Network error. Please try again or reach us via WhatsApp.");
     } finally {
       setSubmitting(false);

@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { BedDouble, Bath, Maximize, MapPin, Share2, Heart, ArrowUpRight } from "lucide-react";
+import { BedDouble, Bath, Maximize, MapPin, Heart, ArrowUpRight } from "lucide-react";
 import { Listing } from "@/types/listing";
 import { useLanguage } from "@/context/LanguageContext";
 

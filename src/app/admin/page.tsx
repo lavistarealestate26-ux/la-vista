@@ -6,16 +6,10 @@ import {
   Plus,
   Edit,
   Trash2,
-  CheckCircle,
   Eye,
-  Building,
-  BedDouble,
   Search,
-  Filter,
-  ArrowLeft,
   X,
   Save,
-  ShieldAlert,
 } from "lucide-react";
 import { MOCK_LISTINGS } from "@/data/mockListings";
 import { Listing, PropertyPurpose, PropertyType, PropertyStatus } from "@/types/listing";

@@ -152,18 +152,20 @@ export default function HeroSection() {
         <div className="w-full max-w-5xl bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 sm:p-5 border border-white/30 text-[#111111]">
           {/* Categories: Residential | Commercial | Leasing */}
           <div className="flex items-center gap-2 mb-4 border-b border-[#E7DFCF] pb-3 overflow-x-auto no-scrollbar">
-            {[
-              { id: "residential", label: t.hero_tab_residential },
-              { id: "commercial", label: t.hero_tab_commercial },
-              { id: "leasing", label: t.hero_tab_leasing },
-            ].map((tab) => {
+            {(
+              [
+                { id: "residential", label: t.hero_tab_residential },
+                { id: "commercial", label: t.hero_tab_commercial },
+                { id: "leasing", label: t.hero_tab_leasing },
+              ] as const
+            ).map((tab) => {
               const isActive = activeTab === tab.id;
               return (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => {
-                    setActiveTab(tab.id as any);
+                    setActiveTab(tab.id);
                     setSelectedPriceIndex(0);
                   }}
                   className={`relative px-4 py-2 text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${

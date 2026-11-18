@@ -20,30 +20,34 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
-
-  // Load from localStorage on mount
-  useEffect(() => {
-    try {
-      const savedLang = localStorage.getItem("lv_lang") as Language | null;
-      if (savedLang === "ar" || savedLang === "en") {
-        setLanguageState(savedLang);
-        document.documentElement.dir = savedLang === "ar" ? "rtl" : "ltr";
-        document.documentElement.lang = savedLang;
+  // Lazy initial state safely accessing localStorage on client without cascading render
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const savedLang = localStorage.getItem("lv_lang") as Language | null;
+        if (savedLang === "ar" || savedLang === "en") {
+          return savedLang;
+        }
+      } catch {
+        // LocalStorage unavailable
       }
-    } catch (e) {
-      // LocalStorage unavailable
     }
-  }, []);
+    return "en";
+  });
+
+  // Synchronize document direction and lang attribute whenever language changes
+  useEffect(() => {
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = language;
+  }, [language]);
 
   const setLanguage = (newLang: Language) => {
     setLanguageState(newLang);
-    const newDir = newLang === "ar" ? "rtl" : "ltr";
-    document.documentElement.dir = newDir;
-    document.documentElement.lang = newLang;
     try {
       localStorage.setItem("lv_lang", newLang);
-    } catch (e) {}
+    } catch {
+      // LocalStorage unavailable
+    }
   };
 
   const toggleLanguage = () => {
@@ -63,5 +67,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useLanguage() {
-  return useContext(LanguageContext);
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
 }

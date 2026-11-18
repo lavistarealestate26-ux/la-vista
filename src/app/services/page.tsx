@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Building2, Shield, Key, Calculator, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Client Services | La Vista Real Estate | Umm Al Quwain & Wider UAE",

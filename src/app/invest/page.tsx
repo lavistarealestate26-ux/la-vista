@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, Award, TrendingUp, CheckCircle2, Calculator } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contactInfo";
 
 export const metadata = {

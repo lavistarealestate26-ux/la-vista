@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, CheckCircle2, ShieldCheck, MapPin, Building, Phone, Mail } from "lucide-react";
-import { CONTACT_INFO } from "@/data/contactInfo";
+import { Calculator, CheckCircle2, ShieldCheck } from "lucide-react";
 
 export default function ValuationPage() {
   const [submitting, setSubmitting] = useState(false);
@@ -43,7 +42,7 @@ export default function ValuationPage() {
       } else {
         setErrorMessage(data.error || "Failed to submit valuation request. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setErrorMessage("Network error. Please try again or reach us via WhatsApp.");
     } finally {
       setSubmitting(false);
