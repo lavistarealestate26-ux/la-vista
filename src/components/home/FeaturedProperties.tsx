@@ -37,23 +37,23 @@ export default function FeaturedProperties() {
             </p>
           </div>
 
-          {/* Filter Pills aligned with client categories */}
-          <div className="flex items-center gap-1 sm:gap-1.5 mt-6 md:mt-0 p-1 bg-white rounded-xl border border-[#E7DFCF] shadow-sm overflow-x-auto sm:overflow-visible max-w-full no-scrollbar shrink-0">
+          {/* Filter Pills aligned with client categories (2 rows on mobile, 1 row on desktop) */}
+          <div className="grid grid-cols-2 sm:flex sm:items-center gap-1.5 mt-6 md:mt-0 p-1 sm:p-1.5 bg-white rounded-xl border border-[#E7DFCF] shadow-sm w-full sm:w-auto">
             {(
               [
-                { id: "all", label: "All Curated" },
-                { id: "residential", label: "Residential" },
-                { id: "commercial", label: "Commercial" },
-                { id: "leasing", label: "Leasing" },
+                { id: "all", label: t.feat_filter_all || "All Curated" },
+                { id: "residential", label: t.feat_filter_residential || "Residential" },
+                { id: "commercial", label: t.feat_filter_commercial || "Commercial" },
+                { id: "leasing", label: t.feat_filter_leasing || "Leasing" },
               ] as const
             ).map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id)}
-                className={`px-3.5 sm:px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${
+                className={`w-full sm:w-auto text-center px-3 sm:px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-lg transition-all whitespace-nowrap ${
                   activeCategory === tab.id
-                    ? "bg-[#111111] text-[#C99A3B]"
-                    : "text-[#5E6778] hover:text-[#111111]"
+                    ? "bg-[#111111] text-[#C99A3B] shadow-sm"
+                    : "text-[#5E6778] hover:text-[#111111] hover:bg-[#F7F3EA]/70"
                 }`}
               >
                 {tab.label}
