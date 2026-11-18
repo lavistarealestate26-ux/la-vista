@@ -146,27 +146,29 @@ export default function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[100dvh] lg:min-h-[860px] flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 lg:pt-36 pb-16 md:pb-24 overflow-hidden bg-[#111111]"
+      className="relative z-20 w-full min-h-[100dvh] lg:min-h-[860px] flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 lg:pt-36 pb-24 md:pb-36 bg-[#111111]"
     >
-      {/* Background Autoplaying Coastal Video (Umm Al Quwain & Coastal UAE) */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85"
-        className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-105 transform duration-1000 ease-out"
-      >
-        <source src="/videos/hero-uaq-coastal.mp4" type="video/mp4" />
-      </video>
+      {/* Background Autoplaying Coastal Video with isolated overflow-hidden to prevent scaling bleed without clipping UI dropdowns */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85"
+          className="w-full h-full object-cover select-none scale-105 transform duration-1000 ease-out"
+        >
+          <source src="/videos/hero-uaq-coastal.mp4" type="video/mp4" />
+        </video>
 
-      {/* Dedicated top scrim ensuring navbar always has rich dark contrast behind it */}
-      <div className="absolute top-0 inset-x-0 h-48 sm:h-56 bg-gradient-to-b from-black/95 via-black/70 to-transparent pointer-events-none z-[1]" />
+        {/* Dedicated top scrim ensuring navbar always has rich dark contrast behind it */}
+        <div className="absolute top-0 inset-x-0 h-48 sm:h-56 bg-gradient-to-b from-black/95 via-black/70 to-transparent z-[1]" />
 
-      {/* Cinematic Dark Gradient Overlay (Ensures AA text readability across entire frame) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/60 pointer-events-none z-[1]" />
+        {/* Cinematic Dark Gradient Overlay (Ensures AA text readability across entire frame) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/60 z-[1]" />
+      </div>
 
       {/* Main Headline and Search Bar Container */}
       <div className="relative z-10 w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,7 +192,7 @@ export default function HeroSection() {
         </div>
 
         {/* Search Bar Component */}
-        <div className="w-full max-w-5xl bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] p-4 sm:p-6 border border-[#E7DFCF]/80 text-[#111111]">
+        <div className="relative z-30 w-full max-w-5xl bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] p-4 sm:p-6 border border-[#E7DFCF]/80 text-[#111111]">
           {/* Categories Segmented Control: Residential | Commercial | Leasing */}
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E7DFCF]/70">
             <div className="inline-flex p-1 bg-[#F7F3EA] rounded-xl border border-[#E7DFCF] gap-1 overflow-x-auto no-scrollbar">
@@ -234,7 +236,7 @@ export default function HeroSection() {
             className="bg-[#FAF8F5] border border-[#E7DFCF] rounded-2xl p-1.5 sm:p-2 grid grid-cols-1 md:grid-cols-12 gap-1.5 sm:gap-2 items-center"
           >
             {/* Field 1: Area / Community with Type-ahead */}
-            <div className="relative md:col-span-4 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white focus-within:shadow-sm transition-all cursor-text">
+            <div className={`relative md:col-span-4 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white focus-within:shadow-sm transition-all cursor-text ${suggestionsOpen ? "z-30" : "z-10"}`}>
               <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-0.5">
                 {t.hero_label_location}
               </label>
@@ -259,7 +261,7 @@ export default function HeroSection() {
 
               {/* Suggestions Dropdown */}
               {suggestionsOpen && searchArea.trim().length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl max-h-56 overflow-y-auto z-50 py-1 divide-y divide-[#E7DFCF]/40">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl max-h-56 overflow-y-auto z-[100] py-1 divide-y divide-[#E7DFCF]/40">
                   {filteredAreas.length > 0 ? (
                     filteredAreas.map((area) => (
                       <button
@@ -285,7 +287,7 @@ export default function HeroSection() {
             </div>
 
             {/* Field 2: Custom Sleek Bedrooms Dropdown */}
-            <div className="relative md:col-span-3 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white hover:shadow-sm transition-all">
+            <div className={`relative md:col-span-3 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white hover:shadow-sm transition-all ${bedsOpen ? "z-30" : "z-10"}`}>
               <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-0.5 pointer-events-none">
                 {t.hero_label_beds}
               </label>
@@ -309,7 +311,7 @@ export default function HeroSection() {
 
               {/* Sleek Floating Bedrooms Dropdown */}
               {bedsOpen && (
-                <div className="absolute top-full left-0 w-52 sm:w-56 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl py-1.5 z-50 animate-fadeIn">
+                <div className="absolute top-full left-0 right-0 sm:right-auto sm:w-56 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl py-1.5 z-[100] max-h-72 overflow-y-auto no-scrollbar animate-fadeIn">
                   {BEDS_OPTIONS.map((opt) => (
                     <button
                       key={opt.value}
@@ -335,7 +337,7 @@ export default function HeroSection() {
             </div>
 
             {/* Field 3: Custom Sleek Price Dropdown */}
-            <div className="relative md:col-span-3 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white hover:shadow-sm transition-all">
+            <div className={`relative md:col-span-3 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white hover:shadow-sm transition-all ${priceOpen ? "z-30" : "z-10"}`}>
               <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-0.5 pointer-events-none">
                 {t.hero_label_price}
               </label>
@@ -359,7 +361,7 @@ export default function HeroSection() {
 
               {/* Sleek Floating Price Dropdown */}
               {priceOpen && (
-                <div className="absolute top-full left-0 md:-left-4 w-60 sm:w-64 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl py-1.5 z-50 max-h-60 overflow-y-auto no-scrollbar animate-fadeIn">
+                <div className="absolute top-full left-0 right-0 sm:right-auto md:-left-4 sm:w-64 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl py-1.5 z-[100] max-h-72 overflow-y-auto no-scrollbar animate-fadeIn">
                   {PRICE_RANGES[activeTab].map((range, idx) => (
                     <button
                       key={range.label}

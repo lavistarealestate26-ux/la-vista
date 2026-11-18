@@ -14,7 +14,7 @@ export default function DeveloperMarquee() {
   return (
     <section
       aria-label="Developer Partners"
-      className="w-full bg-[#111111] border-b border-[#C99A3B]/20 py-6 overflow-hidden select-none"
+      className="relative z-10 w-full bg-[#111111] border-b border-[#C99A3B]/20 py-6 overflow-hidden select-none"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
