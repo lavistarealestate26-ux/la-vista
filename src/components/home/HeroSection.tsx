@@ -204,6 +204,7 @@ export default function HeroSection() {
                     setSuggestionsOpen(true);
                   }}
                   onFocus={() => setSuggestionsOpen(true)}
+                  onBlur={() => setTimeout(() => setSuggestionsOpen(false), 200)}
                   className="w-full pl-10 pr-4 py-3 min-h-[46px] text-base sm:text-sm bg-[#F7F3EA]/70 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] text-[#111111] placeholder:text-[#5E6778]/70"
                 />
               </div>
