@@ -47,15 +47,8 @@ const NAV_MENU: NavSection[] = [
       { name: "All Leasing Properties", href: "/listings?category=leasing", desc: "Browse all residential & commercial lease listings", badge: "All" },
       { name: "Residential Leasing", href: "/listings?category=leasing", desc: "Annual luxury coastal villas and modern apartments" },
       { name: "Commercial Leasing", href: "/listings?category=commercial", desc: "Prime retail showrooms, corporate offices & warehouses" },
+      { name: "Luxury Furnished Rentals", href: "/listings?purpose=rent", desc: "Turnkey coastal residences with modern interiors" },
       { name: "UAQ Marina Waterfront", href: "/listings?category=leasing&community=UAQ+Marina", desc: "Turnkey coastal apartments with marina views" },
-      { name: "Long-Term Estate Leases", href: "/listings?category=leasing", desc: "Private family compounds with flexible terms" },
-    ],
-  },
-  {
-    label: "Rent",
-    items: [
-      { name: "Luxury Furnished", href: "/listings?purpose=rent", desc: "Turnkey coastal residences with modern interiors" },
-      { name: "Marina Living", href: "/listings?purpose=rent&community=UAQ+Marina", desc: "Waterfront apartments with yacht club access" },
       { name: "Family Villas", href: "/listings?purpose=rent&type=villa", desc: "Spacious homes in Al Salamah & Al Ramlah" },
     ],
   },
@@ -184,8 +177,8 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isSolid
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E7DFCF] py-3.5"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E7DFCF] py-3 sm:py-3.5"
+            : "bg-gradient-to-b from-black/90 via-black/60 to-transparent py-4 sm:py-5"
         }`}
       >
         <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">

@@ -108,7 +108,7 @@ export default function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[100dvh] lg:h-screen lg:max-h-[1050px] flex items-center justify-center pt-28 pb-16 lg:py-0 overflow-hidden bg-[#111111]"
+      className="relative w-full min-h-[100dvh] lg:min-h-[860px] flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 lg:pt-36 pb-16 md:pb-24 overflow-hidden bg-[#111111]"
     >
       {/* Background Autoplaying Coastal Video (Umm Al Quwain & Coastal UAE) */}
       <video
@@ -124,11 +124,14 @@ export default function HeroSection() {
         <source src="/videos/hero-uaq-coastal.mp4" type="video/mp4" />
       </video>
 
-      {/* Cinematic Dark Gradient Overlay (Ensures AA text readability) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/60 pointer-events-none" />
+      {/* Dedicated top scrim ensuring navbar always has rich dark contrast behind it */}
+      <div className="absolute top-0 inset-x-0 h-48 sm:h-56 bg-gradient-to-b from-black/95 via-black/70 to-transparent pointer-events-none z-[1]" />
+
+      {/* Cinematic Dark Gradient Overlay (Ensures AA text readability across entire frame) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/60 pointer-events-none z-[1]" />
 
       {/* Main Headline and Search Bar Container */}
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-12">
+      <div className="relative z-10 w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           {/* Luxury Editorial Overline (No enclosed pill) */}
           <div className="flex items-center gap-2.5 text-[#C99A3B] text-xs sm:text-[13px] font-semibold tracking-[0.25em] uppercase mb-4">
@@ -137,7 +140,7 @@ export default function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.08] mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-4">
             {t.hero_title_1} <br className="hidden sm:block" />
             <span className="text-[#C99A3B] italic font-normal">{t.hero_title_italic}</span>
           </h1>
