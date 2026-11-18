@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 interface LogoProps {
   variant?: "light" | "dark";
   showTagline?: boolean;
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
+  lockup?: "horizontal" | "stacked";
 }
 
 export default function Logo({
@@ -16,21 +16,29 @@ export default function Logo({
   showTagline = true,
   className = "",
   size = "md",
+  lockup = "horizontal",
 }: LogoProps) {
-  const isDark = variant === "dark"; // on dark backgrounds (hero video, footer)
+  const isDark = variant === "dark"; // dark background (hero video, footer) vs light background (white header)
   const [imgError, setImgError] = useState(false);
 
   // Height configurations
   const heightClasses = {
     sm: "h-8 sm:h-9",
-    md: "h-9 sm:h-10 md:h-12",
+    md: "h-10 sm:h-11 md:h-12",
     lg: "h-12 sm:h-14 md:h-16",
+    xl: "h-16 sm:h-18 md:h-20",
   };
 
-  // Select the actual cropped logo provided by client
-  // logo-light.png is the reversed gold/white logo on black
-  // logo-dark.png is the gold/black logo on white
-  const logoSrc = isDark ? "/images/logo/logo-light.png" : "/images/logo/logo-dark.png";
+  // 1. Horizontal Lockup (Emblem + LA VISTA REAL ESTATE side-by-side for optimal header balance)
+  const horizontalDark = "/images/logo/logo-horizontal-dark.png";   // From WhatsApp Image 2026-11-17 at 11.51.26 PM.jpeg
+  const horizontalLight = "/images/logo/logo-horizontal-light.png"; // From WhatsApp Image 2026-11-17 at 11.51.25 PM.jpeg
+
+  // 2. Stacked Lockup (Original vertical orientation from client files)
+  const stackedDark = "/images/logo/logo-header-dark.png";
+  const stackedLight = "/images/logo/logo-header-light.png";
+
+  const lightSrc = lockup === "horizontal" ? horizontalLight : stackedLight;
+  const darkSrc = lockup === "horizontal" ? horizontalDark : stackedDark;
 
   return (
     <Link
@@ -39,11 +47,26 @@ export default function Logo({
       aria-label="La Vista Real Estate"
     >
       {!imgError ? (
-        <div className={`relative ${heightClasses[size]} w-auto flex items-center transition-transform duration-300 group-hover:scale-103`}>
+        <div
+          className={`relative ${heightClasses[size]} w-auto flex items-center transition-transform duration-300 group-hover:scale-102`}
+        >
+          {/* Light Mode Logo (Visible on Scrolled White Navbar) */}
           <img
-            src={logoSrc}
+            src={lightSrc}
             alt="La Vista Real Estate"
-            className={`${heightClasses[size]} w-auto object-contain drop-shadow-sm`}
+            className={`${heightClasses[size]} w-auto object-contain transition-opacity duration-300 ease-in-out ${
+              isDark ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+            onError={() => setImgError(true)}
+          />
+
+          {/* Dark Mode Logo (Visible on Transparent Header over Hero Video) */}
+          <img
+            src={darkSrc}
+            alt="La Vista Real Estate"
+            className={`absolute inset-0 ${heightClasses[size]} w-auto object-contain transition-opacity duration-300 ease-in-out ${
+              isDark ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
             onError={() => setImgError(true)}
           />
         </div>

@@ -36,7 +36,7 @@ export default function Footer() {
         {/* Top Tier: Brand Statement + Minimalist Newsletter */}
         <div className="pb-12 border-b border-white/[0.08] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="space-y-3 max-w-lg">
-            <Logo variant="dark" size="md" />
+            <Logo variant="dark" size="md" lockup="horizontal" />
             <p className="text-white/55 text-xs sm:text-[13px] font-light leading-relaxed">
               {isRTL
                 ? "لا فيستا للعقارات · وساطة عقارية فاخرة تمثل أبهى العقارات السكنية والتجارية ومحافظ التأجير في أم القيوين وعموم الإمارات."

@@ -196,6 +196,7 @@ export default function Navbar() {
               <Logo
                 variant={isSolid ? "light" : "dark"}
                 size="md"
+                lockup="horizontal"
               />
             </div>
 
