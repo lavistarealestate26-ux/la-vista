@@ -25,9 +25,9 @@ export default function FloatingActions() {
           onMouseEnter={() => setIsSocialOpen(true)}
           onMouseLeave={() => setIsSocialOpen(false)}
         >
-          {/* Social Media Icons Pill (Appears instantly on hover & click) */}
+          {/* Social Media Icons Pill (Glass / Transparent container per client request) */}
           <div
-            className={`absolute right-full mr-2.5 before:absolute before:-right-3 before:top-0 before:bottom-0 before:w-4 before:content-[''] flex items-center gap-2 p-1.5 rounded-full bg-[#111111]/95 backdrop-blur-md border border-[#C99A3B]/50 shadow-2xl transition-all duration-300 ${
+            className={`absolute right-full mr-2.5 before:absolute before:-right-3 before:top-0 before:bottom-0 before:w-4 before:content-[''] flex items-center gap-2 p-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/60 shadow-xl transition-all duration-300 ${
               isSocialOpen
                 ? "opacity-100 pointer-events-auto translate-x-0 scale-100"
                 : "opacity-0 pointer-events-none translate-x-3 scale-95 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:scale-100"
