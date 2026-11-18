@@ -15,6 +15,9 @@ export interface Translations {
   nav_careers: string;
   nav_valuation: string;
   nav_phone: string;
+  nav_home: string;
+  nav_properties: string;
+  nav_menu: string;
 
   // Categories
   cat_all: string;
@@ -101,6 +104,9 @@ export const DICTIONARY: Record<Language, Translations> = {
     nav_careers: "Careers",
     nav_valuation: "Free Valuation",
     nav_phone: "+971 6 766 8888",
+    nav_home: "Home",
+    nav_properties: "Properties",
+    nav_menu: "Menu",
 
     cat_all: "All Properties",
     cat_commercial: "Commercial Properties",
@@ -176,6 +182,9 @@ export const DICTIONARY: Record<Language, Translations> = {
     nav_careers: "الوظائف",
     nav_valuation: "تقييم مجاني",
     nav_phone: "+971 6 766 8888",
+    nav_home: "الرئيسية",
+    nav_properties: "عقارات",
+    nav_menu: "القائمة",
 
     cat_all: "جميع العقارات",
     cat_commercial: "عقارات تجارية",

@@ -11,6 +11,10 @@ import {
   Calculator,
   Globe,
   Check,
+  Home,
+  Building2,
+  KeyRound,
+  Briefcase,
 } from "lucide-react";
 import Logo from "../common/Logo";
 import ValuationModal from "../modals/ValuationModal";
@@ -494,6 +498,85 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Mobile Sticky Bottom Navigation Bar (Mobile only: lg:hidden) */}
+      <nav
+        aria-label="Mobile Bottom Navigation"
+        className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#E7DFCF] shadow-[0_-4px_25px_rgba(0,0,0,0.06)] pb-[max(0.5rem,env(safe-area-inset-bottom))]"
+      >
+        <div className="max-w-md mx-auto grid grid-cols-5 items-center h-16 px-1">
+          {/* 1. Home */}
+          <Link
+            href="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all ${
+              isHomePage && !mobileMenuOpen
+                ? "text-[#C99A3B] font-bold"
+                : "text-[#5E6778] hover:text-[#111111]"
+            }`}
+          >
+            <Home className="w-5 h-5 shrink-0" />
+            <span className="text-[10px] tracking-tight whitespace-nowrap">
+              {t.nav_home}
+            </span>
+          </Link>
+
+          {/* 2. Properties (All) */}
+          <Link
+            href="/listings"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all ${
+              pathname === "/listings" && !mobileMenuOpen
+                ? "text-[#C99A3B] font-bold"
+                : "text-[#5E6778] hover:text-[#111111]"
+            }`}
+          >
+            <Building2 className="w-5 h-5 shrink-0" />
+            <span className="text-[10px] tracking-tight whitespace-nowrap">
+              {t.nav_properties}
+            </span>
+          </Link>
+
+          {/* 3. Leasing */}
+          <Link
+            href="/listings?category=leasing"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex flex-col items-center justify-center gap-1 py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] transition-all"
+          >
+            <KeyRound className="w-5 h-5 shrink-0" />
+            <span className="text-[10px] tracking-tight whitespace-nowrap">
+              {t.nav_leasing}
+            </span>
+          </Link>
+
+          {/* 4. Commercial */}
+          <Link
+            href="/listings?category=commercial"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex flex-col items-center justify-center gap-1 py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] transition-all"
+          >
+            <Briefcase className="w-5 h-5 shrink-0" />
+            <span className="text-[10px] tracking-tight whitespace-nowrap">
+              {t.nav_commercial}
+            </span>
+          </Link>
+
+          {/* 5. Menu Drawer Trigger */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all ${
+              mobileMenuOpen ? "text-[#C99A3B] font-bold" : "text-[#5E6778] hover:text-[#111111]"
+            }`}
+            aria-label="Toggle Full Menu"
+          >
+            <Menu className="w-5 h-5 shrink-0" />
+            <span className="text-[10px] tracking-tight whitespace-nowrap">
+              {t.nav_menu}
+            </span>
+          </button>
+        </div>
+      </nav>
 
       {/* Free Valuation Modal */}
       <ValuationModal
