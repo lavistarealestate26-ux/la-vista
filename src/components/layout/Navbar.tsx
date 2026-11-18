@@ -62,6 +62,16 @@ const NAV_MENU: NavSection[] = [
     ],
   },
   {
+    label: "Commercial",
+    items: [
+      { name: "All Commercial Properties", href: "/listings?category=commercial", desc: "Offices, retail showrooms, logistics & plots", badge: "All" },
+      { name: "Offices & Corporate Floors", href: "/listings?category=commercial&type=office", desc: "Grade-A business premises in UAQ & Wider UAE" },
+      { name: "Retail Showrooms & Plazas", href: "/listings?category=commercial&type=retail", desc: "High-visibility retail units in active commercial hubs" },
+      { name: "Warehouses & Logistics", href: "/listings?category=commercial&type=warehouse", desc: "Industrial and distribution facilities" },
+      { name: "Commercial Land & Plots", href: "/listings?category=commercial&type=land", desc: "Investment plots for commercial & hospitality" },
+    ],
+  },
+  {
     label: "Developers",
     href: "/developers",
   },
@@ -72,15 +82,6 @@ const NAV_MENU: NavSection[] = [
       { name: "UAE Market Reports 2026", href: "/insights", desc: "Data insights on yields and capital appreciation" },
       { name: "ROI Calculator", href: "/invest#calculator", desc: "Estimate rental yields and capital gains" },
       { name: "Area Investment Guides", href: "/communities", desc: "Which UAE areas yield the highest returns" },
-    ],
-  },
-  {
-    label: "Services",
-    items: [
-      { name: "Property Valuation", href: "/valuation", desc: "Complimentary market valuation based on verified records" },
-      { name: "Property Management", href: "/services", desc: "Turnkey tenant screening and asset care" },
-      { name: "Commercial Advisory", href: "/services", desc: "Discreet acquisitions for business and family offices" },
-      { name: "Leasing Management", href: "/services", desc: "Comprehensive tenant vetting and lease registration" },
     ],
   },
   {
@@ -157,6 +158,8 @@ export default function Navbar() {
           return t.nav_rent;
         case "Off-Plan":
           return t.nav_offplan;
+        case "Commercial":
+          return t.nav_commercial;
         case "Developers":
           return t.nav_developers;
         case "Invest":
