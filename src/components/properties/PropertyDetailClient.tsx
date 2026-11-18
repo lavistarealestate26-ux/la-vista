@@ -8,7 +8,6 @@ import {
   Maximize,
   MapPin,
   Phone,
-  MessageCircle,
   ShieldCheck,
   CheckCircle,
   Building,

@@ -7,7 +7,6 @@ import {
   Mail,
   Clock,
   Send,
-  MessageCircle,
   CheckCircle2,
   ExternalLink,
   ShieldCheck,
