@@ -178,11 +178,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isSolid
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E7DFCF] py-3 sm:py-3.5"
-            : "bg-gradient-to-b from-black/90 via-black/60 to-transparent py-4 sm:py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isSolid
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E7DFCF] py-3 sm:py-3.5"
+          : "bg-gradient-to-b from-black/90 via-black/60 to-transparent py-4 sm:py-5"
+          }`}
       >
         <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2 lg:gap-4">
@@ -212,11 +211,10 @@ export default function Navbar() {
                     {hasDropdown ? (
                       <button
                         onClick={() => setActiveDropdown(isOpen ? null : section.label)}
-                        className={`inline-flex items-center gap-1 px-2.5 2xl:px-3 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-colors duration-200 rounded-md shrink-0 ${
-                          isSolid
-                            ? "text-[#111111] hover:text-[#C99A3B]"
-                            : "text-white/90 hover:text-white"
-                        }`}
+                        className={`inline-flex items-center gap-1 px-2.5 2xl:px-3 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-colors duration-200 rounded-md shrink-0 ${isSolid
+                          ? "text-[#111111] hover:text-[#C99A3B]"
+                          : "text-white/90 hover:text-white"
+                          }`}
                         aria-expanded={isOpen}
                       >
                         <span className="whitespace-nowrap">{displayLabel}</span>
@@ -226,19 +224,17 @@ export default function Navbar() {
                           </span>
                         )}
                         <ChevronDown
-                          className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
-                            isOpen ? "rotate-180 text-[#C99A3B]" : "opacity-70"
-                          }`}
+                          className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-[#C99A3B]" : "opacity-70"
+                            }`}
                         />
                       </button>
                     ) : (
                       <Link
                         href={section.href || "#"}
-                        className={`inline-flex items-center gap-1 px-2.5 2xl:px-3 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-colors duration-200 rounded-md shrink-0 ${
-                          isSolid
-                            ? "text-[#111111] hover:text-[#C99A3B]"
-                            : "text-white/90 hover:text-white"
-                        }`}
+                        className={`inline-flex items-center gap-1 px-2.5 2xl:px-3 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-colors duration-200 rounded-md shrink-0 ${isSolid
+                          ? "text-[#111111] hover:text-[#C99A3B]"
+                          : "text-white/90 hover:text-white"
+                          }`}
                       >
                         <span className="whitespace-nowrap">{displayLabel}</span>
                       </Link>
@@ -286,11 +282,10 @@ export default function Navbar() {
               {/* Language Switcher Button (EN / العربية) */}
               <button
                 onClick={toggleLanguage}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap border shrink-0 transition-all ${
-                  isSolid
-                    ? "border-[#E7DFCF] text-[#111111] hover:border-[#C99A3B] hover:text-[#C99A3B]"
-                    : "border-white/30 text-white hover:border-white"
-                }`}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap border shrink-0 transition-all ${isSolid
+                  ? "border-[#E7DFCF] text-[#111111] hover:border-[#C99A3B] hover:text-[#C99A3B]"
+                  : "border-white/30 text-white hover:border-white"
+                  }`}
                 aria-label="Switch Language"
               >
                 <Globe className="w-3.5 h-3.5 text-[#C99A3B] shrink-0" />
@@ -303,11 +298,10 @@ export default function Navbar() {
               <div className="relative shrink-0">
                 <button
                   onClick={() => setCurrencyOpen(!currencyOpen)}
-                  className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap border shrink-0 transition-colors ${
-                    isSolid
-                      ? "border-[#E7DFCF] text-[#111111] hover:border-[#C99A3B]"
-                      : "border-white/30 text-white hover:border-white"
-                  }`}
+                  className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap border shrink-0 transition-colors ${isSolid
+                    ? "border-[#E7DFCF] text-[#111111] hover:border-[#C99A3B]"
+                    : "border-white/30 text-white hover:border-white"
+                    }`}
                   aria-label="Select Currency"
                 >
                   <Globe className="w-3.5 h-3.5 text-[#C99A3B] shrink-0" />
@@ -324,9 +318,8 @@ export default function Navbar() {
                           setCurrency(curr);
                           setCurrencyOpen(false);
                         }}
-                        className={`w-full px-3 py-1.5 text-left flex items-center justify-between hover:bg-[#F7F3EA] ${
-                          currency === curr ? "font-bold text-[#C99A3B]" : "text-[#5E6778]"
-                        }`}
+                        className={`w-full px-3 py-1.5 text-left flex items-center justify-between hover:bg-[#F7F3EA] ${currency === curr ? "font-bold text-[#C99A3B]" : "text-[#5E6778]"
+                          }`}
                       >
                         <span>{curr}</span>
                         {currency === curr && <Check className="w-3.5 h-3.5 text-[#C99A3B]" />}
@@ -339,9 +332,8 @@ export default function Navbar() {
               {/* Direct Call Quick Link */}
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`}
-                className={`hidden 2xl:inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap px-2.5 py-1.5 transition-colors shrink-0 ${
-                  isSolid ? "text-[#5E6778] hover:text-[#111111]" : "text-white/80 hover:text-white"
-                }`}
+                className={`hidden 2xl:inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap px-2.5 py-1.5 transition-colors shrink-0 ${isSolid ? "text-[#5E6778] hover:text-[#111111]" : "text-white/80 hover:text-white"
+                  }`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#C99A3B] shrink-0" />
                 <span className="whitespace-nowrap">{CONTACT_INFO.phoneDisplay}</span>
@@ -376,11 +368,10 @@ export default function Navbar() {
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`p-2 rounded-lg transition-colors shrink-0 ${
-                  isSolid
-                    ? "text-[#111111] hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
-                }`}
+                className={`p-2 rounded-lg transition-colors shrink-0 ${isSolid
+                  ? "text-[#111111] hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
+                  }`}
                 aria-label="Toggle Navigation Drawer"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -430,9 +421,8 @@ export default function Navbar() {
                           )}
                         </span>
                         <ChevronDown
-                          className={`w-4 h-4 text-[#5E6778] transition-transform duration-200 ${
-                            isExpanded ? "rotate-180 text-[#C99A3B]" : ""
-                          }`}
+                          className={`w-4 h-4 text-[#5E6778] transition-transform duration-200 ${isExpanded ? "rotate-180 text-[#C99A3B]" : ""
+                            }`}
                         />
                       </button>
 
