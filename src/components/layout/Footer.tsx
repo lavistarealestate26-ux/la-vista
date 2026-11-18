@@ -304,10 +304,6 @@ export default function Footer() {
               {isRTL ? "اتصل بنا" : "Contact Us"}
             </Link>
             <span>·</span>
-            <Link href="/admin" className="text-[#C99A3B]/80 hover:text-[#C99A3B] transition-colors">
-              {isRTL ? "بوابة الإدارة" : "Admin Demo"}
-            </Link>
-            <span>·</span>
             <span>© 2026 La Vista Real Estate LLC</span>
           </div>
         </div>
