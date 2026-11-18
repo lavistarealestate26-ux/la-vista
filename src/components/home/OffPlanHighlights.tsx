@@ -31,10 +31,10 @@ export default function OffPlanHighlights() {
               <span>Direct Developer Allocations</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight">
-              Dubai Off-Plan Launches
+              Exclusive Off-Plan Launches
             </h2>
             <p className="text-white/70 text-sm sm:text-base max-w-xl mt-2 font-light">
-              Secure VIP launch prices and flexible 80/20 & 60/40 payment plans directly from Dubai’s master developers.
+              Secure VIP launch allocations, waterfront master communities, and flexible payment plans across Umm Al Quwain and the wider UAE.
             </p>
           </div>
 

@@ -32,7 +32,7 @@ export default function AdminPage() {
     purpose: "buy" as PropertyPurpose,
     propertyType: "apartment" as PropertyType,
     priceAED: 2500000,
-    community: "Downtown Dubai",
+    community: "UAQ Marina",
     beds: 2,
     baths: 2,
     sizeSqft: 1400,
@@ -80,7 +80,7 @@ export default function AdminPage() {
       purpose: "buy",
       propertyType: "apartment",
       priceAED: 2500000,
-      community: "Downtown Dubai",
+      community: "UAQ Marina",
       beds: 2,
       baths: 2,
       sizeSqft: 1400,
@@ -122,6 +122,8 @@ export default function AdminPage() {
         slug: formData.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
         title: formData.title,
         purpose: formData.purpose,
+        category: (formData.propertyType === "commercial" || formData.propertyType === "office" || formData.propertyType === "retail" || formData.propertyType === "warehouse" || formData.propertyType === "industrial" ? "commercial" : "residential"),
+        region: "Umm Al Quwain",
         propertyType: formData.propertyType,
         priceAED: Number(formData.priceAED),
         community: formData.community,
@@ -140,7 +142,7 @@ export default function AdminPage() {
           name: "Tariq Mansoor",
           title: "Senior Luxury Partner",
           photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
-          phone: "+971 4 429 8888",
+          phone: "+971 6 766 8888",
           whatsapp: "971501234567",
           email: "tariq@lavistarealestate.ae",
           brn: "41982",
@@ -148,6 +150,7 @@ export default function AdminPage() {
         status: formData.status,
         featured: formData.featured,
         createdAt: new Date().toISOString().split("T")[0],
+        updatedAt: new Date().toISOString(),
       };
       setListings([newListing, ...listings]);
     }
@@ -167,7 +170,7 @@ export default function AdminPage() {
               La Vista Property Management
             </h1>
             <p className="text-xs sm:text-sm text-white/70 mt-1 font-light">
-              Demonstrating how your internal team can add, update, and manage Dubai properties manually.
+              Demonstrating how your internal team can add, update, and manage Umm Al Quwain and UAE properties manually.
             </p>
           </div>
 

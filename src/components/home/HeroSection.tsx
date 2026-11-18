@@ -11,53 +11,53 @@ import {
   BadgeDollarSign,
 } from "lucide-react";
 
-const DUBAI_AREAS = [
-  "Palm Jumeirah",
-  "Downtown Dubai",
-  "Dubai Marina",
-  "Dubai Hills Estate",
-  "Business Bay",
-  "Jumeirah Village Circle (JVC)",
-  "Arabian Ranches",
-  "Dubai Harbour",
-  "Bluewaters Island",
-  "Emirates Hills",
+const UAQ_AREAS = [
+  "Al Sinniyah Island",
+  "Al Salamah",
+  "UAQ Marina",
+  "Mangrove Beachfront",
+  "Al Ramlah",
+  "Al Raudah",
+  "Al Khor District",
+  "UAQ Industrial Area",
+  "Falaj Al Mualla",
+  "Wider UAE - Coastal Mansions",
+  "Wider UAE - Metro Skyline",
 ];
 
 const PRICE_RANGES = {
-  buy: [
+  residential: [
     { label: "Any Price", min: "", max: "" },
-    { label: "Up to AED 2,000,000", min: "", max: "2000000" },
-    { label: "AED 2M – AED 5,000,000", min: "2000000", max: "5000000" },
-    { label: "AED 5M – AED 10,000,000", min: "5000000", max: "10000000" },
-    { label: "AED 10M – AED 25,000,000", min: "10000000", max: "25000000" },
-    { label: "AED 25M – AED 50,000,000+", min: "25000000", max: "50000000" },
+    { label: "Up to AED 1,500,000", min: "", max: "1500000" },
+    { label: "AED 1.5M – AED 3,000,000", min: "1500000", max: "3000000" },
+    { label: "AED 3M – AED 6,000,000", min: "3000000", max: "6000000" },
+    { label: "AED 6M – AED 15,000,000", min: "6000000", max: "15000000" },
+    { label: "AED 15M – AED 30,000,000+", min: "15000000", max: "30000000" },
   ],
-  rent: [
-    { label: "Any Rent", min: "", max: "" },
-    { label: "Up to AED 100,000 / yr", min: "", max: "100000" },
-    { label: "AED 100k – AED 200,000 / yr", min: "100000", max: "200000" },
-    { label: "AED 200k – AED 350,000 / yr", min: "200000", max: "350000" },
-    { label: "AED 350k – AED 600,000 / yr", min: "350000", max: "600000" },
-    { label: "AED 600,000+ / yr", min: "600000", max: "" },
-  ],
-  "off-plan": [
-    { label: "Any Investment", min: "", max: "" },
+  commercial: [
+    { label: "Any Budget", min: "", max: "" },
     { label: "Under AED 2,000,000", min: "", max: "2000000" },
     { label: "AED 2M – AED 5,000,000", min: "2000000", max: "5000000" },
-    { label: "AED 5M – AED 10,000,000", min: "5000000", max: "10000000" },
-    { label: "Ultra Prime (AED 10M+)", min: "10000000", max: "" },
+    { label: "AED 5M – AED 12,000,000", min: "5000000", max: "12000000" },
+    { label: "AED 12M – AED 25,000,000+", min: "12000000", max: "25000000" },
+  ],
+  leasing: [
+    { label: "Any Lease Rate", min: "", max: "" },
+    { label: "Up to AED 60,000 / yr", min: "", max: "60000" },
+    { label: "AED 60k – AED 120,000 / yr", min: "60000", max: "120000" },
+    { label: "AED 120k – AED 250,000 / yr", min: "120000", max: "250000" },
+    { label: "AED 250,000+ / yr", min: "250000", max: "" },
   ],
 };
 
 export default function HeroSection() {
   const router = useRouter();
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // States
-  const [activeTab, setActiveTab] = useState<"buy" | "rent" | "off-plan">("buy");
+  const [activeTab, setActiveTab] = useState<"residential" | "commercial" | "leasing">("residential");
   const [searchArea, setSearchArea] = useState("");
   const [selectedBeds, setSelectedBeds] = useState("");
   const [selectedPriceIndex, setSelectedPriceIndex] = useState(0);
@@ -71,7 +71,6 @@ export default function HeroSection() {
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Autoplay was prevented, muted retry
           if (videoRef.current) {
             videoRef.current.muted = true;
             videoRef.current.play().catch(() => {});
@@ -82,15 +81,16 @@ export default function HeroSection() {
   }, []);
 
   // Filter area suggestions
-  const filteredAreas = DUBAI_AREAS.filter((area) =>
+  const filteredAreas = UAQ_AREAS.filter((area) =>
     area.toLowerCase().includes(searchArea.toLowerCase())
   );
 
-  // Handle Search Submission -> Navigates to /listings
+  // Handle Search Submission -> Navigates to /listings with category & community
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams();
-    params.set("purpose", activeTab);
+    params.set("category", activeTab);
+
     if (searchArea.trim()) {
       params.set("community", searchArea.trim());
     }
@@ -110,7 +110,7 @@ export default function HeroSection() {
       ref={containerRef}
       className="relative w-full min-h-[100dvh] lg:h-screen lg:max-h-[1050px] flex items-center justify-center pt-28 pb-16 lg:py-0 overflow-hidden bg-[#111111]"
     >
-      {/* Background Autoplaying Muted Video (No sound, No player controls) */}
+      {/* Background Autoplaying Coastal Video (Umm Al Quwain & Coastal UAE) */}
       <video
         ref={videoRef}
         autoPlay
@@ -118,10 +118,10 @@ export default function HeroSection() {
         loop
         playsInline
         preload="auto"
-        poster="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=85"
+        poster="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85"
         className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-105 transform duration-1000 ease-out"
       >
-        <source src="/videos/hero-dubai.mp4" type="video/mp4" />
+        <source src="/videos/hero-uaq-coastal.mp4" type="video/mp4" />
       </video>
 
       {/* Cinematic Dark Gradient Overlay (Ensures AA text readability) */}
@@ -150,12 +150,12 @@ export default function HeroSection() {
 
         {/* Search Bar Component */}
         <div className="w-full max-w-5xl bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 sm:p-5 border border-white/30 text-[#111111]">
-          {/* Tabs: Buy | Rent | Off-Plan */}
-          <div className="flex items-center gap-2 mb-4 border-b border-[#E7DFCF] pb-3">
+          {/* Categories: Residential | Commercial | Leasing */}
+          <div className="flex items-center gap-2 mb-4 border-b border-[#E7DFCF] pb-3 overflow-x-auto no-scrollbar">
             {[
-              { id: "buy", label: t.hero_tab_buy },
-              { id: "rent", label: t.hero_tab_rent },
-              { id: "off-plan", label: t.hero_tab_offplan },
+              { id: "residential", label: t.hero_tab_residential },
+              { id: "commercial", label: t.hero_tab_commercial },
+              { id: "leasing", label: t.hero_tab_leasing },
             ].map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -164,9 +164,9 @@ export default function HeroSection() {
                   type="button"
                   onClick={() => {
                     setActiveTab(tab.id as any);
-                    setSelectedPriceIndex(0); // reset price range on tab switch
+                    setSelectedPriceIndex(0);
                   }}
-                  className={`relative px-4 py-2 text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-lg transition-all ${
+                  className={`relative px-4 py-2 text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${
                     isActive
                       ? "bg-[#111111] text-[#C99A3B]"
                       : "text-[#5E6778] hover:text-[#111111] hover:bg-[#F7F3EA]"
@@ -181,7 +181,7 @@ export default function HeroSection() {
             })}
           </div>
 
-          {/* Search Inputs (Stacks on Mobile, Single Row on Desktop) */}
+          {/* Search Inputs */}
           <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
             {/* Input 1: Area / Community with Type-ahead */}
             <div className="relative md:col-span-5">
@@ -230,7 +230,7 @@ export default function HeroSection() {
               )}
             </div>
 
-            {/* Input 2: Bedrooms Dropdown */}
+            {/* Input 2: Bedrooms / Space Dropdown */}
             <div className="md:col-span-3">
               <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
                 {t.hero_label_beds}
@@ -254,7 +254,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Input 3: Price Range (Dynamic based on tab) */}
+            {/* Input 3: Price / Budget Range */}
             <div className="md:col-span-2">
               <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
                 {t.hero_label_price}
@@ -276,7 +276,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Submit Button (Gold) */}
+            {/* Submit Button */}
             <div className="md:col-span-2 pt-2 md:pt-4">
               <button
                 type="submit"

@@ -18,6 +18,7 @@ import {
 import Logo from "../common/Logo";
 import ValuationModal from "../modals/ValuationModal";
 import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT_INFO } from "@/data/contactInfo";
 
 interface NavDropdownItem {
   name: string;
@@ -37,29 +38,36 @@ const NAV_MENU: NavSection[] = [
   {
     label: "Buy",
     items: [
-      { name: "Luxury Villas", href: "/listings?purpose=buy&type=villa", desc: "Private estates in Palm Jumeirah & Dubai Hills" },
-      { name: "Penthouses", href: "/listings?purpose=buy&type=penthouse", desc: "Sky villas with Burj Khalifa & Marina vistas" },
-      { name: "Apartments", href: "/listings?purpose=buy&type=apartment", desc: "High-spec urban residences in prime towers" },
-      { name: "Townhouses", href: "/listings?purpose=buy&type=townhouse", desc: "Gated community residences for luxury family living" },
-      { name: "Waterfront Mansions", href: "/listings?purpose=buy&type=villa", desc: "Direct beachfront and private yacht access", badge: "Exclusive" },
+      { name: "Luxury Villas", href: "/listings?purpose=buy&type=villa", desc: "Private coastal estates in Umm Al Quwain & Wider UAE" },
+      { name: "Commercial Properties", href: "/listings?category=commercial", desc: "Prime retail plazas, offices & logistics hubs" },
+      { name: "Penthouses", href: "/listings?purpose=buy&type=penthouse", desc: "Panoramic sky residences with sea views" },
+      { name: "Waterfront Mansions", href: "/listings?purpose=buy&type=villa", desc: "Al Sinniyah Island & coastal estates", badge: "Exclusive" },
+    ],
+  },
+  {
+    label: "Leasing",
+    items: [
+      { name: "All Leasing Properties", href: "/listings?category=leasing", desc: "Browse all residential & commercial lease listings", badge: "All" },
+      { name: "Residential Leasing", href: "/listings?category=leasing", desc: "Annual luxury coastal villas and modern apartments" },
+      { name: "Commercial Leasing", href: "/listings?category=commercial", desc: "Prime retail showrooms, corporate offices & warehouses" },
+      { name: "UAQ Marina Waterfront", href: "/listings?category=leasing&community=UAQ+Marina", desc: "Turnkey coastal apartments with marina views" },
+      { name: "Long-Term Estate Leases", href: "/listings?category=leasing", desc: "Private family compounds with flexible terms" },
     ],
   },
   {
     label: "Rent",
     items: [
-      { name: "Luxury Furnished", href: "/listings?purpose=rent", desc: "Turnkey residences with hotel-grade interiors" },
-      { name: "Marina Living", href: "/listings?purpose=rent&community=Dubai+Marina", desc: "Waterfront apartments with yacht berths" },
-      { name: "Downtown Residences", href: "/listings?purpose=rent&community=Downtown+Dubai", desc: "Walkable city center living near Dubai Mall" },
-      { name: "Golf Course Villas", href: "/listings?purpose=rent&type=villa", desc: "Serene fairway homes in Dubai Hills" },
+      { name: "Luxury Furnished", href: "/listings?purpose=rent", desc: "Turnkey coastal residences with modern interiors" },
+      { name: "Marina Living", href: "/listings?purpose=rent&community=UAQ+Marina", desc: "Waterfront apartments with yacht club access" },
+      { name: "Family Villas", href: "/listings?purpose=rent&type=villa", desc: "Spacious homes in Al Salamah & Al Ramlah" },
     ],
   },
   {
     label: "Off-Plan",
     badge: "Hot",
     items: [
-      { name: "New Launches 2026", href: "/listings?purpose=off-plan", desc: "Exclusive pre-launch allocations with launch pricing", badge: "New" },
-      { name: "By Emaar Properties", href: "/listings?purpose=off-plan", desc: "The Oasis, Dubai Creek Harbour & Downtown" },
-      { name: "Sobha & Nakheel Waterfront", href: "/listings?purpose=off-plan", desc: "SeaHaven & Palm Beach Towers" },
+      { name: "New Launches 2026", href: "/listings?purpose=off-plan", desc: "Exclusive island and coastal allocations", badge: "New" },
+      { name: "Al Sinniyah Island", href: "/listings?purpose=off-plan", desc: "Sobha & Master Waterfront Launches" },
       { name: "Post-Handover Payment Plans", href: "/listings?purpose=off-plan", desc: "Pay over 2 to 5 years after receiving keys" },
     ],
   },
@@ -71,28 +79,28 @@ const NAV_MENU: NavSection[] = [
     label: "Invest",
     items: [
       { name: "UAE 10-Year Golden Visa", href: "/invest", desc: "Complete qualification criteria for investors" },
-      { name: "Dubai Market Reports 2026", href: "/insights", desc: "Data insights on yields and capital appreciation" },
+      { name: "UAE Market Reports 2026", href: "/insights", desc: "Data insights on yields and capital appreciation" },
       { name: "ROI Calculator", href: "/invest#calculator", desc: "Estimate rental yields and capital gains" },
-      { name: "Area Investment Guides", href: "/communities", desc: "Which Dubai areas yield the highest returns" },
+      { name: "Area Investment Guides", href: "/communities", desc: "Which UAE areas yield the highest returns" },
     ],
   },
   {
     label: "Services",
     items: [
-      { name: "Property Valuation", href: "/valuation", desc: "Complimentary market valuation based on DLD data" },
+      { name: "Property Valuation", href: "/valuation", desc: "Complimentary market valuation based on verified records" },
       { name: "Property Management", href: "/services", desc: "Turnkey tenant screening and asset care" },
-      { name: "Private Advisory", href: "/services", desc: "Discreet acquisitions for family offices" },
-      { name: "Mortgage Consultation", href: "/services", desc: "Pre-approvals for UAE residents and non-residents" },
+      { name: "Commercial Advisory", href: "/services", desc: "Discreet acquisitions for business and family offices" },
+      { name: "Leasing Management", href: "/services", desc: "Comprehensive tenant vetting and lease registration" },
     ],
   },
   {
     label: "About Us",
     items: [
-      { name: "About La Vista", href: "/about", desc: "Dubai's premier boutique luxury brokerage" },
+      { name: "About La Vista", href: "/about", desc: "Premier boutique luxury brokerage in UAQ & UAE" },
       { name: "Private Advisors", href: "/about#team", desc: "Meet our multilingual property partners" },
-      { name: "Market Reports & Insights", href: "/insights", desc: "Quarterly Dubai transactional intelligence", badge: "2026" },
+      { name: "Market Reports & Insights", href: "/insights", desc: "Quarterly UAE transactional intelligence", badge: "2026" },
       { name: "Careers at La Vista", href: "/careers", desc: "Join our high-performing private brokerage" },
-      { name: "Contact Headquarters", href: "/contact", desc: "Visit our Downtown Dubai gallery" },
+      { name: "Contact Headquarters", href: "/contact", desc: "Visit our Umm Al Quwain headquarters" },
     ],
   },
 ];
@@ -151,6 +159,8 @@ export default function Navbar() {
       switch (label) {
         case "Buy":
           return t.nav_buy;
+        case "Leasing":
+          return t.nav_leasing;
         case "Rent":
           return t.nav_rent;
         case "Off-Plan":
@@ -332,13 +342,13 @@ export default function Navbar() {
 
               {/* Direct Call Quick Link */}
               <a
-                href="tel:+97144298888"
+                href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`}
                 className={`hidden 2xl:inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap px-2.5 py-1.5 transition-colors shrink-0 ${
                   isSolid ? "text-[#5E6778] hover:text-[#111111]" : "text-white/80 hover:text-white"
                 }`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#C99A3B] shrink-0" />
-                <span className="whitespace-nowrap">+971 4 429 8888</span>
+                <span className="whitespace-nowrap">{CONTACT_INFO.phoneDisplay}</span>
               </a>
 
               {/* Primary Solid Gold CTA Button */}

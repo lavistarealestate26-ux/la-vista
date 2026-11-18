@@ -17,8 +17,8 @@ const VALUE_POINTS = [
   },
   {
     icon: Shield,
-    title: "Full Dubai Land Department Compliance",
-    description: "Every listing is 100% verified with an official DLD Trakheesi permit and authenticated ownership, ensuring transparent, seamless, and legally secure conveyancing.",
+    title: "Full UAE Regulatory & Municipality Compliance",
+    description: "Every listing is 100% verified with official municipality and regulatory permits and authenticated ownership, ensuring transparent, seamless, and legally secure conveyancing.",
   },
   {
     icon: Award,

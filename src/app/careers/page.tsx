@@ -1,31 +1,33 @@
 import React from "react";
 import Link from "next/link";
 import { Briefcase, ArrowRight, ShieldCheck, Award } from "lucide-react";
+import { CONTACT_INFO } from "@/data/contactInfo";
 
 export const metadata = {
-  title: "Careers at La Vista Real Estate | Join Our Dubai Advisory",
-  description: "Explore career opportunities for luxury property consultants, off-plan specialists, and private wealth advisors in Dubai.",
+  title: "Careers at La Vista Real Estate | Join Our UAE Advisory Desk",
+  description:
+    "Explore career opportunities for luxury property consultants, commercial specialists, and leasing advisors in Umm Al Quwain and the wider UAE.",
 };
 
 export default function CareersPage() {
   const roles = [
     {
       title: "Senior Luxury Property Consultant",
-      location: "Downtown Dubai",
+      location: "Umm Al Quwain & Wider UAE",
       type: "Full-Time · Uncapped Commission + Retainer",
-      desc: "Represent ultra-high-net-worth clients across Palm Jumeirah, Downtown Dubai, and Emirates Hills.",
+      desc: "Represent ultra-high-net-worth clients across Al Sinniyah Island, Al Salamah, UAQ Marina, and prime UAE enclaves.",
     },
     {
-      title: "Off-Plan Investment Specialist",
-      location: "Downtown Dubai",
+      title: "Commercial & Leasing Specialist",
+      location: "Umm Al Quwain",
       type: "Full-Time",
-      desc: "Drive direct allocations and relationships with Emaar, Nakheel, DAMAC, and Sobha.",
+      desc: "Oversee commercial plazas, retail units, and premier long-term residential and industrial leasing portfolios.",
     },
     {
       title: "Private Client Relationship Manager",
-      location: "Downtown Dubai",
+      location: "Umm Al Quwain & Wider UAE",
       type: "Full-Time",
-      desc: "Manage confidential accounts for family offices and international institutional investors.",
+      desc: "Manage confidential accounts for family offices, developers, and international institutional investors.",
     },
   ];
 
@@ -41,33 +43,36 @@ export default function CareersPage() {
               Careers at La Vista Real Estate
             </h1>
             <p className="text-white/70 text-sm sm:text-base font-light">
-              We provide ambitious, multilingual advisors with market-leading lead generation, direct developer VIP allocations, and an empowering boutique environment.
+              We provide ambitious, multilingual advisors with market-leading lead generation, direct developer VIP allocations, and an empowering boutique environment across Umm Al Quwain and the wider UAE.
             </p>
           </div>
         </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="space-y-6 max-w-4xl mx-auto">
-          {roles.map((r, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {roles.map((role, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E7DFCF] shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-6"
+              className="bg-white p-8 rounded-2xl border border-[#E7DFCF] shadow-sm flex flex-col justify-between"
             >
               <div>
-                <span className="text-[10px] uppercase font-bold text-[#C99A3B] tracking-wider block mb-1">
-                  {r.location} · {r.type}
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[#C99A3B] block mb-2">
+                  {role.location}
                 </span>
-                <h3 className="text-xl font-serif font-bold text-[#111111] mb-2">{r.title}</h3>
-                <p className="text-xs text-[#5E6778] font-light max-w-xl">{r.desc}</p>
+                <h3 className="text-xl font-serif font-bold text-[#111111] mb-2">{role.title}</h3>
+                <span className="text-xs text-[#5E6778] block mb-4">{role.type}</span>
+                <p className="text-xs text-[#5E6778] leading-relaxed font-light">{role.desc}</p>
               </div>
-
-              <Link
-                href="/contact"
-                className="px-6 py-3 bg-[#111111] text-white hover:bg-[#C99A3B] text-xs uppercase tracking-wider font-semibold rounded-xl transition-colors whitespace-nowrap text-center"
-              >
-                Apply Now
-              </Link>
+              <div className="mt-8 pt-4 border-t border-[#E7DFCF]">
+                <a
+                  href={`mailto:${CONTACT_INFO.email}?subject=Application for ${encodeURIComponent(role.title)}`}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#C99A3B] hover:text-[#8A6420]"
+                >
+                  <span>Apply Privately</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           ))}
         </div>

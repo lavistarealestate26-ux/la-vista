@@ -3,21 +3,23 @@ import { Listing } from "@/types/listing";
 export const MOCK_LISTINGS: Listing[] = [
   {
     id: "lv-prop-01",
-    slug: "palm-jumeirah-signature-beachfront-mansion",
-    title: "Signature Beachfront Mansion on Palm Jumeirah",
-    tagline: "Ultra-luxury custom beachfront estate with private beach and infinity pool",
+    slug: "al-sinniyah-island-signature-beachfront-mansion",
+    title: "Signature Beachfront Mansion on Al Sinniyah Island",
+    tagline: "Ultra-luxury custom coastal estate with private beach and infinity pool",
     purpose: "buy",
+    category: "residential",
+    region: "Umm Al Quwain",
     propertyType: "villa",
-    priceAED: 48500000,
-    community: "Palm Jumeirah",
-    subCommunity: "Frond N",
-    building: "Custom Signature Villa",
+    priceAED: 24500000,
+    community: "Al Sinniyah Island",
+    subCommunity: "North Bay",
+    building: "Custom Island Villa",
     beds: 6,
     baths: 7,
-    sizeSqft: 11450,
-    description: "Nestled on an exclusive private frond of Palm Jumeirah, this architectural masterpiece represents the pinnacle of Arabian Gulf waterfront living. Featuring bespoke Italian marble finishes, double-height ceilings with floor-to-ceiling acoustic glass, private infinity pool spilling toward your own private sandy beach, and panoramic views of the Dubai Marina skyline.",
+    sizeSqft: 10450,
+    description: "Nestled along the pristine natural shoreline of Al Sinniyah Island in Umm Al Quwain, this architectural masterpiece represents the pinnacle of private coastal luxury. Featuring Italian marble finishes, double-height ceilings with floor-to-ceiling acoustic glass, private infinity pool spilling toward your own sandy beach, and panoramic Arabian Gulf sunset views.",
     highlights: [
-      "Direct Private Beach Access with 120ft shoreline",
+      "Direct Private Beach Access with 110ft coastal shoreline",
       "Private Infinity Edge Swimming Pool & Jacuzzi",
       "Show Kitchen with Miele appliances + Separate Chef's Prep Kitchen",
       "Private Cinema, Wellness Spa, and Finnish Sauna",
@@ -43,557 +45,527 @@ export const MOCK_LISTINGS: Listing[] = [
       "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80",
       "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1600&q=80"
     ],
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-luxury-real-estate-house-with-pool-42525-large.mp4",
-    developer: "Nakheel / Private Architect",
-    permitNumber: "DLD-PERMIT-7182901",
+    developer: "Sobha & UAQ Waterfront Developments",
+    permitNumber: "UAQ-PERMIT-2026-901",
     dldQrImage: "/images/compliance/dld-sample-qr.png",
     agent: {
       name: "Tariq Mansoor",
       title: "Senior Luxury Partner",
       photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
+      phone: "+971 6 766 8888",
       whatsapp: "971501234567",
       email: "tariq@lavistarealestate.ae",
       brn: "41982"
     },
     status: "available",
     featured: true,
-    createdAt: "2026-02-10",
-    locationCoordinates: { lat: 25.1124, lng: 55.139 }
+    createdAt: "2026-01-15T08:00:00Z",
+    updatedAt: "2026-02-10T12:00:00Z"
   },
   {
     id: "lv-prop-02",
-    slug: "downtown-dubai-sky-penthouse-burj-crown",
-    title: "Panoramic Sky Penthouse with Full Burj Khalifa Views",
-    tagline: "Spectacular duplex sky villa overlooking the Dubai Fountains & Opera",
+    slug: "al-salamah-luxury-family-villa",
+    title: "Contemporary 5-Bedroom Luxury Villa in Al Salamah",
+    tagline: "Expansive private estate with landscaped grounds and private pool",
     purpose: "buy",
-    propertyType: "penthouse",
-    priceAED: 19800000,
-    community: "Downtown Dubai",
-    subCommunity: "Opera District",
-    building: "Il Primo Tower",
-    beds: 4,
-    baths: 5,
-    sizeSqft: 5280,
-    description: "Perched high above the Downtown Dubai cultural district, this duplex sky penthouse offers an uninhibited front-row seat to the Burj Khalifa and Dubai Fountain light shows. Designed with bronze accents, herringbone parquet flooring, floor-to-ceiling glass wrapping 270 degrees, and oversized entertainment terraces.",
-    highlights: [
-      "Unobstructed Burj Khalifa & Fountain views from every room",
-      "Sprawling 1,200 sqft Wrap-Around Sunset Terrace",
-      "Private High-Speed Elevator with Direct Penthouse Foyer",
-      "Custom German Poliform Kitchen with Sub-Zero refrigeration",
-      "En-suite Spa Bathrooms clad in Bookmatched Calacatta Gold"
-    ],
-    amenities: [
-      "Burj Khalifa View",
-      "Concierge Service 24/7",
-      "Infinity Edge Pool",
-      "Private Valet Parking",
-      "Gym & Pilates Studio",
-      "Residents Cigar Lounge",
-      "Direct Metro Access",
-      "Children's Play Area"
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80"
-    ],
-    developer: "Emaar Properties",
-    permitNumber: "DLD-PERMIT-8492019",
-    agent: {
-      name: "Sophia Al-Hashemi",
-      title: "Head of Prime Residential",
-      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
-      whatsapp: "971501234567",
-      email: "sophia@lavistarealestate.ae",
-      brn: "38921"
-    },
-    status: "available",
-    featured: true,
-    createdAt: "2026-02-14",
-    locationCoordinates: { lat: 25.1972, lng: 55.2744 }
-  },
-  {
-    id: "lv-prop-03",
-    slug: "dubai-marina-waterfront-residence-marina-gate",
-    title: "High-Floor Waterfront Residence at Marina Gate",
-    tagline: "Turnkey luxury furnished 2-bedroom with panoramic yacht harbor vistas",
-    purpose: "rent",
-    propertyType: "apartment",
-    priceAED: 275000,
-    rentFrequency: "yearly",
-    community: "Dubai Marina",
-    subCommunity: "Marina Gate",
-    building: "Jumeirah Living Marina Gate",
-    beds: 2,
-    baths: 3,
-    sizeSqft: 1540,
-    description: "Experience effortless waterfront living in one of Dubai Marina's most coveted residential towers. This fully furnished home boasts floor-to-ceiling glass, Italian designer furniture, bespoke lighting, and uninterrupted views across the yacht marina and Arabian Gulf horizon.",
-    highlights: [
-      "Fully Furnished by Luxury European Interior Designer",
-      "Spacious Corner Balcony overlooking the Yacht Marina",
-      "Integrated Smart Climate & Mood Lighting System",
-      "Immediate Marina Walk Promenade Access"
-    ],
-    amenities: [
-      "Marina View",
-      "Chiller Free",
-      "Infinity Pool on Level 50",
-      "Dual Gym with Squash Courts",
-      "24/7 Security & Concierge",
-      "Covered Secure Parking",
-      "Steam & Sauna Rooms"
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80"
-    ],
-    developer: "Select Group",
-    permitNumber: "DLD-PERMIT-4920194",
-    agent: {
-      name: "Alexander Vance",
-      title: "Marina & Waterfront Specialist",
-      photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
-      whatsapp: "971501234567",
-      email: "alexander@lavistarealestate.ae",
-      brn: "52014"
-    },
-    status: "available",
-    featured: true,
-    createdAt: "2026-02-18",
-    locationCoordinates: { lat: 25.0805, lng: 55.1403 }
-  },
-  {
-    id: "lv-prop-04",
-    slug: "dubai-hills-estate-championship-golf-villa",
-    title: "Championship Golf Course Villa in Dubai Hills Estate",
-    tagline: "Contemporary 5-bedroom sanctuary backing directly onto the fairway",
-    purpose: "buy",
+    category: "residential",
+    region: "Umm Al Quwain",
     propertyType: "villa",
-    priceAED: 14200000,
-    community: "Dubai Hills Estate",
-    subCommunity: "Golf Place II",
-    building: "Contemporary Collection Villa",
+    priceAED: 4950000,
+    community: "Al Salamah",
+    subCommunity: "Sector 3",
+    building: "Private Compound Villa",
     beds: 5,
     baths: 6,
-    sizeSqft: 7350,
-    description: "Positioned directly on the 18-hole championship golf course, this elegant villa merges minimalist architecture with serene green panoramas. An expansive open-plan lounge flows seamlessly into a private landscaped garden with sunken firepit, heated pool, and alfresco dining terrace.",
+    sizeSqft: 6800,
+    description: "Located in the highly sought-after community of Al Salamah in Umm Al Quwain, this standalone contemporary villa features expansive open-plan living, custom European cabinetry, private swimming pool, and proximity to top schools, healthcare, and retail centres.",
     highlights: [
-      "Prime Direct Golf Course Frontage",
-      "Custom Private Temperature-Controlled Swimming Pool",
-      "Rooftop Terrace with Downtown Dubai Skyline Views",
-      "High Ceilings and Premium Italian Porcelain Tiling",
-      "Separate Maid and Driver En-suite Accommodations"
+      "Large 10,000 sqft corner plot with landscaped gardens",
+      "Private swimming pool with waterfall feature",
+      "Separate maid's and driver's quarters",
+      "Shaded parking for 4 vehicles",
+      "Minutes to Sheikh Mohammed Bin Zayed Road (E311)"
     ],
     amenities: [
-      "Golf Course View",
-      "Private Pool",
-      "Private Landscaped Garden",
-      "Covered 3-Car Parking",
-      "Gated Community Security",
-      "Clubhouse & Tennis Courts",
-      "Dubai Hills Mall Proximity"
+      "Private Swimming Pool",
+      "Landscaped Lawn",
+      "Maid's Room",
+      "Driver's Room",
+      "Covered Parking",
+      "Built-in Wardrobes",
+      "Central A/C"
     ],
     images: [
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80"
     ],
-    developer: "Emaar Properties",
-    permitNumber: "DLD-PERMIT-9301284",
+    developer: "Private Local Developer",
+    permitNumber: "UAQ-PERMIT-2026-902",
     agent: {
-      name: "Tariq Mansoor",
-      title: "Senior Luxury Partner",
-      photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
+      name: "Rashid Al-Nuaimi",
+      title: "UAQ Residential Specialist",
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 766 8888",
       whatsapp: "971501234567",
-      email: "tariq@lavistarealestate.ae",
-      brn: "41982"
+      email: "rashid@lavistarealestate.ae",
+      brn: "39201"
     },
     status: "available",
     featured: true,
-    createdAt: "2026-02-12",
-    locationCoordinates: { lat: 25.1112, lng: 55.2635 }
+    createdAt: "2026-01-20T09:00:00Z",
+    updatedAt: "2026-02-12T14:30:00Z"
   },
   {
-    id: "lv-prop-05",
-    slug: "business-bay-canal-front-designer-penthouse",
-    title: "Canal Front Designer Penthouse at Dorchester Collection",
-    tagline: "Unrivaled luxury with hotel-grade 5-star concierge services & private berth",
-    purpose: "buy",
-    propertyType: "penthouse",
-    priceAED: 36000000,
-    community: "Business Bay",
-    subCommunity: "Marasi Bay",
-    building: "The Lana Residences, Dorchester Collection",
-    beds: 4,
-    baths: 5,
-    sizeSqft: 7900,
-    description: "Managed by the world-renowned Dorchester Collection, this ultra-exclusive canal-side penthouse represents the pinnacle of hospitality-infused residential luxury. Gilles & Boissier interior design, private rooftop swimming pool, bespoke Oak joinery, and private yacht mooring access.",
-    highlights: [
-      "Full Management by Dorchester Collection with 24/7 in-residence dining",
-      "Private Heated Rooftop Pool with Dubai Canal & Skyline views",
-      "Dedicated Private Marina Berth for up to 60ft Yacht",
-      "Double-height living salon with 8-meter soaring glass"
-    ],
-    amenities: [
-      "Canal & Skyline View",
-      "Private Pool",
-      "Dorchester 5-Star Service",
-      "Yacht Marina Berth",
-      "Valet & Chauffeur Service",
-      "Private Meeting Suites",
-      "Luxury Spa & Hydrotherapy"
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=80"
-    ],
-    developer: "Omniyat",
-    permitNumber: "DLD-PERMIT-1092834",
-    agent: {
-      name: "Sophia Al-Hashemi",
-      title: "Head of Prime Residential",
-      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
-      whatsapp: "971501234567",
-      email: "sophia@lavistarealestate.ae",
-      brn: "38921"
-    },
-    status: "available",
-    featured: true,
-    createdAt: "2026-02-15",
-    locationCoordinates: { lat: 25.1865, lng: 55.2789 }
-  },
-  {
-    id: "lv-prop-06",
-    slug: "jvc-private-plunge-pool-duplex-garden",
-    title: "Luxury Duplex with Private Pool in JVC",
-    tagline: "Contemporary garden terrace residence in high-yielding boutique community",
-    purpose: "rent",
+    id: "lv-prop-03",
+    slug: "uaq-marina-waterfront-residence-lease",
+    title: "Panoramic Waterfront Residence in Umm Al Quwain Marina",
+    tagline: "Spectacular coastal apartment overlooking the turquoise marina basin",
+    purpose: "leasing",
+    category: "leasing",
+    region: "Umm Al Quwain",
     propertyType: "apartment",
-    priceAED: 135000,
+    priceAED: 95000,
     rentFrequency: "yearly",
-    community: "Jumeirah Village Circle (JVC)",
-    subCommunity: "District 13",
-    building: "Binghatti Corner",
-    beds: 2,
-    baths: 3,
-    sizeSqft: 1680,
-    description: "A rare urban oasis offering a private plunge pool on a spacious 450 sqft private garden terrace. Featuring Italian fitted kitchen, floor-to-ceiling soundproof windows, high rental yield potential, and peaceful residential ambiance.",
+    community: "UAQ Marina",
+    subCommunity: "Marina Promenade",
+    building: "Marina Bay Tower",
+    beds: 3,
+    baths: 4,
+    sizeSqft: 2250,
+    description: "Experience premium coastal living in this brand-new 3-bedroom apartment for annual lease in Umm Al Quwain Marina. Boasting floor-to-ceiling windows, modern German appliances, and direct access to waterfront jogging paths, yacht club, and retail dining.",
     highlights: [
-      "Private Heated Plunge Pool on wrap-around terrace",
-      "Smart Home lighting and digital AC thermostat",
-      "Close to Circle Mall and direct Al Khail Road access",
-      "Modern Scandinavian-inspired interior styling"
+      "Direct panoramic views of the marina and Arabian Gulf",
+      "Floor-to-ceiling soundproof double-glazed windows",
+      "Premium built-in kitchen appliances",
+      "Includes 2 dedicated basement parking bays",
+      "Chiller-free annual lease with flexible payment terms"
     ],
     amenities: [
-      "Private Plunge Pool",
-      "Balcony & Garden Terrace",
-      "Equipped Gymnasium",
-      "Rooftop Swimming Pool",
+      "Sea View",
+      "Shared Infinity Pool",
+      "Fitness Center",
+      "Concierge Service",
       "Covered Parking",
+      "Yacht Club Access",
       "24/7 Security"
     ],
     images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80"
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80"
     ],
-    developer: "Binghatti Developers",
-    permitNumber: "DLD-PERMIT-3019827",
+    developer: "UAQ Marina Properties",
+    permitNumber: "UAQ-PERMIT-2026-903",
     agent: {
-      name: "Alexander Vance",
-      title: "Marina & Waterfront Specialist",
-      photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
+      name: "Sophia Al-Hashemi",
+      title: "Senior Leasing Advisor",
+      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 766 8888",
       whatsapp: "971501234567",
-      email: "alexander@lavistarealestate.ae",
-      brn: "52014"
+      email: "sophia@lavistarealestate.ae",
+      brn: "52140"
     },
     status: "available",
     featured: true,
-    createdAt: "2026-02-16",
-    locationCoordinates: { lat: 25.0682, lng: 55.2081 }
+    createdAt: "2026-02-01T10:00:00Z",
+    updatedAt: "2026-02-14T11:00:00Z"
   },
-
-  // OFF-PLAN HIGHLIGHTS (Section 3 & Section 4)
   {
-    id: "lv-offplan-01",
-    slug: "the-oasis-by-emaar-luxury-mansions",
-    title: "The Oasis by Emaar — Ultra Luxury Water Mansions",
-    tagline: "A multi-billion dollar blue lagoon paradise of palatial resort villas",
-    purpose: "off-plan",
-    propertyType: "villa",
-    priceAED: 8400000,
-    community: "Dubailand",
-    subCommunity: "The Oasis",
-    building: "Mirage & Palmiera Mansions",
-    beds: 4,
-    baths: 5,
-    sizeSqft: 6850,
-    description: "The Oasis by Emaar is Dubai's newest landmark sanctuary. Spanning over 100 million square feet, with crystal water lagoons, 1.5 million square feet of parklands, luxury boutiques, and Michelin-star dining. Designed for generational wealth and resort-style family living.",
+    id: "lv-prop-04",
+    slug: "king-faisal-commercial-retail-plaza",
+    title: "Prime Commercial Retail Plaza on King Faisal Street",
+    tagline: "High-visibility retail showroom and corporate suites in heart of Umm Al Quwain",
+    purpose: "buy",
+    category: "commercial",
+    region: "Umm Al Quwain",
+    propertyType: "commercial",
+    priceAED: 16500000,
+    community: "Al Khor",
+    subCommunity: "King Faisal St",
+    building: "La Vista Commercial Plaza",
+    beds: 0,
+    baths: 12,
+    sizeSqft: 18500,
+    description: "An extraordinary commercial investment opportunity in central Umm Al Quwain. This modern G+3 commercial building features ground-floor flagship retail showrooms with direct main road frontage, 14 executive corporate offices, and an expansive rooftop terrace.",
     highlights: [
-      "Crystal Clear Swimmable Blue Lagoons",
-      "Designed by internationally acclaimed architects",
-      "Flexible 80/20 Payment Plan with 2-year post-handover",
-      "High Capital Appreciation & 8%+ Projected Rental Yield"
+      "100% prime commercial frontage on King Faisal Street",
+      "Fully leased ground-floor retail tenancies generating 8.5% net ROI",
+      "Private basement and surface parking for 35+ vehicles",
+      "High-speed passenger and freight elevators",
+      "Freehold ownership open to UAE and GCC nationals and approved corporate entities"
     ],
     amenities: [
-      "Swimmable Lagoons",
-      "Private Beach Clubs",
-      "18-Hole Championship Golf nearby",
-      "Wellness & Fitness Pavilions",
-      "Gourmet Waterfront Dining",
-      "Private Marina & Yacht Club"
+      "Main Road Frontage",
+      "Elevator",
+      "Basement Parking",
+      "Central HVAC",
+      "24/7 Security & CCTV",
+      "Fire Safety Compliant",
+      "High Yield Potential"
     ],
     images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80"
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80"
     ],
-    developer: "Emaar Properties",
-    handoverDate: "Q4 2028",
-    paymentPlan: "80/20 (10% Booking, 70% During Construction, 20% on Handover)",
-    paymentPlanBreakdown: [
-      { stage: "Down Payment", percentage: 10, milestoneDescription: "On Booking" },
-      { stage: "Construction Milestone 1", percentage: 20, milestoneDescription: "Within 6 Months" },
-      { stage: "Construction Milestone 2", percentage: 20, milestoneDescription: "Upon 50% Completion" },
-      { stage: "Construction Milestone 3", percentage: 30, milestoneDescription: "Upon 80% Completion" },
-      { stage: "Handover", percentage: 20, milestoneDescription: "100% Completion (Q4 2028)" }
-    ],
-    permitNumber: "DLD-OFFPLAN-910283",
+    developer: "La Vista Commercial Holdings",
+    permitNumber: "UAQ-COMM-2026-441",
     agent: {
       name: "Tariq Mansoor",
-      title: "Senior Luxury Partner",
+      title: "Commercial Investment Director",
       photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
+      phone: "+971 6 766 8888",
       whatsapp: "971501234567",
       email: "tariq@lavistarealestate.ae",
       brn: "41982"
     },
     status: "available",
     featured: true,
-    createdAt: "2026-02-01",
-    locationCoordinates: { lat: 25.045, lng: 55.31 }
+    createdAt: "2026-01-25T11:00:00Z",
+    updatedAt: "2026-02-15T16:00:00Z"
   },
   {
-    id: "lv-offplan-02",
-    slug: "sobha-seahaven-dubai-harbour-waterfront",
-    title: "Sobha SeaHaven — Dubai Harbour Tower",
-    tagline: "Iconic waterfront super-tower with 360-degree sea & Palm Jumeirah panoramas",
-    purpose: "off-plan",
-    propertyType: "apartment",
-    priceAED: 3350000,
-    community: "Dubai Harbour",
-    subCommunity: "Marina Waterfront",
-    building: "Tower B — SeaHaven",
-    beds: 2,
-    baths: 2,
-    sizeSqft: 1350,
-    description: "Rising dramatically over the Dubai Harbour cruise terminal and superyacht marina, Sobha SeaHaven redefines maritime glamour. Each residence features smart home automation, high-end Miele appliances, custom veneer finishes, and infinity pools perched on the 65th floor.",
+    id: "lv-prop-05",
+    slug: "uaq-industrial-logistics-facility-lease",
+    title: "Modern Industrial Logistics & Distribution Hub for Lease",
+    tagline: "High-spec 22,000 sqft warehouse and storage facility with 3-phase power",
+    purpose: "leasing",
+    category: "commercial",
+    region: "Umm Al Quwain",
+    propertyType: "warehouse",
+    priceAED: 280000,
+    rentFrequency: "yearly",
+    community: "UAQ Industrial Area",
+    subCommunity: "Industrial 2",
+    building: "UAQ Logistics Park",
+    beds: 0,
+    baths: 4,
+    sizeSqft: 22000,
+    description: "Located in the expanding industrial heart of Umm Al Quwain with seamless connectivity to E311 and E611 highways, this warehouse facility provides 10-meter clear ceiling heights, insulated panels, heavy power capacity, and dedicated container loading bays.",
     highlights: [
-      "Front-line views of Palm Jumeirah, Ain Dubai, and Burj Al Arab",
-      "Infinity Sky Pool & Health Club on Level 65",
-      "Direct pedestrian connection to private cruise terminal & marina",
-      "Attractive 60/40 payment plan with low barrier entry"
+      "10-meter clear internal ceiling height",
+      "Heavy 3-phase power capacity (150 kW)",
+      "Built-in administrative office suite and staff pantry",
+      "Dedicated turning apron for 40-foot articulated containers",
+      "Civil defense approved with complete sprinkler network"
     ],
     amenities: [
-      "Infinity Sea Pool",
-      "Private Residents Cinema",
-      "Cruise Terminal Access",
-      "Yoga & Aerobics Deck",
-      "Executive Boardrooms",
-      "Smart Automated Valet"
+      "3-Phase Power",
+      "Loading Bays",
+      "Sprinkler System",
+      "Administrative Office",
+      "Container Access",
+      "24/7 Security"
     ],
     images: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80"
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
     ],
-    developer: "Sobha Realty",
-    handoverDate: "Q4 2026",
-    paymentPlan: "60/40 (20% Booking, 40% Construction, 40% on Handover)",
-    paymentPlanBreakdown: [
-      { stage: "Booking", percentage: 20, milestoneDescription: "Immediate Confirmation" },
-      { stage: "Foundation Completed", percentage: 10, milestoneDescription: "Q2 2025" },
-      { stage: "Superstructure 50%", percentage: 15, milestoneDescription: "Q4 2025" },
-      { stage: "Façade Completion", percentage: 15, milestoneDescription: "Q2 2026" },
-      { stage: "Key Handover", percentage: 40, milestoneDescription: "Q4 2026 Completion" }
+    developer: "UAQ Industrial Development Authority",
+    permitNumber: "UAQ-COMM-2026-442",
+    agent: {
+      name: "Rashid Al-Nuaimi",
+      title: "Commercial & Industrial Specialist",
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 766 8888",
+      whatsapp: "971501234567",
+      email: "rashid@lavistarealestate.ae",
+      brn: "39201"
+    },
+    status: "available",
+    featured: false,
+    createdAt: "2026-02-05T08:30:00Z",
+    updatedAt: "2026-02-16T10:00:00Z"
+  },
+  {
+    id: "lv-prop-06",
+    slug: "mangrove-coastal-residence-lease",
+    title: "Eco-Luxury Beach Villa for Annual Lease - Mangrove Coast",
+    tagline: "Exclusive sanctuary nestled along serene mangrove reserves with private pool",
+    purpose: "leasing",
+    category: "leasing",
+    region: "Umm Al Quwain",
+    propertyType: "villa",
+    priceAED: 220000,
+    rentFrequency: "yearly",
+    community: "Mangrove Beachfront",
+    subCommunity: "Coastal Eco Enclave",
+    building: "Mangrove Sanctuary Villa",
+    beds: 4,
+    baths: 5,
+    sizeSqft: 4500,
+    description: "Available for annual lease, this serene eco-luxury beachfront villa in Umm Al Quwain overlooks natural mangrove channels and tranquil bird sanctuaries. Featuring private swimming pool, sun deck, expansive glass façades, and direct kayak launch access.",
+    highlights: [
+      "Private swimming pool with sun deck facing the mangroves",
+      "Direct water access for kayaking and paddleboarding",
+      "Sustainable energy-efficient solar water heating",
+      "Maid's room and laundry utility suite",
+      "Gated community with 24/7 security patrol"
     ],
-    permitNumber: "DLD-OFFPLAN-441092",
+    amenities: [
+      "Private Pool",
+      "Waterfront View",
+      "Kayak Access",
+      "Maid's Room",
+      "Gated Community",
+      "Pet Friendly",
+      "Covered Parking"
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+    ],
+    developer: "UAQ Tourism & Coastal Properties",
+    permitNumber: "UAQ-PERMIT-2026-904",
     agent: {
       name: "Sophia Al-Hashemi",
-      title: "Head of Prime Residential",
+      title: "Senior Leasing Advisor",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
+      phone: "+971 6 766 8888",
       whatsapp: "971501234567",
       email: "sophia@lavistarealestate.ae",
-      brn: "38921"
+      brn: "52140"
     },
     status: "available",
     featured: true,
-    createdAt: "2026-02-05",
-    locationCoordinates: { lat: 25.0935, lng: 55.142 }
+    createdAt: "2026-02-08T14:00:00Z",
+    updatedAt: "2026-02-16T15:00:00Z"
   },
   {
-    id: "lv-offplan-03",
-    slug: "palm-beach-towers-by-nakheel",
-    title: "Palm Beach Towers by Nakheel — Waterfront Suites",
-    tagline: "Direct tram access, private beach club, and iconic Palm monorail terminal",
-    purpose: "off-plan",
-    propertyType: "apartment",
-    priceAED: 4600000,
-    community: "Palm Jumeirah",
-    subCommunity: "Gateway Gateway",
-    building: "Palm Beach Tower 2",
-    beds: 3,
-    baths: 4,
-    sizeSqft: 2150,
-    description: "Located at the entrance to Palm Jumeirah, Palm Beach Towers offers an interconnected resort lifestyle with private beach club access, boat docking, and a sky lounge boasting 360-degree vistas across Dubai's most celebrated coastline.",
+    id: "lv-prop-07",
+    slug: "wider-uae-signature-waterfront-estate",
+    title: "Signature Waterfront Luxury Villa - Wider UAE",
+    tagline: "World-class private beachfront estate representing the finest in UAE luxury living",
+    purpose: "buy",
+    category: "residential",
+    region: "Wider UAE",
+    propertyType: "villa",
+    priceAED: 38000000,
+    community: "Wider UAE Coastal",
+    subCommunity: "Prime Enclave",
+    building: "Private Architectural Estate",
+    beds: 6,
+    baths: 8,
+    sizeSqft: 12000,
+    description: "Representing La Vista's premier wider UAE luxury collection, this extraordinary private residence offers absolute beachfront privacy, cascading infinity pools, private marina yacht mooring, and bespoke European craftsmanship.",
     highlights: [
-      "Direct Bridge & Tram link to mainland and Palm Jumeirah",
-      "Private Beachfront Park & Podiums",
-      "Outdoor Yoga & Sunset Lounges",
-      "70/30 Payment Plan with Nakheel Guarantee"
+      "Direct private beach access with private jetty",
+      "Dual infinity-edge heated pools",
+      "Private wellness suite and sauna",
+      "Staff quarters for 4 personnel",
+      "Elevated security systems and perimeter privacy"
     ],
     amenities: [
-      "Beach Club Access",
-      "Rooftop Infinity Deck",
-      "Kids Water Playground",
-      "Multi-purpose Sports Courts",
-      "Gourmet Cafes on Podium"
+      "Private Beach",
+      "Infinity Pool",
+      "Jetty Access",
+      "Cinema",
+      "Spa",
+      "Maid & Driver Quarters"
     ],
     images: [
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80"
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
     ],
-    developer: "Nakheel",
-    handoverDate: "Q1 2027",
-    paymentPlan: "70/30 (15% Booking, 55% Construction, 30% on Handover)",
-    paymentPlanBreakdown: [
-      { stage: "Booking Deposit", percentage: 15, milestoneDescription: "On Signing" },
-      { stage: "Quarterly Installments", percentage: 55, milestoneDescription: "Linked to Construction" },
-      { stage: "Completion & Keys", percentage: 30, milestoneDescription: "Q1 2027 Handover" }
-    ],
-    permitNumber: "DLD-OFFPLAN-882019",
+    developer: "Master UAE Developer",
+    permitNumber: "UAE-PERMIT-2026-118",
     agent: {
-      name: "Alexander Vance",
-      title: "Marina & Waterfront Specialist",
-      photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
-      phone: "+971 4 429 8888",
+      name: "Tariq Mansoor",
+      title: "Senior Luxury Partner",
+      photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 766 8888",
       whatsapp: "971501234567",
-      email: "alexander@lavistarealestate.ae",
-      brn: "52014"
+      email: "tariq@lavistarealestate.ae",
+      brn: "41982"
     },
     status: "available",
     featured: true,
-    createdAt: "2026-02-08",
-    locationCoordinates: { lat: 25.101, lng: 55.148 }
+    createdAt: "2026-01-18T10:00:00Z",
+    updatedAt: "2026-02-12T16:00:00Z"
+  },
+  {
+    id: "lv-prop-08",
+    slug: "wider-uae-sky-penthouse-residence",
+    title: "Panoramic Sky Penthouse - Wider UAE Metro",
+    tagline: "Spectacular duplex sky villa overlooking premier city landmarks",
+    purpose: "buy",
+    category: "residential",
+    region: "Wider UAE",
+    propertyType: "penthouse",
+    priceAED: 18500000,
+    community: "Wider UAE Prime",
+    subCommunity: "Downtown Enclave",
+    building: "Crown Tower",
+    beds: 4,
+    baths: 5,
+    sizeSqft: 4800,
+    description: "Curated for international connoisseurs, this triplex sky villa features 360-degree skyline views, private plunge pool on the upper terrace, and dedicated private elevator access.",
+    highlights: [
+      "360-degree panoramic skyline vistas",
+      "Private terrace plunge pool and outdoor bar",
+      "Private elevator foyer directly into residence",
+      "Designer Italian furniture package included"
+    ],
+    amenities: [
+      "Sky Pool",
+      "Private Elevator",
+      "Concierge",
+      "Valet Parking",
+      "Gym & Spa"
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80"
+    ],
+    developer: "Master UAE Developer",
+    permitNumber: "UAE-PERMIT-2026-119",
+    agent: {
+      name: "Sophia Al-Hashemi",
+      title: "Senior Luxury Advisor",
+      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 766 8888",
+      whatsapp: "971501234567",
+      email: "sophia@lavistarealestate.ae",
+      brn: "52140"
+    },
+    status: "available",
+    featured: false,
+    createdAt: "2026-01-22T12:00:00Z",
+    updatedAt: "2026-02-14T18:00:00Z"
   }
 ];
 
-export const DUBAI_COMMUNITIES = [
+export const MOCK_DEVELOPERS = [
   {
-    name: "Palm Jumeirah",
-    slug: "palm-jumeirah",
-    description: "The world's most renowned man-made island, celebrated for private beachfront villas and 5-star resort living.",
-    image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1000&q=80",
-    listingCount: 142,
-    startingPrice: "AED 3.8M",
-    tag: "Waterfront Luxury"
+    name: "Sobha Realty",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Sobha_Realty_Logo.svg",
+    tier: "Signature Island Partner",
+    projects: "Al Sinniyah Island & Coastal Developments",
+    description: "Renowned for backward-integrated European craftsmanship and luxury waterfront master-plans across Umm Al Quwain and the wider UAE."
   },
   {
-    name: "Downtown Dubai",
-    slug: "downtown-dubai",
-    description: "The vibrant heart of the city, home to Burj Khalifa, Dubai Mall, and premier luxury high-rise residences.",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=80",
-    listingCount: 210,
-    startingPrice: "AED 1.9M",
-    tag: "City Center"
+    name: "Emaar Properties",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Emaar_Properties_logo.svg",
+    tier: "Master Developer",
+    projects: "Prime UAE Enclaves",
+    description: "The UAE's premier global developer, creating integrated master-planned communities, luxury residences, and landmark destinations."
   },
   {
-    name: "Dubai Marina",
-    slug: "dubai-marina",
-    description: "A glamorous waterfront district known for yachting, al fresco promenade dining, and stunning coastal skyscrapers.",
-    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1000&q=80",
-    listingCount: 185,
-    startingPrice: "AED 1.6M",
-    tag: "Yachting & Coastal"
+    name: "Nakheel",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Nakheel_logo.svg",
+    tier: "Waterfront Pioneer",
+    projects: "Iconic Coastal & Island Developments",
+    description: "Master creator of iconic waterfront archipelagos, coastal living, and premier residential destinations across the UAE."
   },
   {
-    name: "Dubai Hills Estate",
-    slug: "dubai-hills-estate",
-    description: "Dubai's green heart featuring an 18-hole golf course, private villa enclaves, and premier family amenities.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
-    listingCount: 96,
-    startingPrice: "AED 2.4M",
-    tag: "Golf & Family Living"
+    name: "DAMAC Properties",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/DAMAC_Properties_Logo.svg",
+    tier: "Luxury Branded Living",
+    projects: "Signature Branded Residences",
+    description: "Pioneering branded luxury living in partnership with de GRISOGONO, Cavalli, and world-renowned fashion icons."
   },
   {
-    name: "Business Bay",
-    slug: "business-bay",
-    description: "Dynamic canal-front destination blending contemporary commercial headquarters and stylish waterfront penthouses.",
-    image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1000&q=80",
-    listingCount: 164,
-    startingPrice: "AED 1.4M",
-    tag: "Canal Front"
-  },
-  {
-    name: "Bluewaters & JBR",
-    slug: "bluewaters-and-jbr",
-    description: "A prestigious island destination anchored by Ain Dubai with chic waterfront cafes and direct beach access.",
-    image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?auto=format&fit=crop&w=1000&q=80",
-    listingCount: 78,
-    startingPrice: "AED 4.2M",
-    tag: "Island Living"
+    name: "Aldar Properties",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Aldar_Properties_logo.svg",
+    tier: "National Pioneer",
+    projects: "Sustainable Master Communities",
+    description: "Leading the development of sustainable, high-growth coastal and urban communities across the United Arab Emirates."
   }
 ];
 
-export const DEVELOPER_PARTNERS = [
-  { name: "Emaar Properties", tier: "Master Developer", projects: 45 },
-  { name: "Nakheel", tier: "Waterfront Specialist", projects: 32 },
-  { name: "DAMAC Properties", tier: "Luxury Living", projects: 28 },
-  { name: "Sobha Realty", tier: "Precision Quality", projects: 22 },
-  { name: "Meraas", tier: "Urban Masterpieces", projects: 19 },
-  { name: "Omniyat", tier: "Ultra-Luxury Architectural", projects: 14 },
-  { name: "Ellington Properties", tier: "Design-Led Boutique", projects: 18 },
-  { name: "Aldar", tier: "Premier Regional Developer", projects: 12 },
-  { name: "Danube Properties", tier: "High-Yield Investments", projects: 16 }
+export const MOCK_COMMUNITIES = [
+  {
+    name: "Al Sinniyah Island",
+    region: "Umm Al Quwain",
+    description: "A prestigious natural island sanctuary featuring pristine mangrove reserves, turquoise waters, and signature private beachfront villas.",
+    avgYield: "8.4%",
+    avgPriceSqft: "AED 1,650",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+    propertyCount: "25+ Properties"
+  },
+  {
+    name: "Al Salamah",
+    region: "Umm Al Quwain",
+    description: "Umm Al Quwain's premier family community known for standalone luxury villas, expansive plots, and rapid access to E311 highway.",
+    avgYield: "7.8%",
+    avgPriceSqft: "AED 950",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    propertyCount: "40+ Properties"
+  },
+  {
+    name: "UAQ Marina & Corniche",
+    region: "Umm Al Quwain",
+    description: "Vibrant coastal and marina living with yacht berths, waterfront promenades, and boutique residential and leasing towers.",
+    avgYield: "8.9%",
+    avgPriceSqft: "AED 1,200",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+    propertyCount: "35+ Properties"
+  },
+  {
+    name: "Mangrove Beachfront",
+    region: "Umm Al Quwain",
+    description: "An eco-luxury coastal destination blending natural flamingos and mangrove reserves with peaceful waterfront residential estates.",
+    avgYield: "8.1%",
+    avgPriceSqft: "AED 1,400",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+    propertyCount: "18+ Properties"
+  },
+  {
+    name: "Al Ramlah & Al Raudah",
+    region: "Umm Al Quwain",
+    description: "Quiet residential neighbourhoods in Umm Al Quwain offering modern bespoke villas, commercial plots, and community parks.",
+    avgYield: "7.5%",
+    avgPriceSqft: "AED 880",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    propertyCount: "22+ Properties"
+  },
+  {
+    name: "Wider UAE Prime Enclaves",
+    region: "Wider UAE",
+    description: "Curated sky penthouses, golf estates, and signature branded residences across prime metropolitan enclaves in the UAE.",
+    avgYield: "7.9%",
+    avgPriceSqft: "AED 2,400",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+    propertyCount: "120+ Properties"
+  }
 ];
+
+export const DEVELOPER_PARTNERS = MOCK_DEVELOPERS;
+export const UAQ_COMMUNITIES = MOCK_COMMUNITIES;
 
 export const LATEST_INSIGHTS = [
   {
     id: "ins-1",
-    slug: "dubai-real-estate-market-outlook-2026",
-    title: "Dubai Prime Real Estate Report 2026: Capital Growth & Off-Plan Trends",
-    summary: "Comprehensive analysis of high-net-worth migration, record capital appreciation in Palm Jumeirah, and prime off-plan yields.",
+    slug: "umm-al-quwain-coastal-waterfront-market-outlook-2026",
+    title: "Umm Al Quwain Real Estate Report 2026: Coastal Growth & Al Sinniyah Island",
+    summary: "Comprehensive analysis of high-net-worth coastal migration, natural island appreciation, and prime waterfront investment yields.",
+    excerpt: "Comprehensive analysis of high-net-worth coastal migration, natural island appreciation, and prime waterfront investment yields.",
     date: "February 14, 2026",
     readTime: "5 min read",
     category: "Market Report",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "ins-2",
     slug: "uae-golden-visa-property-investment-guide",
     title: "UAE 10-Year Golden Visa via Property Investment: Rules & Requirements",
     summary: "Everything international investors need to know about qualifying for long-term UAE residency through freehold property acquisition.",
+    excerpt: "Everything international investors need to know about qualifying for long-term UAE residency through freehold property acquisition.",
     date: "February 08, 2026",
     readTime: "4 min read",
     category: "Investor Guide",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "ins-3",
-    slug: "off-plan-vs-secondary-market-in-dubai",
-    title: "Off-Plan vs Ready Properties in Dubai: Maximizing ROI in 2026",
-    summary: "A practical guide comparing capital gains in off-plan developments against immediate rental cash flows in established communities.",
+    slug: "commercial-and-leasing-growth-in-uaq",
+    title: "Commercial & Leasing Growth in Umm Al Quwain & Wider UAE: Maximizing Cash Flow",
+    summary: "A practical guide comparing capital gains in coastal island master plans against immediate leasing cash flows in prime commercial and residential sectors.",
+    excerpt: "A practical guide comparing capital gains in coastal island master plans against immediate leasing cash flows in prime commercial and residential sectors.",
     date: "January 28, 2026",
     readTime: "6 min read",
     category: "Strategy",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-  }
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+  },
 ];

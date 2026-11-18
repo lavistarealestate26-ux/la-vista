@@ -94,7 +94,7 @@ export default function PropertyDetailClient({
               </span>
               <span className="text-xs text-[#5E6778] flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#C99A3B]" />
-                <span>{listing.subCommunity}, {listing.community}, Dubai</span>
+                <span>{listing.subCommunity ? `${listing.subCommunity}, ` : ""}{listing.community}, {listing.region || "Umm Al Quwain"}</span>
               </span>
             </div>
 
@@ -309,21 +309,21 @@ export default function PropertyDetailClient({
               </div>
             )}
 
-            {/* Dubai Compliance & Regulatory Verification Block */}
+            {/* UAE Regulatory & Official Verification Block */}
             <div className="bg-[#111111] text-white rounded-2xl p-6 sm:p-8 border border-[#C99A3B]/40 shadow-md">
               <div className="flex items-center gap-2 text-[#C99A3B] text-xs font-semibold tracking-widest uppercase mb-3">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Dubai Land Department Official Verification</span>
+                <span>Regulatory Authority & Official Verification</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
                 <div className="sm:col-span-2 space-y-2 text-xs text-white/80">
                   <p>
-                    This listing is registered and fully authorized under the official RERA Trakheesi system.
+                    This listing is registered and fully authorized under official regulatory authority and municipality guidelines.
                   </p>
                   <div className="grid grid-cols-2 gap-2 pt-2 text-[11px]">
                     <div>
-                      <span className="text-white/40 block">DLD Permit Number:</span>
+                      <span className="text-white/40 block">Official Permit Number:</span>
                       <strong className="text-white font-mono">{listing.permitNumber}</strong>
                     </div>
                     <div>

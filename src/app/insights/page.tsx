@@ -4,8 +4,9 @@ import { LATEST_INSIGHTS } from "@/data/mockListings";
 import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
 
 export const metadata = {
-  title: "Dubai Real Estate Market Insights & Reports | La Vista",
-  description: "Stay ahead with authoritative market research, capital appreciation trends, and Dubai off-plan guides.",
+  title: "Real Estate Market Insights & Reports | Umm Al Quwain & Wider UAE | La Vista",
+  description:
+    "Authoritative market research, coastal appreciation trends, commercial development, and leasing guides across Umm Al Quwain and the wider UAE.",
 };
 
 export default function InsightsPage() {
@@ -18,10 +19,10 @@ export default function InsightsPage() {
               Market Intelligence Desk
             </span>
             <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight mb-4">
-              Dubai Real Estate Insights
+              Umm Al Quwain & UAE Real Estate Insights
             </h1>
             <p className="text-white/70 text-sm sm:text-base font-light">
-              Authoritative transaction analyses, legislative updates, and off-plan trends prepared by our senior research analysts.
+              Authoritative transaction analyses, coastal master development updates, and leasing trends prepared by our senior research desk.
             </p>
           </div>
         </div>
@@ -49,30 +50,30 @@ export default function InsightsPage() {
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-xs text-[#5E6778] mb-3">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-[#C99A3B]" />
-                      <span>{article.date}</span>
+                      <Calendar className="w-3.5 h-3.5" />
+                      {article.date}
                     </span>
                     <span>·</span>
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-[#C99A3B]" />
-                      <span>{article.readTime}</span>
+                      <Clock className="w-3.5 h-3.5" />
+                      {article.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-serif font-semibold text-[#111111] group-hover:text-[#C99A3B] transition-colors mb-3">
+                  <h3 className="text-xl font-serif font-bold text-[#111111] group-hover:text-[#C99A3B] transition-colors mb-2 leading-snug">
                     {article.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#5E6778] leading-relaxed font-light">
-                    {article.summary}
+                  <p className="text-xs sm:text-sm text-[#5E6778] font-light leading-relaxed">
+                    {article.excerpt}
                   </p>
                 </div>
               </div>
 
-              <div className="p-6 pt-0 border-t border-[#E7DFCF] mt-4 flex items-center justify-between">
-                <span className="text-xs font-semibold text-[#C99A3B] inline-flex items-center gap-1 group-hover:text-[#8A6420]">
-                  <span>Read Full Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+              <div className="p-6 pt-0">
+                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#C99A3B] group-hover:text-[#8A6420]">
+                  <span>Read Full Report</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
             </article>

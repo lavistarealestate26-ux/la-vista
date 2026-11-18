@@ -9,8 +9,8 @@ interface ValuationModalProps {
 }
 
 export default function ValuationModal({ isOpen, onClose }: ValuationModalProps) {
-  const [propertyType, setPropertyType] = useState("Apartment");
-  const [community, setCommunity] = useState("Downtown Dubai");
+  const [propertyType, setPropertyType] = useState("Villa");
+  const [community, setCommunity] = useState("Al Sinniyah Island");
   const [beds, setBeds] = useState("2");
   const [sizeSqft, setSizeSqft] = useState("");
   const [ownerName, setOwnerName] = useState("");
@@ -21,13 +21,28 @@ export default function ValuationModal({ isOpen, onClose }: ValuationModalProps)
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: ownerName,
+          phone,
+          email,
+          purpose: "valuation",
+          message: `Property Type: ${propertyType}, Area: ${community}, Beds: ${beds}, Size: ${sizeSqft} sqft`,
+        }),
+      });
       setSubmitted(true);
-    }, 800);
+    } catch (err) {
+      console.error(err);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -79,7 +94,7 @@ export default function ValuationModal({ isOpen, onClose }: ValuationModalProps)
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <p className="text-xs text-[#5E6778]">
-                Get an accurate, data-backed market valuation based on Dubai Land Department (DLD) transaction records.
+                Get an accurate, data-backed market valuation based on verified transaction records across Umm Al Quwain and the wider UAE.
               </p>
 
               {/* Property Details */}
@@ -131,14 +146,14 @@ export default function ValuationModal({ isOpen, onClose }: ValuationModalProps)
                     onChange={(e) => setCommunity(e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-[#E7DFCF] rounded-lg focus:outline-none focus:border-[#C99A3B]"
                   >
-                    <option value="Palm Jumeirah">Palm Jumeirah</option>
-                    <option value="Downtown Dubai">Downtown Dubai</option>
-                    <option value="Dubai Marina">Dubai Marina</option>
-                    <option value="Dubai Hills Estate">Dubai Hills Estate</option>
-                    <option value="Business Bay">Business Bay</option>
-                    <option value="Jumeirah Village Circle">JVC</option>
-                    <option value="Arabian Ranches">Arabian Ranches</option>
-                    <option value="Bluewaters Island">Bluewaters Island</option>
+                    <option value="Al Sinniyah Island">Al Sinniyah Island</option>
+                    <option value="Al Salamah">Al Salamah</option>
+                    <option value="UAQ Marina">UAQ Marina</option>
+                    <option value="Mangrove Beachfront">Mangrove Beachfront</option>
+                    <option value="Al Ramlah">Al Ramlah & Al Raudah</option>
+                    <option value="Al Khor">Al Khor District</option>
+                    <option value="UAQ Industrial">UAQ Industrial</option>
+                    <option value="Wider UAE">Wider UAE Enclaves</option>
                   </select>
                 </div>
 

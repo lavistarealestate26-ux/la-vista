@@ -36,7 +36,7 @@ export default function Logo({
     <Link
       href="/"
       className={`inline-flex items-center gap-3 group select-none ${className}`}
-      aria-label="La Vista Real Estate Dubai"
+      aria-label="La Vista Real Estate"
     >
       {!imgError ? (
         <div className={`relative ${heightClasses[size]} w-auto flex items-center transition-transform duration-300 group-hover:scale-103`}>
@@ -84,7 +84,7 @@ export default function Logo({
             </span>
             {showTagline && (
               <span className="tracking-[0.28em] text-[9px] uppercase font-semibold text-[#C99A3B] mt-1">
-                REAL ESTATE · DUBAI
+                REAL ESTATE · UMM AL QUWAIN
               </span>
             )}
           </div>

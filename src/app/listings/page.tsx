@@ -2,9 +2,9 @@ import React, { Suspense } from "react";
 import ListingsContent from "@/components/listings/ListingsContent";
 
 export const metadata = {
-  title: "Properties for Sale & Rent in Dubai | La Vista Real Estate",
+  title: "Properties in Umm Al Quwain & Wider UAE | Commercial, Residential & Leasing | La Vista",
   description:
-    "Explore luxury apartments, beachfront villas, and sky penthouses across Palm Jumeirah, Downtown Dubai, Dubai Marina, and Dubai Hills Estate.",
+    "Explore luxury residential homes, waterfront villas, commercial properties, and leasing opportunities across Umm Al Quwain and the wider UAE.",
 };
 
 export default function ListingsPage() {

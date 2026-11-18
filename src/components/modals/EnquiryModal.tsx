@@ -28,13 +28,26 @@ export default function EnquiryModal({
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, message, purpose, propertyTitle }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error(err);
       setSubmitted(true);
-    }, 800);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {

@@ -4,6 +4,7 @@ export interface Translations {
   // Navigation
   nav_buy: string;
   nav_rent: string;
+  nav_leasing: string;
   nav_offplan: string;
   nav_commercial: string;
   nav_developers: string;
@@ -15,11 +16,20 @@ export interface Translations {
   nav_valuation: string;
   nav_phone: string;
 
+  // Categories
+  cat_all: string;
+  cat_commercial: string;
+  cat_residential: string;
+  cat_leasing: string;
+
   // Hero
   hero_badge: string;
   hero_title_1: string;
   hero_title_italic: string;
   hero_subtitle: string;
+  hero_tab_residential: string;
+  hero_tab_commercial: string;
+  hero_tab_leasing: string;
   hero_tab_buy: string;
   hero_tab_rent: string;
   hero_tab_offplan: string;
@@ -45,9 +55,9 @@ export interface Translations {
   feat_heading: string;
   feat_subtitle: string;
   feat_filter_all: string;
-  feat_filter_buy: string;
-  feat_filter_rent: string;
-  feat_filter_offplan: string;
+  feat_filter_commercial: string;
+  feat_filter_residential: string;
+  feat_filter_leasing: string;
   feat_view_all: string;
 
   // Property Card Specs
@@ -58,6 +68,7 @@ export interface Translations {
   card_explore: string;
 
   // Floating Actions
+  float_social: string;
   float_whatsapp: string;
   float_call: string;
   float_enquiry: string;
@@ -79,6 +90,7 @@ export const DICTIONARY: Record<Language, Translations> = {
   en: {
     nav_buy: "Buy",
     nav_rent: "Rent",
+    nav_leasing: "Leasing",
     nav_offplan: "Off-Plan",
     nav_commercial: "Commercial",
     nav_developers: "Developers",
@@ -88,38 +100,46 @@ export const DICTIONARY: Record<Language, Translations> = {
     nav_about: "About Us",
     nav_careers: "Careers",
     nav_valuation: "Free Valuation",
-    nav_phone: "+971 4 429 8888",
+    nav_phone: "+971 6 766 8888",
 
-    hero_badge: "Dubai Prime Real Estate",
+    cat_all: "All Properties",
+    cat_commercial: "Commercial Properties",
+    cat_residential: "Residential Properties",
+    cat_leasing: "Leasing Properties",
+
+    hero_badge: "Umm Al Quwain & Wider UAE",
     hero_title_1: "Find Your Home",
-    hero_title_italic: "in Dubai.",
-    hero_subtitle: "Exceptional waterfront villas, sky penthouses, and premier off-plan investments curated exclusively by La Vista Real Estate.",
+    hero_title_italic: "in Umm Al Quwain & Wider UAE.",
+    hero_subtitle: "Exceptional beachfront villas, commercial investments, and premier residential leasing curated exclusively by La Vista Real Estate.",
+    hero_tab_residential: "Residential",
+    hero_tab_commercial: "Commercial",
+    hero_tab_leasing: "Leasing",
     hero_tab_buy: "Buy Properties",
     hero_tab_rent: "Rent Residences",
     hero_tab_offplan: "Off-Plan Launches",
-    hero_label_location: "Location or Community",
-    hero_placeholder_location: "e.g. Palm Jumeirah, Downtown, Dubai Marina...",
-    hero_label_beds: "Bedrooms",
-    hero_any_beds: "Any Bedrooms",
+    hero_label_location: "Location or Area",
+    hero_placeholder_location: "e.g. Al Sinniyah Island, Al Salamah, UAQ Marina...",
+    hero_label_beds: "Bedrooms / Size",
+    hero_any_beds: "Any Size",
     hero_label_price: "Price Range",
-    hero_search_btn: "Search",
+    hero_search_btn: "Search Properties",
 
-    stat_listings: "1,250+ Verified Listings",
-    stat_advisors: "85+ Elite Private Advisors",
-    stat_countries: "Serving 45+ Countries",
-    stat_volume: "AED 4.2B+ Transacted",
+    stat_listings: "450+ Verified Properties",
+    stat_advisors: "45+ Private UAE Advisors",
+    stat_countries: "Serving International Investors",
+    stat_volume: "AED 1.8B+ Transacted",
 
-    dev_partners_label: "Partners with Dubai’s Leading Developers",
-    dev_view_all: "View All Developers →",
+    dev_partners_label: "Partners with Leading Master Developers across UAE",
+    dev_view_all: "View All Partners →",
 
     feat_curated_badge: "Curated Portfolio",
-    feat_heading: "Featured Dubai Properties",
-    feat_subtitle: "Hand-selected luxury estates, sky villas, and signature residences inspected by our private advisory team.",
-    feat_filter_all: "All Curated",
-    feat_filter_buy: "For Sale",
-    feat_filter_rent: "For Rent",
-    feat_filter_offplan: "Off-Plan",
-    feat_view_all: "Explore All 1,250+ Listings",
+    feat_heading: "Featured Umm Al Quwain & UAE Properties",
+    feat_subtitle: "Hand-selected luxury estates, commercial hubs, and premier leasing portfolios inspected by our advisory team.",
+    feat_filter_all: "All Categories",
+    feat_filter_commercial: "Commercial",
+    feat_filter_residential: "Residential",
+    feat_filter_leasing: "Leasing",
+    feat_view_all: "Explore All Properties",
 
     spec_studio: "Studio",
     spec_beds: "Beds",
@@ -127,23 +147,25 @@ export const DICTIONARY: Record<Language, Translations> = {
     spec_sqft: "sqft",
     card_explore: "Explore",
 
+    float_social: "Social Media",
     float_whatsapp: "Chat on WhatsApp",
-    float_call: "Call +971 4 429 8888",
+    float_call: "Call +971 6 766 8888",
     float_enquiry: "Register Enquiry",
 
     why_badge: "The La Vista Standard",
     why_heading: "Why Discerning Clients Choose La Vista",
-    why_subtitle: "A bespoke private brokerage combining deep Dubai market intelligence with discreet, Swiss-grade service standards.",
+    why_subtitle: "A bespoke private brokerage combining deep Umm Al Quwain and UAE market intelligence with discreet, Swiss-grade service standards.",
 
-    val_badge: "For Dubai Property Owners",
+    val_badge: "For Property Owners in UAE",
     val_heading: "Thinking of Selling or Leasing Your Property?",
-    val_subtitle: "Connect with our international network of qualified high-net-worth buyers and family offices. Request a confidential, data-backed market appraisal based on verified Dubai Land Department transactions.",
+    val_subtitle: "Connect with our network of qualified buyers, tenants, and institutional investors. Request a confidential, data-backed market appraisal.",
     val_btn: "Request Free Valuation",
-    val_trust: "Confidential · No Obligation · RERA Licensed",
+    val_trust: "Confidential · No Obligation · Licensed & Regulated",
   },
   ar: {
     nav_buy: "شراء",
     nav_rent: "إيجار",
+    nav_leasing: "تأجير",
     nav_offplan: "على الخارطة",
     nav_commercial: "تجاري",
     nav_developers: "المطورون",
@@ -153,38 +175,46 @@ export const DICTIONARY: Record<Language, Translations> = {
     nav_about: "من نحن",
     nav_careers: "الوظائف",
     nav_valuation: "تقييم مجاني",
-    nav_phone: "+971 4 429 8888",
+    nav_phone: "+971 6 766 8888",
 
-    hero_badge: "عقارات دبي الفاخرة",
-    hero_title_1: "ابحث عن منزلك الفاخر",
-    hero_title_italic: "في دبي.",
-    hero_subtitle: "فلل حصرية على الواجهة البحرية، وبنتهاوس بإطلالات بانورامية، ومشاريع استثمارية واعدة بإشراف لا فيستا العقارية.",
-    hero_tab_buy: "عقارات للبيع",
-    hero_tab_rent: "عقارات للإيجار",
-    hero_tab_offplan: "مشاريع قيد الإنشاء",
+    cat_all: "جميع العقارات",
+    cat_commercial: "عقارات تجارية",
+    cat_residential: "عقارات سكنية",
+    cat_leasing: "عقارات التأجير",
+
+    hero_badge: "أم القيوين وعموم الإمارات",
+    hero_title_1: "ابحث عن عقارك المثالي",
+    hero_title_italic: "في أم القيوين وعموم الإمارات.",
+    hero_subtitle: "فلل ساحلية فاخرة، عقارات تجارية استثمارية، ومحفظة تأجير راقية بإشراف مباشر من لا فيستا العقارية.",
+    hero_tab_residential: "سكني",
+    hero_tab_commercial: "تجاري",
+    hero_tab_leasing: "تأجير",
+    hero_tab_buy: "شراء",
+    hero_tab_rent: "إيجار",
+    hero_tab_offplan: "على الخارطة",
     hero_label_location: "المنطقة أو المشروع",
-    hero_placeholder_location: "مثال: نخلة جميرا، وسط مدينة دبي، دبي مارينا...",
-    hero_label_beds: "غرف النوم",
-    hero_any_beds: "أي عدد غرف",
+    hero_placeholder_location: "مثال: جزيرة السينية، السلمة، مارينا أم القيوين...",
+    hero_label_beds: "الغرف / المساحة",
+    hero_any_beds: "أي مساحة",
     hero_label_price: "نطاق السعر",
-    hero_search_btn: "بحث",
+    hero_search_btn: "بحث عن العقارات",
 
-    stat_listings: "+1,250 عقار حصري معتمد",
-    stat_advisors: "+85 مستشار عقاري خاص",
-    stat_countries: "خدمة عملاء من +45 دولة",
-    stat_volume: "+4.2 مليار درهم إجمالي الصفقات",
+    stat_listings: "+450 عقار معتمد",
+    stat_advisors: "+45 مستشار عقاري متخصص",
+    stat_countries: "خدمة المستثمرين محلياً ودولياً",
+    stat_volume: "+1.8 مليار درهم صفقات منجزة",
 
-    dev_partners_label: "شركاء مع كبرى شركات التطوير العقاري في دبي",
-    dev_view_all: "عرض جميع المطورين ←",
+    dev_partners_label: "شركاء مع كبرى شركات التطوير في الإمارات",
+    dev_view_all: "عرض جميع الشركاء ←",
 
     feat_curated_badge: "محفظة عقارية حصرية",
-    feat_heading: "عقارات دبي المختارة",
-    feat_subtitle: "فلل وقصور وشقق بنتهاوس فاخرة تم اختيارها بعناية فائقة من قبل خبرائنا المعتمدين.",
+    feat_heading: "عقارات مميزة في أم القيوين والإمارات",
+    feat_subtitle: "فلل شاطئية وأبراج سكنية ومجمعات تجارية معتمدة تلبي أرقى متطلبات السكن والاستثمار.",
     feat_filter_all: "الكل",
-    feat_filter_buy: "للبيع",
-    feat_filter_rent: "للإيجار",
-    feat_filter_offplan: "على الخارطة",
-    feat_view_all: "استكشف جميع العقارات (+1,250)",
+    feat_filter_commercial: "تجاري",
+    feat_filter_residential: "سكني",
+    feat_filter_leasing: "تأجير",
+    feat_view_all: "استكشف جميع العقارات",
 
     spec_studio: "استوديو",
     spec_beds: "غرف",
@@ -192,18 +222,19 @@ export const DICTIONARY: Record<Language, Translations> = {
     spec_sqft: "قدم²",
     card_explore: "تفاصيل",
 
+    float_social: "منصات التواصل",
     float_whatsapp: "محادثة عبر واتساب",
     float_call: "اتصال مباشر",
     float_enquiry: "طلب استفسار",
 
     why_badge: "معايير لا فيستا العقارية",
     why_heading: "لماذا يختار كبار المستثمرين لا فيستا؟",
-    why_subtitle: "استشارات عقارية نخبوية تجمع بين أدق بيانات سوق دبي والسرية التامة وفق أرقى المعايير العالمية.",
+    why_subtitle: "وساطة عقارية خاصة تجمع بين المعرفة العميقة بسوق أم القيوين والإمارات وأعلى معايير السرية والموثوقية.",
 
-    val_badge: "لملاك العقارات في دبي",
+    val_badge: "لملاك العقارات في الإمارات",
     val_heading: "هل ترغب في بيع أو تأجير عقارك بأعلى عائد؟",
-    val_subtitle: "تواصل مع شبكتنا العالمية من كبار المستثمرين والمكاتب العائلية. احصل على تقييم فوري ومعتمد مستند إلى صفقات دائرة الأراضي والأملاك الحقيقية.",
+    val_subtitle: "تواصل مع شبكتنا من المشترين والمستأجرين المؤهلين. احصل على تقييم فوري وموثوق لعقارك.",
     val_btn: "اطلب تقييم عقارك مجاناً",
-    val_trust: "سري تماماً · بدون التزام · مرخص من مؤسسة التنظيم العقاري (RERA)",
+    val_trust: "سري تماماً · بدون التزام · مرخص ومعتمد رسمياً",
   },
 };

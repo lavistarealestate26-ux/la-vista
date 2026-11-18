@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!listing) {
     return {
-      title: "Property Not Found | La Vista Real Estate Dubai",
+      title: "Property Not Found | La Vista Real Estate",
     };
   }
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${listing.title} | La Vista Real Estate`,
     description: listing.description.slice(0, 160),
     openGraph: {
-      title: `${listing.title} | La Vista Real Estate Dubai`,
+      title: `${listing.title} | La Vista Real Estate`,
       description: listing.description.slice(0, 160),
       images: [{ url: listing.images[0] }],
     },

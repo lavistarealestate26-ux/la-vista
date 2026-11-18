@@ -3,30 +3,31 @@ import Link from "next/link";
 import { Building2, Shield, Key, Calculator, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Client Services | La Vista Real Estate Dubai",
-  description: "Comprehensive property management, free valuations, private acquisitions, and mortgage consultancy in Dubai.",
+  title: "Client Services | La Vista Real Estate | Umm Al Quwain & Wider UAE",
+  description:
+    "Comprehensive property management, free valuations, commercial advisory, leasing services, and private acquisitions across Umm Al Quwain and the wider UAE.",
 };
 
 export default function ServicesPage() {
   const services = [
     {
       title: "Complimentary Property Valuation",
-      desc: "Accurate, data-backed market appraisal based on real-time Dubai Land Department records.",
+      desc: "Accurate, data-backed market appraisal based on real-time transaction records across Umm Al Quwain and the wider UAE.",
       href: "/valuation",
     },
     {
-      title: "Turnkey Property Management",
-      desc: "High-net-worth property care, tenant vetting, Ejari registration, and rent collection.",
-      href: "/contact",
+      title: "Commercial & Leasing Asset Management",
+      desc: "High-net-worth portfolio care, tenant vetting, lease contract registration, and institutional rent management.",
+      href: "/listings?category=leasing",
     },
     {
       title: "Private Off-Market Acquisitions",
-      desc: "Discreet sourcing and negotiation for private estates, penthouses, and whole buildings.",
+      desc: "Discreet sourcing and negotiation for private island estates, beachfront mansions, commercial plots, and whole buildings.",
       href: "/contact",
     },
     {
       title: "Mortgage & Financing Consultation",
-      desc: "Access to leading UAE banks and private lenders for resident and non-resident financing.",
+      desc: "Access to leading UAE banks and private lenders for resident and international investor property financing.",
       href: "/contact",
     },
   ];
@@ -43,7 +44,7 @@ export default function ServicesPage() {
               La Vista Client Services
             </h1>
             <p className="text-white/70 text-sm sm:text-base font-light">
-              Bespoke advisory and management solutions crafted for luxury property owners and investors in Dubai.
+              Bespoke advisory, leasing, commercial, and management solutions crafted for luxury property owners and investors in Umm Al Quwain and across the UAE.
             </p>
           </div>
         </div>
@@ -60,18 +61,20 @@ export default function ServicesPage() {
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#111111] group-hover:text-[#C99A3B] transition-colors mb-3">
                   {s.title}
                 </h3>
-                <p className="text-sm text-[#5E6778] font-light leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#5E6778] font-light leading-relaxed mb-6">
                   {s.desc}
                 </p>
               </div>
 
-              <Link
-                href={s.href}
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#C99A3B] group-hover:text-[#8A6420]"
-              >
-                <span>Learn More</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="pt-4 border-t border-[#E7DFCF]">
+                <Link
+                  href={s.href}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#C99A3B] group-hover:text-[#8A6420]"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           ))}
         </div>

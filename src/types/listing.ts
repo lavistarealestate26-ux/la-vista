@@ -1,6 +1,8 @@
-export type PropertyPurpose = "buy" | "rent" | "off-plan";
-export type PropertyType = "apartment" | "villa" | "townhouse" | "penthouse" | "plot" | "commercial";
+export type PropertyPurpose = "buy" | "rent" | "off-plan" | "leasing";
+export type PropertyCategory = "commercial" | "residential" | "leasing";
+export type PropertyType = "apartment" | "villa" | "townhouse" | "penthouse" | "plot" | "commercial" | "office" | "retail" | "warehouse" | "industrial";
 export type PropertyStatus = "available" | "sold" | "rented";
+export type PropertyRegion = "Umm Al Quwain" | "Wider UAE";
 
 export interface Agent {
   name: string;
@@ -24,13 +26,15 @@ export interface Listing {
   title: string;
   tagline?: string;
   purpose: PropertyPurpose;
+  category: PropertyCategory;
+  region: PropertyRegion;
   propertyType: PropertyType;
   priceAED: number;
   rentFrequency?: "yearly" | "monthly";
   community: string;
   subCommunity: string;
   building?: string;
-  beds: number; // 0 for Studio
+  beds: number; // 0 for Studio or Commercial N/A
   baths: number;
   sizeSqft: number;
   description: string;
@@ -48,19 +52,18 @@ export interface Listing {
   status: PropertyStatus;
   featured: boolean;
   createdAt: string;
-  locationCoordinates?: {
-    lat: number;
-    lng: number;
-  };
+  updatedAt: string;
 }
 
-export interface FilterOptions {
+export interface FilterState {
+  keyword?: string;
   purpose?: PropertyPurpose;
+  category?: PropertyCategory;
+  region?: PropertyRegion;
   community?: string;
   propertyType?: string;
   beds?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  searchQuery?: string;
-  sortBy?: "price-asc" | "price-desc" | "newest" | "featured";
+  minPrice?: string;
+  maxPrice?: string;
+  sortBy?: "newest" | "price-asc" | "price-desc" | "beds-desc";
 }

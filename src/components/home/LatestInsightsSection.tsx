@@ -16,7 +16,7 @@ export default function LatestInsightsSection() {
               <span>Intelligence & Research</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#111111] tracking-tight">
-              Dubai Real Estate Insights
+              Umm Al Quwain & UAE Market Insights
             </h2>
             <p className="text-[#5E6778] text-sm sm:text-base max-w-xl mt-2 font-light">
               Authoritative market analysis, investment strategies, and regulatory updates from our research desk.

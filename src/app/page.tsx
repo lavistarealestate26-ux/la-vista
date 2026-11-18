@@ -13,16 +13,16 @@ export default function Home() {
       {/* A2: Hero Video + B1: Headline & Property Search */}
       <HeroSection />
 
-      {/* B2: Partners with Dubai's Leading Developers Marquee Loop */}
+      {/* B2: Leading UAE Developers Marquee Loop */}
       <DeveloperMarquee />
 
-      {/* Featured Properties: 6 Luxury Listings */}
+      {/* Featured Properties: Curated Luxury Listings */}
       <FeaturedProperties />
 
-      {/* Off-Plan Highlights: 3 Landmark Projects with Payment Plans */}
+      {/* Off-Plan Highlights: Landmark Projects with Payment Plans */}
       <OffPlanHighlights />
 
-      {/* Explore Communities: 6 Dubai Area Tiles */}
+      {/* Explore Communities: Umm Al Quwain & Wider UAE Tiles */}
       <ExploreCommunities />
 
       {/* Why Discerning Clients Choose La Vista Real Estate */}

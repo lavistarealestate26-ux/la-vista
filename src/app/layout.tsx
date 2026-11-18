@@ -27,17 +27,18 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "La Vista Real Estate Dubai | Prime Luxury Residences & Off-Plan",
+  title: "La Vista Real Estate | Umm Al Quwain & Wider UAE Properties",
   description:
-    "La Vista Real Estate is Dubai’s premier boutique brokerage specializing in luxury waterfront villas, iconic sky penthouses, and high-yield off-plan developments across Palm Jumeirah, Downtown Dubai, and Dubai Marina.",
+    "La Vista Real Estate is a premier boutique brokerage specializing in luxury waterfront estates, commercial assets, and leasing properties across Umm Al Quwain and the wider UAE.",
   keywords: [
     "La Vista Real Estate",
-    "Dubai luxury real estate",
-    "Palm Jumeirah villas for sale",
-    "Downtown Dubai penthouses",
-    "Dubai off-plan developments",
-    "Emaar off plan",
-    "Dubai property investment",
+    "Umm Al Quwain real estate",
+    "UAQ luxury properties",
+    "Al Sinniyah Island villas",
+    "UAQ Marina properties",
+    "Wider UAE real estate",
+    "Commercial real estate UAE",
+    "Leasing properties Umm Al Quwain",
     "UAE Golden Visa",
   ],
   authors: [{ name: "La Vista Real Estate LLC" }],
@@ -50,17 +51,17 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: "La Vista Real Estate Dubai | Luxury Properties & Estates",
+    title: "La Vista Real Estate | Umm Al Quwain & Wider UAE",
     description:
-      "Discover the finest selection of ultra-prime properties and off-plan launches in Dubai with La Vista Real Estate.",
+      "Discover the finest selection of ultra-prime properties, commercial assets, and leasing opportunities in Umm Al Quwain and the wider UAE with La Vista Real Estate.",
     url: "https://lavistarealestate.ae",
     siteName: "La Vista Real Estate",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "La Vista Real Estate Dubai",
+        alt: "La Vista Real Estate Umm Al Quwain",
       },
     ],
     locale: "en_AE",

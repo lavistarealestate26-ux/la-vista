@@ -9,11 +9,14 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function FeaturedProperties() {
   const { t } = useLanguage();
-  const [activeFilter, setActiveFilter] = useState<"all" | "buy" | "rent" | "off-plan">("all");
+  const [activeCategory, setActiveCategory] = useState<"all" | "residential" | "commercial" | "leasing">("all");
 
   const filtered = MOCK_LISTINGS.filter((item) => {
-    if (activeFilter === "all") return item.featured;
-    return item.purpose === activeFilter;
+    if (activeCategory === "all") return item.featured;
+    if (activeCategory === "leasing") {
+      return item.category === "leasing" || item.purpose === "rent" || item.purpose === "leasing";
+    }
+    return item.category === activeCategory;
   }).slice(0, 6);
 
   return (
@@ -34,19 +37,19 @@ export default function FeaturedProperties() {
             </p>
           </div>
 
-          {/* Filter Pills */}
+          {/* Filter Pills aligned with client categories */}
           <div className="flex items-center gap-1.5 mt-6 md:mt-0 p-1 bg-white rounded-xl border border-[#E7DFCF] shadow-sm overflow-x-auto max-w-full no-scrollbar">
             {[
-              { id: "all", label: t.feat_filter_all },
-              { id: "buy", label: t.feat_filter_buy },
-              { id: "rent", label: t.feat_filter_rent },
-              { id: "off-plan", label: t.feat_filter_offplan },
+              { id: "all", label: "All Curated" },
+              { id: "residential", label: "Residential" },
+              { id: "commercial", label: "Commercial" },
+              { id: "leasing", label: "Leasing" },
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveFilter(tab.id as any)}
+                onClick={() => setActiveCategory(tab.id as any)}
                 className={`px-3.5 sm:px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${
-                  activeFilter === tab.id
+                  activeCategory === tab.id
                     ? "bg-[#111111] text-[#C99A3B]"
                     : "text-[#5E6778] hover:text-[#111111]"
                 }`}
@@ -67,7 +70,7 @@ export default function FeaturedProperties() {
         {/* Bottom CTA to View All */}
         <div className="mt-14 text-center">
           <Link
-            href="/listings"
+            href={activeCategory === "all" ? "/listings" : `/listings?category=${activeCategory}`}
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#111111] text-white hover:bg-[#C99A3B] transition-all rounded-xl text-xs uppercase tracking-widest font-semibold shadow-lg group"
           >
             <span>{t.feat_view_all}</span>

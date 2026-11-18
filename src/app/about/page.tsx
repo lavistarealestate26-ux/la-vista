@@ -3,8 +3,9 @@ import Link from "next/link";
 import { ShieldCheck, Award, Users, Gem } from "lucide-react";
 
 export const metadata = {
-  title: "About La Vista Real Estate | Dubai Luxury Brokerage",
-  description: "Learn about La Vista Real Estate, our private client advisors, and our commitment to prime Dubai property advisory.",
+  title: "About La Vista Real Estate | Umm Al Quwain & Wider UAE Brokerage",
+  description:
+    "Learn about La Vista Real Estate, our private client advisors, and our commitment to prime real estate advisory in Umm Al Quwain and the wider UAE.",
 };
 
 export default function AboutPage() {
@@ -20,7 +21,7 @@ export default function AboutPage() {
               About La Vista Real Estate
             </h1>
             <p className="text-white/70 text-sm sm:text-base font-light">
-              Founded on the pillars of integrity, discretion, and market precision, La Vista represents private clients, family offices, and discerning investors across Dubai’s most distinguished enclaves.
+              Founded on the pillars of integrity, discretion, and market precision, La Vista represents private clients, family offices, and discerning investors across Umm Al Quwain and the wider UAE.
             </p>
           </div>
         </div>
@@ -37,10 +38,10 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-sm text-[#5E6778] leading-relaxed font-light">
               <p>
-                In a market filled with high-volume brokerages, La Vista Real Estate operates as a specialized private boutique. We limit the number of properties we represent to ensure every asset receives focused marketing and direct access to qualified international buyers.
+                In a market filled with high-volume brokerages, La Vista Real Estate operates as a specialized private boutique. We limit the number of properties we represent to ensure every residential home, commercial asset, or leasing portfolio receives focused marketing and direct access to qualified regional and international buyers.
               </p>
               <p>
-                From off-market Palm Jumeirah beachfront plots to private floor acquisitions in Downtown Dubai, our licensed brokers provide unparalleled market insights backed by authentic transaction analytics.
+                From pristine waterfront estates on Al Sinniyah Island to premier commercial plazas in Umm Al Quwain and luxury enclaves across the wider UAE, our licensed brokers provide unparalleled market insights backed by authentic transaction analytics.
               </p>
             </div>
           </div>
@@ -48,7 +49,7 @@ export default function AboutPage() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#E7DFCF]">
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-              alt="La Vista Dubai Residence"
+              alt="La Vista Luxury Estate"
               className="w-full h-full object-cover"
             />
           </div>
@@ -60,12 +61,12 @@ export default function AboutPage() {
             {
               icon: Gem,
               title: "Prime Quality",
-              desc: "Carefully curated properties meeting high architectural and capital standards.",
+              desc: "Carefully curated residential, commercial, and leasing properties meeting high standards.",
             },
             {
               icon: ShieldCheck,
               title: "Strict Compliance",
-              desc: "100% RERA and Dubai Land Department authorized permits with verified deeds.",
+              desc: "100% verified regulatory and municipality authorized permits with authenticated titles.",
             },
             {
               icon: Users,
@@ -75,7 +76,7 @@ export default function AboutPage() {
             {
               icon: Award,
               title: "End-to-End Care",
-              desc: "From private viewings to Golden Visa processing and asset handover.",
+              desc: "From private viewings to Golden Visa processing and asset management.",
             },
           ].map((pillar, i) => {
             const Icon = pillar.icon;

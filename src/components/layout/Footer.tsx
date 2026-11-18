@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Logo from "../common/Logo";
 import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT_INFO } from "@/data/contactInfo";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -38,8 +39,8 @@ export default function Footer() {
             <Logo variant="dark" size="md" />
             <p className="text-white/55 text-xs sm:text-[13px] font-light leading-relaxed">
               {isRTL
-                ? "لا فيستا للعقارات · وساطة عقارية فاخرة تمثل أبهى العقارات السكنية الخاصة والفلل الشاطئية في دبي."
-                : "A bespoke private real estate brokerage representing Dubai’s most prestigious waterfront villas, sky penthouses, and signature developer portfolios."}
+                ? "لا فيستا للعقارات · وساطة عقارية فاخرة تمثل أبهى العقارات السكنية والتجارية ومحافظ التأجير في أم القيوين وعموم الإمارات."
+                : "A bespoke private real estate brokerage representing Umm Al Quwain and the wider UAE’s most prestigious waterfront estates, commercial assets, and leasing portfolios."}
             </p>
           </div>
 
@@ -83,7 +84,7 @@ export default function Footer() {
             )}
             <p className="text-[10px] text-white/35 mt-2">
               {isRTL
-                ? "تقارير سرية فصيلة · بدون إعلانات مزعجة"
+                ? "تقارير سرية دورية · بدون إعلانات مزعجة"
                 : "Quarterly transaction data & pre-launch alerts · Unsubscribe anytime"}
             </p>
           </div>
@@ -91,35 +92,35 @@ export default function Footer() {
 
         {/* Middle Tier: Sleek 4-Column Directory */}
         <div className="py-12 border-b border-white/[0.08] grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-          {/* Col 1: Properties */}
+          {/* Col 1: Properties (Residential, Commercial, Leasing) */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.22em] text-[#C99A3B] font-semibold mb-4">
-              {isRTL ? "العقارات" : "Properties"}
+              {isRTL ? "فئات العقارات" : "Property Portfolios"}
             </h4>
             <ul className="space-y-2 text-xs text-white/60">
               <li>
-                <Link href="/listings?purpose=buy" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  {isRTL ? "فلل وقصور للبيع" : "Luxury Villas & Mansions"}
+                <Link href="/listings?category=residential" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  {isRTL ? "عقارات سكنية فاخرة" : "Residential Properties"}
                 </Link>
               </li>
               <li>
-                <Link href="/listings?type=penthouse" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  {isRTL ? "بنتهاوس فاخرة" : "Sky Penthouses"}
+                <Link href="/listings?category=commercial" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  {isRTL ? "عقارات تجارية واستثمارية" : "Commercial Properties"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/listings?category=leasing" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  {isRTL ? "عقارات ومحافظ التأجير" : "Leasing Properties"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/listings?community=Al+Sinniyah+Island" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  {isRTL ? "قصور جزيرة السينية" : "Al Sinniyah Waterfront"}
                 </Link>
               </li>
               <li>
                 <Link href="/listings?purpose=off-plan" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  {isRTL ? "مشاريع قيد الإنشاء" : "Off-Plan Launches 2026"}
-                </Link>
-              </li>
-              <li>
-                <Link href="/listings?purpose=rent" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  {isRTL ? "عقارات للإيجار" : "Prime Residences for Lease"}
-                </Link>
-              </li>
-              <li>
-                <Link href="/listings?category=waterfront" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  {isRTL ? "عقارات الواجهة البحرية" : "Waterfront Estates"}
+                  {isRTL ? "مشاريع قيد الإنشاء" : "Off-Plan Launches"}
                 </Link>
               </li>
             </ul>
@@ -132,28 +133,28 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-white/60">
               <li>
-                <Link href="/listings?community=Palm+Jumeirah" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Palm Jumeirah
+                <Link href="/listings?community=Al+Sinniyah+Island" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  Al Sinniyah Island
                 </Link>
               </li>
               <li>
-                <Link href="/listings?community=Downtown+Dubai" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Downtown Dubai
+                <Link href="/listings?community=Al+Salamah" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  Al Salamah
                 </Link>
               </li>
               <li>
-                <Link href="/listings?community=Dubai+Marina" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Dubai Marina
+                <Link href="/listings?community=UAQ+Marina" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  UAQ Marina & Corniche
                 </Link>
               </li>
               <li>
-                <Link href="/listings?community=Dubai+Hills+Estate" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Dubai Hills Estate
+                <Link href="/listings?community=Mangrove+Beachfront" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  Mangrove Beachfront
                 </Link>
               </li>
               <li>
-                <Link href="/listings?community=Jumeirah+Bay+Island" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Jumeirah Bay Island
+                <Link href="/listings?region=Wider+UAE" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  Wider UAE Enclaves
                 </Link>
               </li>
             </ul>
@@ -196,32 +197,49 @@ export default function Footer() {
           {/* Col 4: Private Office & Contact */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.22em] text-[#C99A3B] font-semibold mb-4">
-              {isRTL ? "المكتب الخاص" : "Private Office"}
+              {isRTL ? "المكتب الرئيسي" : "Main Office"}
             </h4>
             <div className="space-y-2.5 text-xs text-white/65">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0 mt-0.5" />
-                <span className="text-white/60 text-[11px] leading-relaxed">
-                  Boulevard Plaza Tower 1, Downtown Dubai, UAE
-                </span>
+                <a
+                  href={CONTACT_INFO.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 text-[11px] leading-relaxed hover:text-[#C99A3B] transition-colors"
+                >
+                  {CONTACT_INFO.address}
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0" />
-                <a href="tel:+97144298888" className="hover:text-[#C99A3B] transition-colors text-[11px]">
-                  +971 4 429 8888
+                <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`} className="hover:text-[#C99A3B] transition-colors text-[11px]">
+                  {CONTACT_INFO.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0" />
-                <a href="mailto:info@lavistarealestate.ae" className="hover:text-[#C99A3B] transition-colors text-[11px]">
-                  info@lavistarealestate.ae
+                <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-[#C99A3B] transition-colors text-[11px]">
+                  {CONTACT_INFO.email}
                 </a>
               </div>
 
-              {/* Minimalist Social Circles */}
+              {/* Social Channels: Facebook, Instagram, TikTok, LinkedIn */}
               <div className="flex items-center gap-2 pt-2">
                 <a
-                  href="https://instagram.com"
+                  href={CONTACT_INFO.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#C99A3B] hover:text-[#C99A3B] text-white/50 flex items-center justify-center transition-all duration-200"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+
+                <a
+                  href={CONTACT_INFO.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -233,7 +251,19 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href={CONTACT_INFO.socials.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                  className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#C99A3B] hover:text-[#C99A3B] text-white/50 flex items-center justify-center transition-all duration-200"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                  </svg>
+                </a>
+
+                <a
+                  href={CONTACT_INFO.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -241,18 +271,6 @@ export default function Footer() {
                 >
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
-
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                  className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#C99A3B] hover:text-[#C99A3B] text-white/50 flex items-center justify-center transition-all duration-200"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                   </svg>
                 </a>
               </div>
@@ -267,8 +285,8 @@ export default function Footer() {
             <ShieldCheck className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0" />
             <span>
               {isRTL
-                ? "مرخص من دائرة الأراضي والأملاك بدبي · مؤسسة التنظيم العقاري (RERA) · ترخيص وساطة رقم: 31980"
-                : "Regulated by RERA (Real Estate Regulatory Agency) · Dubai Land Department · ORN: 31980"}
+                ? `مرخص من بلدية ودائرة الأراضي بأم القيوين · عموم الإمارات · ترخيص رقم: ${CONTACT_INFO.licensing.licenseNumber}`
+                : `Licensed by ${CONTACT_INFO.licensing.authority} · License: ${CONTACT_INFO.licensing.licenseNumber}`}
             </span>
           </div>
 
@@ -280,6 +298,10 @@ export default function Footer() {
             <span>·</span>
             <Link href="/terms" className="hover:text-white transition-colors">
               {isRTL ? "الشروط والأحكام" : "Terms"}
+            </Link>
+            <span>·</span>
+            <Link href="/contact" className="hover:text-white transition-colors">
+              {isRTL ? "اتصل بنا" : "Contact Us"}
             </Link>
             <span>·</span>
             <Link href="/admin" className="text-[#C99A3B]/80 hover:text-[#C99A3B] transition-colors">

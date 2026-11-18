@@ -18,25 +18,31 @@ import {
   Bath,
   Maximize,
   ArrowUpDown,
-  Map,
+  Building2,
+  KeyRound,
+  Home,
 } from "lucide-react";
 import { MOCK_LISTINGS } from "@/data/mockListings";
 import PropertyCard from "@/components/properties/PropertyCard";
-import { Listing, PropertyPurpose, PropertyType } from "@/types/listing";
+import { Listing, PropertyCategory, PropertyPurpose, PropertyType } from "@/types/listing";
 
 export default function ListingsContent() {
   const searchParams = useSearchParams();
 
   // URL parameters or defaults
+  const initialCategory = (searchParams.get("category") as PropertyCategory) || "";
   const initialPurpose = (searchParams.get("purpose") as PropertyPurpose) || "";
   const initialCommunity = searchParams.get("community") || "";
+  const initialRegion = searchParams.get("region") || "";
   const initialType = searchParams.get("type") || "";
   const initialBeds = searchParams.get("beds") || "";
   const initialMinPrice = searchParams.get("minPrice") || "";
   const initialMaxPrice = searchParams.get("maxPrice") || "";
 
   // State
+  const [category, setCategory] = useState<string>(initialCategory);
   const [purpose, setPurpose] = useState<string>(initialPurpose);
+  const [region, setRegion] = useState<string>(initialRegion);
   const [community, setCommunity] = useState<string>(initialCommunity);
   const [propertyType, setPropertyType] = useState<string>(initialType);
   const [beds, setBeds] = useState<string>(initialBeds);
@@ -45,25 +51,46 @@ export default function ListingsContent() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("featured");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [showMap, setShowMap] = useState<boolean>(false);
   const [mobileFilterOpen, setMobileFilterOpen] = useState<boolean>(false);
 
-  // Filter listings
+  // Filter listings dynamically
   const filteredListings = useMemo(() => {
     return MOCK_LISTINGS.filter((item) => {
-      // Purpose filter
-      if (purpose && item.purpose !== purpose) return false;
+      // Category filter (commercial | residential | leasing)
+      if (category) {
+        if (category === "leasing") {
+          // If category is leasing, match category === "leasing" or purpose === "rent" / "leasing"
+          if (item.category !== "leasing" && item.purpose !== "rent" && item.purpose !== "leasing") {
+            return false;
+          }
+        } else if (item.category !== category) {
+          return false;
+        }
+      }
 
-      // Community filter
-      if (
-        community &&
-        !item.community.toLowerCase().includes(community.toLowerCase())
-      ) {
+      // Purpose filter
+      if (purpose && item.purpose !== purpose) {
         return false;
       }
 
+      // Region filter (Umm Al Quwain | Wider UAE)
+      if (region && item.region !== region) {
+        return false;
+      }
+
+      // Community / Area filter
+      if (community) {
+        const itemComm = (item.community || "").toLowerCase();
+        const targetComm = community.toLowerCase();
+        if (!itemComm.includes(targetComm) && !targetComm.includes(itemComm)) {
+          return false;
+        }
+      }
+
       // Property type filter
-      if (propertyType && item.propertyType !== propertyType) return false;
+      if (propertyType && item.propertyType !== propertyType) {
+        return false;
+      }
 
       // Beds filter
       if (beds) {
@@ -82,12 +109,13 @@ export default function ListingsContent() {
       // Max Price
       if (maxPrice && item.priceAED > Number(maxPrice)) return false;
 
-      // Search query (keyword in title, community, description)
+      // Search query (keyword in title, community, description, developer)
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
         const matches =
           item.title.toLowerCase().includes(query) ||
           item.community.toLowerCase().includes(query) ||
+          (item.region && item.region.toLowerCase().includes(query)) ||
           item.description.toLowerCase().includes(query) ||
           (item.developer && item.developer.toLowerCase().includes(query));
         if (!matches) return false;
@@ -100,10 +128,12 @@ export default function ListingsContent() {
       if (sortBy === "size-desc") return b.sizeSqft - a.sizeSqft;
       return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
     });
-  }, [purpose, community, propertyType, beds, minPrice, maxPrice, searchQuery, sortBy]);
+  }, [category, purpose, region, community, propertyType, beds, minPrice, maxPrice, searchQuery, sortBy]);
 
   const resetFilters = () => {
+    setCategory("");
     setPurpose("");
+    setRegion("");
     setCommunity("");
     setPropertyType("");
     setBeds("");
@@ -114,7 +144,9 @@ export default function ListingsContent() {
   };
 
   const hasActiveFilters =
+    !!category ||
     !!purpose ||
+    !!region ||
     !!community ||
     !!propertyType ||
     !!beds ||
@@ -127,45 +159,59 @@ export default function ListingsContent() {
       {/* Top Banner */}
       <div className="bg-[#111111] text-white py-12 border-b border-[#C99A3B]/30">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 text-[#C99A3B] text-xs font-semibold tracking-widest uppercase mb-1">
-                <span>Dubai Prime Portfolio</span>
+                <span>Umm Al Quwain & Wider UAE Portfolio</span>
               </div>
               <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight">
-                {purpose === "buy"
-                  ? "Properties for Sale in Dubai"
+                {category === "commercial"
+                  ? "Commercial Properties & Assets"
+                  : category === "residential"
+                  ? "Residential Luxury Homes & Villas"
+                  : category === "leasing"
+                  ? "Leasing Properties & Rental Portfolios"
+                  : purpose === "buy"
+                  ? "Properties for Sale"
                   : purpose === "rent"
-                  ? "Luxury Residences for Rent in Dubai"
-                  : purpose === "off-plan"
-                  ? "Dubai Off-Plan Developments & New Launches"
-                  : "All Dubai Properties & Estates"}
+                  ? "Residences & Assets for Lease"
+                  : "All Properties & Exclusive Portfolios"}
               </h1>
               <p className="text-white/70 text-xs sm:text-sm mt-1 max-w-xl font-light">
-                Verified Dubai Land Department permits, direct developer allocations, and discreet private listings.
+                Discover prime real estate opportunities across Umm Al Quwain and the wider UAE, with verified titles and direct developer representation.
               </p>
             </div>
 
-            {/* Quick Purpose Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-white/10 rounded-xl border border-white/15">
+            {/* Client Requested Primary Category Tabs: All, Commercial, Residential, Leasing */}
+            <div className="flex flex-wrap items-center gap-2 p-1.5 bg-white/10 rounded-2xl border border-white/15">
               {[
-                { id: "", label: "All" },
-                { id: "buy", label: "Buy" },
-                { id: "rent", label: "Rent" },
-                { id: "off-plan", label: "Off-Plan" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setPurpose(tab.id)}
-                  className={`px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-lg transition-all ${
-                    purpose === tab.id
-                      ? "bg-[#C99A3B] text-white shadow-md"
-                      : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+                { id: "", label: "All Properties", icon: null },
+                { id: "residential", label: "Residential", icon: Home },
+                { id: "commercial", label: "Commercial", icon: Building2 },
+                { id: "leasing", label: "Leasing", icon: KeyRound },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = category === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setCategory(tab.id);
+                      if (tab.id === "leasing") {
+                        setPurpose("");
+                      }
+                    }}
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl transition-all ${
+                      isActive
+                        ? "bg-[#C99A3B] text-white shadow-md font-bold"
+                        : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {Icon && <Icon className="w-3.5 h-3.5" />}
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -193,17 +239,21 @@ export default function ListingsContent() {
             </span>
           </div>
 
-          <div className={`${mobileFilterOpen ? "grid" : "hidden sm:grid"} grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mb-4`}>
+          <div
+            className={`${
+              mobileFilterOpen ? "grid" : "hidden sm:grid"
+            } grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mb-4`}
+          >
             {/* Search Input */}
             <div className="lg:col-span-2">
               <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
-                Keyword or Community
+                Keyword Search
               </label>
               <div className="relative">
                 <Search className="w-4 h-4 text-[#C99A3B] absolute left-3 top-2.5" />
                 <input
                   type="text"
-                  placeholder="e.g. Palm Jumeirah, Marina, Penthouse..."
+                  placeholder="e.g. Al Sinniyah, Villa, Marina, Office..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
@@ -211,23 +261,46 @@ export default function ListingsContent() {
               </div>
             </div>
 
-            {/* Community Dropdown */}
+            {/* Location / Area Dropdown (Umm Al Quwain & Wider UAE) */}
             <div>
               <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
-                Area / Community
+                Area / Location
               </label>
               <select
                 value={community}
                 onChange={(e) => setCommunity(e.target.value)}
                 className="w-full px-3 py-2 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
               >
-                <option value="">All Communities</option>
-                <option value="Palm Jumeirah">Palm Jumeirah</option>
-                <option value="Downtown Dubai">Downtown Dubai</option>
-                <option value="Dubai Marina">Dubai Marina</option>
-                <option value="Dubai Hills Estate">Dubai Hills Estate</option>
-                <option value="Business Bay">Business Bay</option>
-                <option value="Jumeirah Village Circle">JVC</option>
+                <option value="">All Locations</option>
+                <optgroup label="Umm Al Quwain">
+                  <option value="Al Sinniyah Island">Al Sinniyah Island</option>
+                  <option value="Al Salamah">Al Salamah</option>
+                  <option value="UAQ Marina">UAQ Marina</option>
+                  <option value="Mangrove Beachfront">Mangrove Beachfront</option>
+                  <option value="Al Ramlah">Al Ramlah & Al Raudah</option>
+                  <option value="Al Khor">Al Khor District</option>
+                  <option value="Industrial">UAQ Industrial Area</option>
+                  <option value="Falaj Al Mualla">Falaj Al Mualla</option>
+                </optgroup>
+                <optgroup label="Wider UAE">
+                  <option value="Wider UAE">Wider UAE Enclaves</option>
+                </optgroup>
+              </select>
+            </div>
+
+            {/* Region Filter */}
+            <div>
+              <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
+                Geographic Region
+              </label>
+              <select
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
+                className="w-full px-3 py-2 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
+              >
+                <option value="">All Regions</option>
+                <option value="Umm Al Quwain">Umm Al Quwain</option>
+                <option value="Wider UAE">Wider UAE</option>
               </select>
             </div>
 
@@ -242,10 +315,12 @@ export default function ListingsContent() {
                 className="w-full px-3 py-2 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
               >
                 <option value="">All Types</option>
-                <option value="apartment">Apartment</option>
-                <option value="villa">Villa</option>
-                <option value="townhouse">Townhouse</option>
-                <option value="penthouse">Penthouse</option>
+                <option value="villa">Villas & Mansions</option>
+                <option value="apartment">Apartments</option>
+                <option value="penthouse">Penthouses</option>
+                <option value="townhouse">Townhouses</option>
+                <option value="commercial">Commercial / Office</option>
+                <option value="industrial">Industrial / Warehouse</option>
               </select>
             </div>
 
@@ -268,176 +343,100 @@ export default function ListingsContent() {
                 <option value="5">5+ Bedrooms</option>
               </select>
             </div>
-
-            {/* Price Filter */}
-            <div>
-              <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
-                Max Price (AED)
-              </label>
-              <select
-                value={maxPrice}
-                onChange={(e) => setMaxPrice(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
-              >
-                <option value="">No Max Price</option>
-                <option value="300000">AED 300,000</option>
-                <option value="1000000">AED 1,000,000</option>
-                <option value="5000000">AED 5,000,000</option>
-                <option value="15000000">AED 15,000,000</option>
-                <option value="30000000">AED 30,000,000</option>
-                <option value="50000000">AED 50,000,000</option>
-              </select>
-            </div>
           </div>
 
-          {/* Filter Bar Controls & Active Tags */}
+          {/* Active Filter Chips and Reset */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#E7DFCF]">
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="font-semibold text-[#111111]">
-                Showing {filteredListings.length} {filteredListings.length === 1 ? "Property" : "Properties"}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs text-[#5E6778]">
+                Showing <strong className="text-[#111111]">{filteredListings.length}</strong> properties
               </span>
+
+              {category && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#F7F3EA] text-[#111111] text-[11px] font-semibold rounded-lg border border-[#E7DFCF]">
+                  Category: {category.charAt(0).toUpperCase() + category.slice(1)}
+                  <button onClick={() => setCategory("")} className="hover:text-red-500">
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
+
+              {community && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#F7F3EA] text-[#111111] text-[11px] font-semibold rounded-lg border border-[#E7DFCF]">
+                  Location: {community}
+                  <button onClick={() => setCommunity("")} className="hover:text-red-500">
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
+
+              {region && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#F7F3EA] text-[#111111] text-[11px] font-semibold rounded-lg border border-[#E7DFCF]">
+                  Region: {region}
+                  <button onClick={() => setRegion("")} className="hover:text-red-500">
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
+
+              {propertyType && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#F7F3EA] text-[#111111] text-[11px] font-semibold rounded-lg border border-[#E7DFCF]">
+                  Type: {propertyType}
+                  <button onClick={() => setPropertyType("")} className="hover:text-red-500">
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
 
               {hasActiveFilters && (
                 <button
                   onClick={resetFilters}
-                  className="inline-flex items-center gap-1 text-[11px] font-medium text-[#C99A3B] hover:text-[#8A6420] ml-2"
+                  className="inline-flex items-center gap-1 text-xs text-[#C99A3B] hover:text-[#8A6420] font-semibold ml-2"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  <span>Clear All Filters</span>
+                  <span>Reset All</span>
                 </button>
               )}
             </div>
 
-            <div className="flex items-center gap-3">
-              {/* Map Toggle Placeholder */}
-              <button
-                onClick={() => setShowMap(!showMap)}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-                  showMap
-                    ? "bg-[#111111] text-[#C99A3B] border-[#111111]"
-                    : "border-[#E7DFCF] text-[#5E6778] hover:text-[#111111]"
-                }`}
+            {/* Sorting */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-[#5E6778] hidden sm:inline">Sort:</span>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-2.5 py-1.5 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-lg focus:outline-none focus:border-[#C99A3B]"
               >
-                <Map className="w-3.5 h-3.5" />
-                <span>{showMap ? "Hide Map" : "Show Map View"}</span>
-              </button>
-
-              {/* Sort By Dropdown */}
-              <div className="flex items-center gap-1.5 text-xs text-[#5E6778]">
-                <ArrowUpDown className="w-3.5 h-3.5 text-[#C99A3B]" />
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="px-2 py-1 bg-transparent border border-[#E7DFCF] rounded-lg text-xs focus:outline-none focus:border-[#C99A3B]"
-                >
-                  <option value="featured">Featured First</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                  <option value="size-desc">Largest Size (Sq Ft)</option>
-                </select>
-              </div>
-
-              {/* View Mode Toggle (Grid vs List) */}
-              <div className="flex items-center border border-[#E7DFCF] rounded-lg p-0.5">
-                <button
-                  onClick={() => setViewMode("grid")}
-                  aria-label="Grid View"
-                  className={`p-1.5 rounded ${
-                    viewMode === "grid" ? "bg-[#111111] text-white" : "text-[#5E6778]"
-                  }`}
-                >
-                  <Grid className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={() => setViewMode("list")}
-                  aria-label="List View"
-                  className={`p-1.5 rounded ${
-                    viewMode === "list" ? "bg-[#111111] text-white" : "text-[#5E6778]"
-                  }`}
-                >
-                  <ListIcon className="w-3.5 h-3.5" />
-                </button>
-              </div>
+                <option value="featured">Featured First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="size-desc">Largest Area</option>
+              </select>
             </div>
           </div>
         </div>
 
-        {/* Map Placeholder View (when toggled) */}
-        {showMap && (
-          <div className="mb-8 bg-white rounded-2xl border border-[#E7DFCF] overflow-hidden shadow-sm">
-            <div className="relative h-80 w-full bg-slate-900 flex items-center justify-center text-center p-6">
-              <div className="relative z-10">
-                <MapPin className="w-10 h-10 text-[#C99A3B] mx-auto mb-2 animate-bounce" />
-                <h3 className="text-xl font-serif font-bold text-white mb-1">
-                  Interactive Dubai Map View
-                </h3>
-                <p className="text-xs text-white/70 max-w-md mx-auto mb-4 font-light">
-                  Showing geographic clusters across Palm Jumeirah, Downtown Dubai, Dubai Marina, and Dubai Hills Estate.
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 text-xs">
-                  {["Palm Jumeirah (2)", "Downtown (2)", "Marina (2)", "Dubai Hills (1)", "Business Bay (1)"].map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-lg text-white border border-white/20">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <img
-                src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80"
-                alt="Map Background"
-                className="absolute inset-0 w-full h-full object-cover opacity-20 filter grayscale"
-              />
-            </div>
-          </div>
-        )}
-
-        {/* Listings Display: Grid or List */}
+        {/* Listings Grid or Empty State */}
         {filteredListings.length > 0 ? (
-          <div
-            className={
-              viewMode === "grid"
-                ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                : "space-y-6"
-            }
-          >
-            {filteredListings.map((listing) => (
-              <PropertyCard key={listing.id} listing={listing} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredListings.map((listing, index) => (
+              <PropertyCard key={listing.id} listing={listing} priority={index < 3} />
             ))}
           </div>
         ) : (
-          /* Empty State */
-          <div className="text-center py-20 bg-white rounded-2xl border border-[#E7DFCF] p-8">
-            <Search className="w-12 h-12 text-[#C99A3B] mx-auto mb-3" />
+          <div className="bg-white rounded-2xl p-12 text-center border border-[#E7DFCF] shadow-sm max-w-lg mx-auto">
+            <Building2 className="w-12 h-12 text-[#C99A3B] mx-auto mb-4 opacity-70" />
             <h3 className="text-xl font-serif font-bold text-[#111111] mb-2">
-              No matching properties found
+              No Properties Matching Your Criteria
             </h3>
-            <p className="text-xs sm:text-sm text-[#5E6778] max-w-md mx-auto mb-6">
-              We couldn't find listings matching your exact criteria. Try resetting filters or reach out to our private advisory team for off-market properties.
+            <p className="text-xs sm:text-sm text-[#5E6778] mb-6">
+              We could not find active listings with your specific combination in Umm Al Quwain or the wider UAE. Try adjusting your category or clearing filters.
             </p>
             <button
               onClick={resetFilters}
-              className="px-6 py-2.5 bg-[#C99A3B] text-white rounded-lg text-xs uppercase tracking-wider font-semibold hover:bg-[#8A6420] transition-colors"
+              className="px-6 py-2.5 bg-[#C99A3B] hover:bg-[#8A6420] text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all"
             >
-              Reset All Filters
-            </button>
-          </div>
-        )}
-
-        {/* Pagination Placeholder */}
-        {filteredListings.length > 0 && (
-          <div className="mt-14 flex items-center justify-center gap-2">
-            <button className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#111111] text-[#C99A3B] border border-[#111111]">
-              1
-            </button>
-            <button className="px-4 py-2 text-xs font-semibold rounded-lg bg-white text-[#5E6778] border border-[#E7DFCF] hover:border-[#C99A3B]">
-              2
-            </button>
-            <button className="px-4 py-2 text-xs font-semibold rounded-lg bg-white text-[#5E6778] border border-[#E7DFCF] hover:border-[#C99A3B]">
-              3
-            </button>
-            <span className="text-xs text-[#5E6778] px-2">...</span>
-            <button className="px-4 py-2 text-xs font-semibold rounded-lg bg-white text-[#5E6778] border border-[#E7DFCF] hover:border-[#C99A3B]">
-              Next →
+              View All Properties
             </button>
           </div>
         )}

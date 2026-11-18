@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, Award, TrendingUp, CheckCircle2, Calculator } from "lucide-react";
+import { CONTACT_INFO } from "@/data/contactInfo";
 
 export const metadata = {
-  title: "Dubai Real Estate Investment & UAE Golden Visa | La Vista",
-  description: "Learn how to qualify for the 10-year UAE Golden Visa via property investment and maximize rental ROI in Dubai.",
+  title: "Real Estate Investment & UAE Golden Visa | La Vista Real Estate",
+  description:
+    "Learn how to qualify for the 10-year UAE Golden Visa via property investment in Umm Al Quwain and the wider UAE.",
 };
 
 export default function InvestPage() {
@@ -17,10 +19,10 @@ export default function InvestPage() {
               Wealth Advisory & Residency
             </span>
             <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight mb-4">
-              Invest in Dubai & UAE Golden Visa
+              Invest in Umm Al Quwain & UAE Golden Visa
             </h1>
             <p className="text-white/70 text-sm sm:text-base font-light">
-              Secure long-term UAE residency for you and your family while benefiting from 0% personal tax, high capital appreciation, and robust rental yields.
+              Secure long-term UAE residency for you and your family while benefiting from 0% personal tax, high coastal capital appreciation, and robust rental yields.
             </p>
           </div>
         </div>
@@ -37,12 +39,12 @@ export default function InvestPage() {
               UAE 10-Year Golden Visa via Property
             </h2>
             <p className="text-sm text-[#5E6778] leading-relaxed font-light mb-6">
-              Investors who purchase one or multiple properties in Dubai valued at <strong>AED 2,000,000 (~$545,000 USD)</strong> or more are eligible for the 10-year renewable Golden Visa. Off-plan properties from approved developers are also eligible.
+              Investors who acquire one or multiple residential or commercial properties in Umm Al Quwain or across the UAE valued at <strong>AED 2,000,000 (~$545,000 USD)</strong> or more are eligible for the 10-year renewable Golden Visa. Off-plan properties from approved developers are also eligible.
             </p>
 
             <div className="space-y-3">
               {[
-                "100% foreign ownership of properties and companies",
+                "100% foreign freehold ownership of properties and companies",
                 "Includes spouse, children of any age, and domestic staff",
                 "No minimum stay required inside the UAE to maintain residency",
                 "0% income tax, 0% capital gains tax, 0% inheritance tax",
@@ -59,15 +61,25 @@ export default function InvestPage() {
             <h3 className="text-xl font-serif font-bold text-[#C99A3B] mb-4">
               Schedule Golden Visa Consultation
             </h3>
-            <p className="text-xs text-white/70 mb-6 font-light">
-              Our private conveyancing team will guide you through title deeds, DLD registrations, and medical processing.
+            <p className="text-xs text-white/70 mb-6 font-light leading-relaxed">
+              Our private client desk coordinates directly with UAE immigration authorities to manage your title deed conveyancing, medical clearance, and Emirates ID processing seamlessly.
             </p>
-            <Link
-              href="/contact"
-              className="w-full block py-3.5 bg-[#C99A3B] text-white text-center text-xs uppercase tracking-wider font-semibold rounded-xl hover:bg-[#8A6420] transition-colors"
-            >
-              Contact Advisory Desk
-            </Link>
+            <div className="space-y-3">
+              <Link
+                href="/contact"
+                className="w-full py-3 bg-[#C99A3B] hover:bg-[#8A6420] text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2"
+              >
+                <span>Book Confidential Advisory</span>
+              </Link>
+              <a
+                href={`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent("Hello La Vista, I would like to inquire about property investment and the UAE Golden Visa.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2"
+              >
+                <span>Inquire via WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
