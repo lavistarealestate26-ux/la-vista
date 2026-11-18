@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { Listing } from "@/types/listing";
 import PropertyCard from "@/components/properties/PropertyCard";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface PropertyDetailClientProps {
   listing: Listing;
@@ -380,7 +381,7 @@ export default function PropertyDetailClient({
                   rel="noopener noreferrer"
                   className="py-2.5 px-3 bg-[#25D366] text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 shadow-sm hover:bg-[#1eb956] transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </a>
                 <a
@@ -495,7 +496,7 @@ export default function PropertyDetailClient({
             rel="noopener noreferrer"
             className="py-2.5 px-3.5 bg-[#25D366] text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
+            <WhatsAppIcon className="w-4 h-4" />
             <span>WhatsApp</span>
           </a>
           <a

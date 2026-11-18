@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, MessageCircle, FileText, Share2 } from "lucide-react";
+import { Phone, FileText, Share2 } from "lucide-react";
 import EnquiryModal from "../modals/EnquiryModal";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 import { CONTACT_INFO } from "@/data/contactInfo";
 
@@ -100,7 +101,7 @@ export default function FloatingActions() {
             aria-label="Direct WhatsApp Chat with La Vista Real Estate"
             className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#25D366]/50"
           >
-            <MessageCircle className="w-4 h-4 sm:w-6 sm:h-6 fill-white" />
+            <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-6.5 md:h-6.5 text-white" />
           </a>
         </div>
 

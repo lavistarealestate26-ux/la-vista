@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Building2,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { CONTACT_INFO } from "@/data/contactInfo";
 
 export default function ContactPage() {
@@ -137,7 +138,7 @@ export default function ContactPage() {
                 {/* WhatsApp */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#25D366] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4.5 h-4.5" />
                   </div>
                   <div>
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
