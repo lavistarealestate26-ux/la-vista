@@ -38,7 +38,7 @@ export default function FeaturedProperties() {
           </div>
 
           {/* Filter Pills aligned with client categories */}
-          <div className="flex items-center gap-1.5 mt-6 md:mt-0 p-1 bg-white rounded-xl border border-[#E7DFCF] shadow-sm overflow-x-auto max-w-full no-scrollbar">
+          <div className="flex items-center gap-1 sm:gap-1.5 mt-6 md:mt-0 p-1 bg-white rounded-xl border border-[#E7DFCF] shadow-sm overflow-x-auto sm:overflow-visible max-w-full no-scrollbar shrink-0">
             {(
               [
                 { id: "all", label: "All Curated" },
