@@ -152,49 +152,52 @@ export default function HeroSection() {
         </div>
 
         {/* Search Bar Component */}
-        <div className="w-full max-w-5xl bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 sm:p-5 border border-white/30 text-[#111111]">
-          {/* Categories: Residential | Commercial | Leasing */}
-          <div className="flex items-center gap-2 mb-4 border-b border-[#E7DFCF] pb-3 overflow-x-auto no-scrollbar">
-            {(
-              [
-                { id: "residential", label: t.hero_tab_residential },
-                { id: "commercial", label: t.hero_tab_commercial },
-                { id: "leasing", label: t.hero_tab_leasing },
-              ] as const
-            ).map((tab) => {
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => {
-                    setActiveTab(tab.id);
-                    setSelectedPriceIndex(0);
-                  }}
-                  className={`relative px-4 py-2 text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${
-                    isActive
-                      ? "bg-[#111111] text-[#C99A3B]"
-                      : "text-[#5E6778] hover:text-[#111111] hover:bg-[#F7F3EA]"
-                  }`}
-                >
-                  {tab.label}
-                  {isActive && (
-                    <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#C99A3B]" />
-                  )}
-                </button>
-              );
-            })}
+        <div className="w-full max-w-5xl bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] p-4 sm:p-6 border border-[#E7DFCF]/80 text-[#111111]">
+          {/* Categories Segmented Control: Residential | Commercial | Leasing */}
+          <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E7DFCF]/70">
+            <div className="inline-flex p-1 bg-[#F7F3EA] rounded-xl border border-[#E7DFCF] gap-1 overflow-x-auto no-scrollbar">
+              {(
+                [
+                  { id: "residential", label: t.hero_tab_residential },
+                  { id: "commercial", label: t.hero_tab_commercial },
+                  { id: "leasing", label: t.hero_tab_leasing },
+                ] as const
+              ).map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      setSelectedPriceIndex(0);
+                    }}
+                    className={`px-4 sm:px-5 py-2 text-xs sm:text-[13px] font-bold tracking-wider uppercase rounded-lg transition-all shrink-0 whitespace-nowrap ${
+                      isActive
+                        ? "bg-[#111111] text-[#C99A3B] shadow-sm"
+                        : "text-[#5E6778] hover:text-[#111111] hover:bg-white/60"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            <span className="hidden sm:inline-block text-[11px] uppercase tracking-widest text-[#8A7A65] font-semibold">
+              Umm Al Quwain & UAE
+            </span>
           </div>
 
-          {/* Search Inputs */}
-          <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+          {/* Search Inputs Grid */}
+          <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-stretch">
             {/* Input 1: Area / Community with Type-ahead */}
-            <div className="relative md:col-span-5">
-              <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
+            <div className="relative md:col-span-5 bg-[#FAF8F5] hover:bg-white focus-within:bg-white focus-within:ring-2 focus-within:ring-[#C99A3B]/40 focus-within:border-[#C99A3B] border border-[#E7DFCF] rounded-2xl p-3 transition-all shadow-sm hover:shadow-md flex flex-col justify-center">
+              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-1">
                 {t.hero_label_location}
               </label>
-              <div className="relative">
-                <MapPin className="w-4 h-4 text-[#C99A3B] absolute left-3.5 top-3" />
+              <div className="relative flex items-center">
+                <MapPin className="w-4 h-4 text-[#C99A3B] shrink-0 mr-2.5" />
                 <input
                   type="text"
                   placeholder={t.hero_placeholder_location}
@@ -205,13 +208,13 @@ export default function HeroSection() {
                   }}
                   onFocus={() => setSuggestionsOpen(true)}
                   onBlur={() => setTimeout(() => setSuggestionsOpen(false), 200)}
-                  className="w-full pl-10 pr-4 py-3 min-h-[46px] text-base sm:text-sm bg-[#F7F3EA]/70 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] text-[#111111] placeholder:text-[#5E6778]/70"
+                  className="w-full bg-transparent text-[#111111] font-medium text-sm sm:text-base outline-none placeholder:text-[#5E6778]/60 placeholder:font-normal"
                 />
               </div>
 
               {/* Type-Ahead Suggestions Dropdown */}
               {suggestionsOpen && searchArea.trim().length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#E7DFCF] rounded-xl shadow-xl max-h-52 overflow-y-auto z-50 py-1">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl max-h-56 overflow-y-auto z-50 py-1.5 divide-y divide-[#E7DFCF]/50">
                   {filteredAreas.length > 0 ? (
                     filteredAreas.map((area) => (
                       <button
@@ -221,14 +224,14 @@ export default function HeroSection() {
                           setSearchArea(area);
                           setSuggestionsOpen(false);
                         }}
-                        className="w-full px-4 py-2 text-left text-xs text-[#111111] hover:bg-[#F7F3EA] flex items-center justify-between"
+                        className="w-full px-4 py-2.5 text-left text-xs sm:text-sm text-[#111111] hover:bg-[#F7F3EA] flex items-center justify-between transition-colors"
                       >
-                        <span>{area}</span>
+                        <span className="font-medium">{area}</span>
                         <MapPin className="w-3.5 h-3.5 text-[#C99A3B]" />
                       </button>
                     ))
                   ) : (
-                    <div className="px-4 py-2 text-xs text-[#5E6778]">
+                    <div className="px-4 py-3 text-xs text-[#5E6778] italic">
                       No exact match, press Search to query all listings.
                     </div>
                   )}
@@ -237,16 +240,16 @@ export default function HeroSection() {
             </div>
 
             {/* Input 2: Bedrooms / Space Dropdown */}
-            <div className="md:col-span-3">
-              <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
+            <div className="md:col-span-3 bg-[#FAF8F5] hover:bg-white focus-within:bg-white focus-within:ring-2 focus-within:ring-[#C99A3B]/40 focus-within:border-[#C99A3B] border border-[#E7DFCF] rounded-2xl p-3 transition-all shadow-sm hover:shadow-md flex flex-col justify-center">
+              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-1">
                 {t.hero_label_beds}
               </label>
-              <div className="relative">
-                <BedDouble className="w-4 h-4 text-[#C99A3B] absolute left-3.5 top-3" />
+              <div className="relative flex items-center">
+                <BedDouble className="w-4 h-4 text-[#C99A3B] shrink-0 mr-2.5" />
                 <select
                   value={selectedBeds}
                   onChange={(e) => setSelectedBeds(e.target.value)}
-                  className="w-full pl-10 pr-8 py-3 min-h-[46px] text-base sm:text-sm bg-[#F7F3EA]/70 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] text-[#111111] appearance-none"
+                  className="w-full bg-transparent text-[#111111] font-medium text-sm sm:text-base outline-none appearance-none cursor-pointer pr-6"
                 >
                   <option value="">{t.hero_any_beds}</option>
                   <option value="0">{t.spec_studio}</option>
@@ -256,21 +259,21 @@ export default function HeroSection() {
                   <option value="4">4 {t.spec_beds}</option>
                   <option value="5">5+ {t.spec_beds}</option>
                 </select>
-                <ChevronDown className="w-4 h-4 text-[#5E6778] absolute right-3 top-3 pointer-events-none" />
+                <ChevronDown className="w-4 h-4 text-[#5E6778] absolute right-0 pointer-events-none" />
               </div>
             </div>
 
             {/* Input 3: Price / Budget Range */}
-            <div className="md:col-span-2">
-              <label className="block text-[10px] uppercase font-bold text-[#5E6778] tracking-wider mb-1">
+            <div className="md:col-span-2 bg-[#FAF8F5] hover:bg-white focus-within:bg-white focus-within:ring-2 focus-within:ring-[#C99A3B]/40 focus-within:border-[#C99A3B] border border-[#E7DFCF] rounded-2xl p-3 transition-all shadow-sm hover:shadow-md flex flex-col justify-center">
+              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-1">
                 {t.hero_label_price}
               </label>
-              <div className="relative">
-                <BadgeDollarSign className="w-4 h-4 text-[#C99A3B] absolute left-3 top-3" />
+              <div className="relative flex items-center">
+                <BadgeDollarSign className="w-4 h-4 text-[#C99A3B] shrink-0 mr-2" />
                 <select
                   value={selectedPriceIndex}
                   onChange={(e) => setSelectedPriceIndex(Number(e.target.value))}
-                  className="w-full pl-9 pr-6 py-3 min-h-[46px] text-base sm:text-xs bg-[#F7F3EA]/70 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] text-[#111111] appearance-none"
+                  className="w-full bg-transparent text-[#111111] font-medium text-xs sm:text-sm outline-none appearance-none cursor-pointer pr-5 truncate"
                 >
                   {PRICE_RANGES[activeTab].map((range, idx) => (
                     <option key={range.label} value={idx}>
@@ -278,39 +281,39 @@ export default function HeroSection() {
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="w-4 h-4 text-[#5E6778] absolute right-2 top-3 pointer-events-none" />
+                <ChevronDown className="w-3.5 h-3.5 text-[#5E6778] absolute right-0 pointer-events-none" />
               </div>
             </div>
 
             {/* Submit Button */}
-            <div className="md:col-span-2 pt-2 md:pt-4">
+            <div className="md:col-span-2 flex items-center">
               <button
                 type="submit"
-                className="w-full min-h-[48px] py-3 px-4 bg-[#C99A3B] hover:bg-[#8A6420] text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm uppercase tracking-wider active:scale-98"
+                className="w-full h-full min-h-[58px] py-3.5 px-4 bg-gradient-to-r from-[#C99A3B] via-[#D8AD55] to-[#B3872F] hover:from-[#B58830] hover:to-[#966E20] text-white font-bold rounded-2xl transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(201,154,59,0.5)] hover:shadow-[0_14px_32px_-5px_rgba(201,154,59,0.65)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-widest group"
               >
-                <Search className="w-4 h-4" />
-                <span>{t.hero_search_btn}</span>
+                <Search className="w-4 h-4 transition-transform group-hover:scale-115" />
+                <span className="font-semibold">{t.hero_search_btn}</span>
               </button>
             </div>
           </form>
 
           {/* Single Line of Trust Stats Below Search */}
-          <div className="mt-4 pt-3 border-t border-[#E7DFCF]/80 flex flex-wrap items-center justify-between text-xs text-[#5E6778] font-medium gap-2">
+          <div className="mt-4 pt-3.5 border-t border-[#E7DFCF]/70 flex flex-wrap items-center justify-between text-xs text-[#5E6778] gap-2.5">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#C99A3B]" />
+              <span className="w-2 h-2 rounded-full bg-[#C99A3B] animate-pulse" />
               <span className="text-[#111111] font-semibold">{t.stat_listings}</span>
             </div>
-            <span className="hidden sm:inline text-[#E7DFCF]">|</span>
-            <div>
+            <div className="hidden sm:flex items-center gap-2">
+              <span className="text-[#C99A3B]">✦</span>
               <span className="text-[#111111] font-semibold">{t.stat_advisors}</span>
             </div>
-            <span className="hidden sm:inline text-[#E7DFCF]">|</span>
-            <div>
-              <span className="text-[#111111] font-semibold">{t.stat_countries}</span>
+            <div className="hidden md:flex items-center gap-2">
+              <span className="text-[#C99A3B]">✦</span>
+              <span className="text-[#5E6778] font-medium">{t.stat_countries}</span>
             </div>
-            <span className="hidden sm:inline text-[#E7DFCF]">|</span>
-            <div>
-              <span className="text-[#111111] font-semibold">{t.stat_volume}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[#C99A3B]">✦</span>
+              <span className="text-[#111111] font-bold text-[#8A6420]">{t.stat_volume}</span>
             </div>
           </div>
         </div>
