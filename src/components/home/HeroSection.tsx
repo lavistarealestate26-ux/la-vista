@@ -62,6 +62,44 @@ export default function HeroSection() {
   const [selectedBeds, setSelectedBeds] = useState("");
   const [selectedPriceIndex, setSelectedPriceIndex] = useState(0);
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
+  const [bedsOpen, setBedsOpen] = useState(false);
+  const [priceOpen, setPriceOpen] = useState(false);
+  const searchFormRef = useRef<HTMLFormElement>(null);
+
+  // Close dropdowns on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (searchFormRef.current && !searchFormRef.current.contains(e.target as Node)) {
+        setBedsOpen(false);
+        setPriceOpen(false);
+        setSuggestionsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const getBedsLabel = (val: string) => {
+    switch (val) {
+      case "0": return t.spec_studio || "Studio";
+      case "1": return `1 ${t.spec_beds || "Bed"}`;
+      case "2": return `2 ${t.spec_beds || "Beds"}`;
+      case "3": return `3 ${t.spec_beds || "Beds"}`;
+      case "4": return `4 ${t.spec_beds || "Beds"}`;
+      case "5": return `5+ ${t.spec_beds || "Beds"}`;
+      default: return t.hero_any_beds || "Any Size";
+    }
+  };
+
+  const BEDS_OPTIONS = [
+    { value: "", label: t.hero_any_beds || "Any Size" },
+    { value: "0", label: t.spec_studio || "Studio" },
+    { value: "1", label: `1 ${t.spec_beds || "Bedroom"}` },
+    { value: "2", label: `2 ${t.spec_beds || "Bedrooms"}` },
+    { value: "3", label: `3 ${t.spec_beds || "Bedrooms"}` },
+    { value: "4", label: `4 ${t.spec_beds || "Bedrooms"}` },
+    { value: "5", label: `5+ ${t.spec_beds || "Bedrooms"}` },
+  ];
 
   // Auto-play muted video guaranteed on mount
   useEffect(() => {
@@ -189,15 +227,19 @@ export default function HeroSection() {
             </span>
           </div>
 
-          {/* Search Inputs Grid */}
-          <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-stretch">
-            {/* Input 1: Area / Community with Type-ahead */}
-            <div className="relative md:col-span-5 bg-[#FAF8F5] hover:bg-white focus-within:bg-white focus-within:ring-2 focus-within:ring-[#C99A3B]/40 focus-within:border-[#C99A3B] border border-[#E7DFCF] rounded-2xl p-3 transition-all shadow-sm hover:shadow-md flex flex-col justify-center">
-              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-1">
+          {/* Unified Sleek Search Console Bar */}
+          <form
+            ref={searchFormRef}
+            onSubmit={handleSearch}
+            className="bg-[#FAF8F5] border border-[#E7DFCF] rounded-2xl p-1.5 sm:p-2 grid grid-cols-1 md:grid-cols-12 gap-1.5 sm:gap-2 items-center"
+          >
+            {/* Field 1: Area / Community with Type-ahead */}
+            <div className="relative md:col-span-4 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white focus-within:shadow-sm transition-all cursor-text">
+              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-0.5">
                 {t.hero_label_location}
               </label>
-              <div className="relative flex items-center">
-                <MapPin className="w-4 h-4 text-[#C99A3B] shrink-0 mr-2.5" />
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#C99A3B] shrink-0" />
                 <input
                   type="text"
                   placeholder={t.hero_placeholder_location}
@@ -206,15 +248,18 @@ export default function HeroSection() {
                     setSearchArea(e.target.value);
                     setSuggestionsOpen(true);
                   }}
-                  onFocus={() => setSuggestionsOpen(true)}
-                  onBlur={() => setTimeout(() => setSuggestionsOpen(false), 200)}
-                  className="w-full bg-transparent text-[#111111] font-medium text-sm sm:text-base outline-none placeholder:text-[#5E6778]/60 placeholder:font-normal"
+                  onFocus={() => {
+                    setSuggestionsOpen(true);
+                    setBedsOpen(false);
+                    setPriceOpen(false);
+                  }}
+                  className="w-full bg-transparent text-[#111111] font-medium text-sm outline-none placeholder:text-[#5E6778]/60 placeholder:font-normal truncate"
                 />
               </div>
 
-              {/* Type-Ahead Suggestions Dropdown */}
+              {/* Suggestions Dropdown */}
               {suggestionsOpen && searchArea.trim().length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl max-h-56 overflow-y-auto z-50 py-1.5 divide-y divide-[#E7DFCF]/50">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl max-h-56 overflow-y-auto z-50 py-1 divide-y divide-[#E7DFCF]/40">
                   {filteredAreas.length > 0 ? (
                     filteredAreas.map((area) => (
                       <button
@@ -231,7 +276,7 @@ export default function HeroSection() {
                       </button>
                     ))
                   ) : (
-                    <div className="px-4 py-3 text-xs text-[#5E6778] italic">
+                    <div className="px-4 py-2.5 text-xs text-[#5E6778] italic">
                       No exact match, press Search to query all listings.
                     </div>
                   )}
@@ -239,60 +284,114 @@ export default function HeroSection() {
               )}
             </div>
 
-            {/* Input 2: Bedrooms / Space Dropdown */}
-            <div className="md:col-span-3 bg-[#FAF8F5] hover:bg-white focus-within:bg-white focus-within:ring-2 focus-within:ring-[#C99A3B]/40 focus-within:border-[#C99A3B] border border-[#E7DFCF] rounded-2xl p-3 transition-all shadow-sm hover:shadow-md flex flex-col justify-center">
-              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-1">
+            {/* Field 2: Custom Sleek Bedrooms Dropdown */}
+            <div className="relative md:col-span-3 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white hover:shadow-sm transition-all">
+              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-0.5 pointer-events-none">
                 {t.hero_label_beds}
               </label>
-              <div className="relative flex items-center">
-                <BedDouble className="w-4 h-4 text-[#C99A3B] shrink-0 mr-2.5" />
-                <select
-                  value={selectedBeds}
-                  onChange={(e) => setSelectedBeds(e.target.value)}
-                  className="w-full bg-transparent text-[#111111] font-medium text-sm sm:text-base outline-none appearance-none cursor-pointer pr-6"
-                >
-                  <option value="">{t.hero_any_beds}</option>
-                  <option value="0">{t.spec_studio}</option>
-                  <option value="1">1 {t.spec_beds}</option>
-                  <option value="2">2 {t.spec_beds}</option>
-                  <option value="3">3 {t.spec_beds}</option>
-                  <option value="4">4 {t.spec_beds}</option>
-                  <option value="5">5+ {t.spec_beds}</option>
-                </select>
-                <ChevronDown className="w-4 h-4 text-[#5E6778] absolute right-0 pointer-events-none" />
-              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setBedsOpen(!bedsOpen);
+                  setPriceOpen(false);
+                  setSuggestionsOpen(false);
+                }}
+                className="w-full flex items-center justify-between text-left"
+              >
+                <div className="flex items-center gap-2 truncate pr-1">
+                  <BedDouble className="w-4 h-4 text-[#C99A3B] shrink-0" />
+                  <span className="text-sm font-medium text-[#111111] truncate">
+                    {getBedsLabel(selectedBeds)}
+                  </span>
+                </div>
+                <ChevronDown className={`w-3.5 h-3.5 text-[#5E6778] shrink-0 transition-transform ${bedsOpen ? "rotate-180 text-[#C99A3B]" : ""}`} />
+              </button>
+
+              {/* Sleek Floating Bedrooms Dropdown */}
+              {bedsOpen && (
+                <div className="absolute top-full left-0 w-52 sm:w-56 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl py-1.5 z-50 animate-fadeIn">
+                  {BEDS_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => {
+                        setSelectedBeds(opt.value);
+                        setBedsOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#F7F3EA] transition-colors ${
+                        selectedBeds === opt.value
+                          ? "text-[#C99A3B] font-bold bg-[#F7F3EA]/60"
+                          : "text-[#111111]"
+                      }`}
+                    >
+                      <span>{opt.label}</span>
+                      {selectedBeds === opt.value && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C99A3B]" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Input 3: Price / Budget Range */}
-            <div className="md:col-span-2 bg-[#FAF8F5] hover:bg-white focus-within:bg-white focus-within:ring-2 focus-within:ring-[#C99A3B]/40 focus-within:border-[#C99A3B] border border-[#E7DFCF] rounded-2xl p-3 transition-all shadow-sm hover:shadow-md flex flex-col justify-center">
-              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-1">
+            {/* Field 3: Custom Sleek Price Dropdown */}
+            <div className="relative md:col-span-3 px-3 py-2 rounded-xl hover:bg-white focus-within:bg-white hover:shadow-sm transition-all">
+              <label className="block text-[10px] uppercase font-bold text-[#8A7A65] tracking-[0.16em] mb-0.5 pointer-events-none">
                 {t.hero_label_price}
               </label>
-              <div className="relative flex items-center">
-                <BadgeDollarSign className="w-4 h-4 text-[#C99A3B] shrink-0 mr-2" />
-                <select
-                  value={selectedPriceIndex}
-                  onChange={(e) => setSelectedPriceIndex(Number(e.target.value))}
-                  className="w-full bg-transparent text-[#111111] font-medium text-xs sm:text-sm outline-none appearance-none cursor-pointer pr-5 truncate"
-                >
+              <button
+                type="button"
+                onClick={() => {
+                  setPriceOpen(!priceOpen);
+                  setBedsOpen(false);
+                  setSuggestionsOpen(false);
+                }}
+                className="w-full flex items-center justify-between text-left"
+              >
+                <div className="flex items-center gap-2 truncate pr-1">
+                  <BadgeDollarSign className="w-4 h-4 text-[#C99A3B] shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium text-[#111111] truncate">
+                    {PRICE_RANGES[activeTab][selectedPriceIndex]?.label || "Any Price"}
+                  </span>
+                </div>
+                <ChevronDown className={`w-3.5 h-3.5 text-[#5E6778] shrink-0 transition-transform ${priceOpen ? "rotate-180 text-[#C99A3B]" : ""}`} />
+              </button>
+
+              {/* Sleek Floating Price Dropdown */}
+              {priceOpen && (
+                <div className="absolute top-full left-0 md:-left-4 w-60 sm:w-64 mt-2 bg-white border border-[#E7DFCF] rounded-2xl shadow-2xl py-1.5 z-50 max-h-60 overflow-y-auto no-scrollbar animate-fadeIn">
                   {PRICE_RANGES[activeTab].map((range, idx) => (
-                    <option key={range.label} value={idx}>
-                      {range.label}
-                    </option>
+                    <button
+                      key={range.label}
+                      type="button"
+                      onClick={() => {
+                        setSelectedPriceIndex(idx);
+                        setPriceOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#F7F3EA] transition-colors ${
+                        selectedPriceIndex === idx
+                          ? "text-[#C99A3B] font-bold bg-[#F7F3EA]/60"
+                          : "text-[#111111]"
+                      }`}
+                    >
+                      <span className="truncate">{range.label}</span>
+                      {selectedPriceIndex === idx && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C99A3B] shrink-0" />
+                      )}
+                    </button>
                   ))}
-                </select>
-                <ChevronDown className="w-3.5 h-3.5 text-[#5E6778] absolute right-0 pointer-events-none" />
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* Submit Button */}
-            <div className="md:col-span-2 flex items-center">
+            {/* Field 4: Search Action Button */}
+            <div className="md:col-span-2 p-1">
               <button
                 type="submit"
-                className="w-full h-full min-h-[58px] py-3.5 px-4 bg-gradient-to-r from-[#C99A3B] via-[#D8AD55] to-[#B3872F] hover:from-[#B58830] hover:to-[#966E20] text-white font-bold rounded-2xl transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(201,154,59,0.5)] hover:shadow-[0_14px_32px_-5px_rgba(201,154,59,0.65)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-widest group"
+                className="w-full h-11 md:h-12 px-4 bg-gradient-to-r from-[#C99A3B] via-[#D8AD55] to-[#B3872F] hover:from-[#B58830] hover:to-[#966E20] text-white font-bold rounded-xl transition-all duration-300 shadow-[0_8px_20px_-4px_rgba(201,154,59,0.5)] hover:shadow-[0_12px_28px_-4px_rgba(201,154,59,0.65)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wider group"
               >
-                <Search className="w-4 h-4 transition-transform group-hover:scale-115" />
-                <span className="font-semibold">{t.hero_search_btn}</span>
+                <Search className="w-4 h-4 shrink-0 transition-transform group-hover:scale-115" />
+                <span className="whitespace-nowrap font-bold">Search</span>
               </button>
             </div>
           </form>
