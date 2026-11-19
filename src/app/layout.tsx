@@ -77,13 +77,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${montserrat.variable}`}>
-      <body className="min-h-screen flex flex-col bg-white text-[#111111] font-sans antialiased selection:bg-[#C99A3B]/30 selection:text-[#111111]">
+      <body className="min-h-screen flex flex-col bg-white text-[#111111] font-sans antialiased selection:bg-[#C99A3B]/30 selection:text-[#111111] w-full max-w-full overflow-x-hidden">
         <LanguageProvider>
           {/* Sticky & Transparent Header */}
           <Navbar />
 
           {/* Page Content */}
-          <main className="flex-grow pb-16 lg:pb-0">{children}</main>
+          <main className="flex-grow pb-16 lg:pb-0 w-full max-w-full overflow-x-hidden">{children}</main>
 
           {/* Floating Contact Stack (WhatsApp, Call, Enquiry) */}
           <FloatingActions />

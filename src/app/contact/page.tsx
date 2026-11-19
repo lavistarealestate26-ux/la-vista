@@ -59,7 +59,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-[#F7F3EA]/30 min-h-screen">
+    <div className="pt-24 pb-20 bg-[#F7F3EA]/30 min-h-screen w-full max-w-full overflow-x-hidden">
       {/* Top Banner */}
       <div className="bg-[#111111] text-white py-14 border-b border-[#C99A3B]/30">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,11 +77,11 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="max-w-[1400px] mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12 w-full max-w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 w-full min-w-0">
           {/* Left Column: Office Details & Direct Channels (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E7DFCF] shadow-sm">
+          <div className="lg:col-span-5 w-full min-w-0 space-y-6">
+            <div className="bg-white rounded-2xl p-4 sm:p-8 border border-[#E7DFCF] shadow-sm w-full min-w-0">
               <div className="flex items-center gap-2 mb-2">
                 <Building2 className="w-5 h-5 text-[#C99A3B]" />
                 <span className="text-xs uppercase font-bold tracking-widest text-[#C99A3B]">
@@ -94,15 +94,15 @@ export default function ContactPage() {
 
               <div className="space-y-5 text-sm text-[#111111]">
                 {/* Office Address */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 min-w-0">
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#C99A3B] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       Office Address
                     </strong>
-                    <span className="font-medium text-[#111111] block">{CONTACT_INFO.address}</span>
+                    <span className="font-medium text-[#111111] block break-words">{CONTACT_INFO.address}</span>
                     <a
                       href={CONTACT_INFO.googleMapsUrl}
                       target="_blank"
@@ -116,17 +116,17 @@ export default function ContactPage() {
                 </div>
 
                 {/* Telephone */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 min-w-0">
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#C99A3B] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       Telephone
                     </strong>
                     <a
                       href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`}
-                      className="text-base font-semibold text-[#111111] hover:text-[#C99A3B] transition-colors"
+                      className="text-base font-semibold text-[#111111] hover:text-[#C99A3B] transition-colors block"
                     >
                       {CONTACT_INFO.phone}
                     </a>
@@ -135,11 +135,11 @@ export default function ContactPage() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 min-w-0">
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#25D366] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <WhatsAppIcon className="w-4.5 h-4.5" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       WhatsApp Private Desk
                     </strong>
@@ -147,7 +147,7 @@ export default function ContactPage() {
                       href={`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${CONTACT_INFO.whatsappMessage}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-base font-semibold text-[#25D366] hover:underline"
+                      className="text-base font-semibold text-[#25D366] hover:underline block"
                     >
                       +{CONTACT_INFO.whatsappNumber}
                     </a>
@@ -156,40 +156,40 @@ export default function ContactPage() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 min-w-0">
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#C99A3B] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       Email Inquiries
                     </strong>
-                    <a href={`mailto:${CONTACT_INFO.email}`} className="text-sm font-medium hover:text-[#C99A3B]">
+                    <a href={`mailto:${CONTACT_INFO.email}`} className="text-sm font-medium hover:text-[#C99A3B] block break-all">
                       {CONTACT_INFO.email}
                     </a>
                   </div>
                 </div>
 
                 {/* Hours */}
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 min-w-0">
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#C99A3B] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Clock className="w-4 h-4" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       Operating Hours
                     </strong>
-                    <span>Monday – Saturday: 9:00 AM – 7:00 PM GST</span>
+                    <span className="block">Monday – Saturday: 9:00 AM – 7:00 PM GST</span>
                     <span className="block text-xs text-[#5E6778]">Private weekend consultations by appointment</span>
                   </div>
                 </div>
 
                 {/* Social Channels */}
-                <div className="pt-4 border-t border-[#E7DFCF]">
+                <div className="pt-4 border-t border-[#E7DFCF] min-w-0">
                   <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-2.5">
                     Official Social Channels
                   </strong>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <a
                       href={CONTACT_INFO.socials.facebook}
                       target="_blank"
@@ -220,23 +220,23 @@ export default function ContactPage() {
             </div>
 
             {/* Interactive Google Map with Clickable Navigation Link */}
-            <div className="bg-white rounded-2xl overflow-hidden border border-[#E7DFCF] shadow-sm">
-              <div className="p-4 bg-[#111111] text-white flex items-center justify-between">
-                <div>
+            <div className="bg-white rounded-2xl overflow-hidden border border-[#E7DFCF] shadow-sm w-full min-w-0">
+              <div className="p-3.5 sm:p-4 bg-[#111111] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="min-w-0">
                   <h3 className="font-serif font-bold text-sm">Interactive Business Location</h3>
-                  <p className="text-white/70 text-xs">{CONTACT_INFO.shortAddress}</p>
+                  <p className="text-white/70 text-xs break-words sm:truncate">{CONTACT_INFO.shortAddress}</p>
                 </div>
                 <a
                   href={CONTACT_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#C99A3B] hover:bg-[#8A6420] text-white text-xs font-semibold rounded-lg transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#C99A3B] hover:bg-[#8A6420] text-white text-xs font-semibold rounded-lg transition-colors shrink-0 self-start sm:self-auto"
                 >
                   <span>Get Directions</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
-              <div className="relative h-72 w-full bg-[#111111]">
+              <div className="relative h-64 sm:h-72 w-full bg-[#111111]">
                 <iframe
                   title="La Vista Real Estate Umm Al Quwain Location"
                   src={CONTACT_INFO.googleMapsEmbed}
@@ -253,8 +253,8 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Interactive Consultation Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[#E7DFCF] shadow-sm">
+          <div className="lg:col-span-7 w-full min-w-0">
+            <div className="bg-white rounded-2xl p-4 sm:p-8 md:p-10 border border-[#E7DFCF] shadow-sm w-full min-w-0">
               <span className="text-xs uppercase font-bold text-[#C99A3B] tracking-widest block mb-1">
                 Direct Inquiry
               </span>
@@ -297,9 +297,9 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 w-full min-w-0">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full min-w-0">
+                    <div className="w-full min-w-0">
                       <label className="block text-xs uppercase font-semibold text-[#5E6778] tracking-wider mb-1.5">
                         Your Full Name *
                       </label>
@@ -309,11 +309,11 @@ export default function ContactPage() {
                         placeholder="e.g. Sultan Al-Mansoor"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
+                        className="w-full max-w-full px-3.5 sm:px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] box-border"
                       />
                     </div>
 
-                    <div>
+                    <div className="w-full min-w-0">
                       <label className="block text-xs uppercase font-semibold text-[#5E6778] tracking-wider mb-1.5">
                         Phone / WhatsApp (with Country Code) *
                       </label>
@@ -323,13 +323,13 @@ export default function ContactPage() {
                         placeholder="+971 50 000 0000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
+                        className="w-full max-w-full px-3.5 sm:px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] box-border"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full min-w-0">
+                    <div className="w-full min-w-0">
                       <label className="block text-xs uppercase font-semibold text-[#5E6778] tracking-wider mb-1.5">
                         Email Address *
                       </label>
@@ -339,18 +339,18 @@ export default function ContactPage() {
                         placeholder="investor@domain.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
+                        className="w-full max-w-full px-3.5 sm:px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] box-border"
                       />
                     </div>
 
-                    <div>
+                    <div className="w-full min-w-0">
                       <label className="block text-xs uppercase font-semibold text-[#5E6778] tracking-wider mb-1.5">
                         Property Category / Purpose *
                       </label>
                       <select
                         value={formData.interest}
                         onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                        className="w-full px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] bg-white"
+                        className="w-full max-w-full truncate px-3.5 sm:px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] bg-white box-border"
                       >
                         <option value="Residential Properties (Buying)">Residential Properties (Buying)</option>
                         <option value="Commercial Properties (Office, Retail, Industrial)">Commercial Properties (Office, Retail, Industrial)</option>
@@ -362,7 +362,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="w-full min-w-0">
                     <label className="block text-xs uppercase font-semibold text-[#5E6778] tracking-wider mb-1.5">
                       Your Message or Specific Requirements
                     </label>
@@ -371,22 +371,22 @@ export default function ContactPage() {
                       placeholder="Please specify preferred location (e.g. Al Sinniyah Island, Al Salamah, UAQ Marina, Wider UAE), budget range, or timeline..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
+                      className="w-full max-w-full px-3.5 sm:px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] box-border"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-4 bg-[#C99A3B] hover:bg-[#8A6420] disabled:opacity-60 text-white text-xs uppercase tracking-widest font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                    className="w-full py-3.5 sm:py-4 bg-[#C99A3B] hover:bg-[#8A6420] disabled:opacity-60 text-white text-xs uppercase tracking-widest font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
                     <span>{submitting ? "Sending Your Inquiry..." : "Send Confidential Message"}</span>
                   </button>
 
-                  <div className="flex items-center gap-2 justify-center text-xs text-[#5E6778] pt-2">
-                    <ShieldCheck className="w-4 h-4 text-[#C99A3B]" />
-                    <span>Your privacy is protected. Licensed real estate brokerage in Umm Al Quwain & Wider UAE.</span>
+                  <div className="flex items-start sm:items-center gap-2 justify-center text-xs text-[#5E6778] pt-2 text-center">
+                    <ShieldCheck className="w-4 h-4 text-[#C99A3B] shrink-0 mt-0.5 sm:mt-0" />
+                    <span className="leading-snug">Your privacy is protected. Licensed real estate brokerage in Umm Al Quwain & Wider UAE.</span>
                   </div>
                 </form>
               )}

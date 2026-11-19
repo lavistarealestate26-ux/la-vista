@@ -50,7 +50,7 @@ export default function ValuationPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-[#F7F3EA]/30 min-h-screen">
+    <div className="pt-24 pb-20 bg-[#F7F3EA]/30 min-h-screen w-full max-w-full overflow-x-hidden">
       <div className="bg-[#111111] text-white py-16 border-b border-[#C99A3B]/30">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
@@ -67,8 +67,8 @@ export default function ValuationPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-        <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#E7DFCF] shadow-lg text-[#111111]">
+      <div className="max-w-3xl mx-auto px-3.5 sm:px-6 py-10 sm:py-16 w-full max-w-full">
+        <div className="bg-white rounded-2xl p-4 sm:p-8 md:p-12 border border-[#E7DFCF] shadow-lg text-[#111111] w-full min-w-0">
           {errorMessage && (
             <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
               {errorMessage}
