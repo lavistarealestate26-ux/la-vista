@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { MOCK_LISTINGS } from "@/data/mockListings";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://lavistarealestate.ae";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://lavista.ae";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();

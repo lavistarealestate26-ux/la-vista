@@ -27,6 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lavista.ae"),
   title: "La Vista Real Estate | Umm Al Quwain & Wider UAE Properties",
   description:
     "La Vista Real Estate is a premier boutique brokerage specializing in luxury waterfront estates, commercial assets, and leasing properties across Umm Al Quwain and the wider UAE.",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     title: "La Vista Real Estate | Umm Al Quwain & Wider UAE",
     description:
       "Discover the finest selection of ultra-prime properties, commercial assets, and leasing opportunities in Umm Al Quwain and the wider UAE with La Vista Real Estate.",
-    url: "https://lavistarealestate.ae",
+    url: "https://lavista.ae",
     siteName: "La Vista Real Estate",
     images: [
       {
