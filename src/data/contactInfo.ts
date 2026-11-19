@@ -16,7 +16,7 @@ export const CONTACT_INFO = {
   googleMapsEmbed: "https://maps.google.com/maps?q=King+Faisal+Road,+Al+Haditha,+Umm+Al+Quwain&t=&z=15&ie=UTF8&iwloc=&output=embed",
   socials: {
     facebook: "https://facebook.com/lavistarealestateuae",
-    instagram: "https://instagram.com/lavistarealestateuae",
+    instagram: "https://www.instagram.com/lavistarealestate.ae?fqnt=MWhvbTFnanVsdnY5MA%3D%3D",
     tiktok: "https://tiktok.com/@lavistarealestate",
     linkedin: "https://linkedin.com/company/lavistarealestate",
   },
