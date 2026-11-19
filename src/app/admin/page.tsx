@@ -138,7 +138,7 @@ export default function AdminPage() {
           photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
           phone: "+971 6 766 8888",
           whatsapp: "971501234567",
-          email: "tariq@lavistarealestate.ae",
+          email: "info@lavistarealestate.ae",
           brn: "41982",
         },
         status: formData.status,

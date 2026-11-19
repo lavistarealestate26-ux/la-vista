@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { CONTACT_INFO } from "@/data/contactInfo";
 
 export async function POST(request: Request) {
   try {
@@ -13,9 +14,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Server-side simulated lead delivery
+    // Lead delivery logged for recipient
     console.log("[LEAD RECEIVED]", {
       timestamp: new Date().toISOString(),
+      recipient: CONTACT_INFO.email,
       name,
       email,
       phone,
