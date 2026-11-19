@@ -387,7 +387,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer (High Priority per Prompt Section 5) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 xl:hidden bg-white flex flex-col animate-fadeIn">
+        <div className="fixed inset-0 z-[60] xl:hidden bg-white flex flex-col animate-fadeIn">
           {/* Drawer Header */}
           <div className="flex items-center justify-between p-4 border-b border-[#E7DFCF]">
             <Logo variant="light" size="sm" />
@@ -502,14 +502,14 @@ export default function Navbar() {
       {/* Mobile Sticky Bottom Navigation Bar (Mobile only: lg:hidden) */}
       <nav
         aria-label="Mobile Bottom Navigation"
-        className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#E7DFCF] shadow-[0_-4px_25px_rgba(0,0,0,0.06)] pb-[max(0.5rem,env(safe-area-inset-bottom))]"
+        className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#E7DFCF] shadow-[0_-4px_25px_rgba(0,0,0,0.08)] pb-[max(0.5rem,env(safe-area-inset-bottom))] select-none touch-manipulation pointer-events-auto"
       >
-        <div className="max-w-md mx-auto grid grid-cols-5 items-center h-16 px-1">
+        <div className="max-w-md mx-auto grid grid-cols-5 items-stretch h-16 px-1">
           {/* 1. Home */}
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl transition-all active:scale-95 touch-manipulation cursor-pointer ${
               isHomePage && !mobileMenuOpen
                 ? "text-[#C99A3B] font-bold"
                 : "text-[#5E6778] hover:text-[#111111]"
@@ -525,7 +525,7 @@ export default function Navbar() {
           <Link
             href="/listings"
             onClick={() => setMobileMenuOpen(false)}
-            className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl transition-all active:scale-95 touch-manipulation cursor-pointer ${
               pathname === "/listings" && !mobileMenuOpen
                 ? "text-[#C99A3B] font-bold"
                 : "text-[#5E6778] hover:text-[#111111]"
@@ -541,7 +541,7 @@ export default function Navbar() {
           <Link
             href="/listings?category=leasing"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex flex-col items-center justify-center gap-1 py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] transition-all"
+            className="flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] active:scale-95 touch-manipulation cursor-pointer transition-all"
           >
             <KeyRound className="w-5 h-5 shrink-0" />
             <span className="text-[10px] tracking-tight whitespace-nowrap">
@@ -553,7 +553,7 @@ export default function Navbar() {
           <Link
             href="/listings?category=commercial"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex flex-col items-center justify-center gap-1 py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] transition-all"
+            className="flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] active:scale-95 touch-manipulation cursor-pointer transition-all"
           >
             <Briefcase className="w-5 h-5 shrink-0" />
             <span className="text-[10px] tracking-tight whitespace-nowrap">
@@ -565,7 +565,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl transition-all active:scale-95 touch-manipulation cursor-pointer ${
               mobileMenuOpen ? "text-[#C99A3B] font-bold" : "text-[#5E6778] hover:text-[#111111]"
             }`}
             aria-label="Toggle Full Menu"

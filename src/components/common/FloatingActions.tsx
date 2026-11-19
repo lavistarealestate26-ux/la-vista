@@ -18,7 +18,7 @@ export default function FloatingActions() {
       {/* Floating Buttons Stack - Right Edge (elevated on mobile to clear bottom nav) */}
       <aside
         aria-label="Quick Contact & Social Actions"
-        className="fixed right-2.5 sm:right-4 md:right-6 bottom-20 sm:bottom-22 md:bottom-10 z-40 flex flex-col gap-2 sm:gap-2.5 md:gap-3 select-none"
+        className="fixed right-2.5 sm:right-4 md:right-6 bottom-24 sm:bottom-28 md:bottom-10 z-40 flex flex-col gap-2 sm:gap-2.5 md:gap-3 select-none pointer-events-auto"
       >
         {/* 1. Social Media CTA Trigger Button with Direct Hover/Click Icons */}
         <div

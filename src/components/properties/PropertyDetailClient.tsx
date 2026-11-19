@@ -476,7 +476,7 @@ export default function PropertyDetailClient({
       </div>
 
       {/* Mobile Sticky Bottom Contact Bar (Section 5 Requirement) */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 lg:hidden bg-white/95 backdrop-blur-md border-t border-[#E7DFCF] px-4 py-3 flex items-center justify-between shadow-2xl">
+      <div className="fixed bottom-16 sm:bottom-18 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-[#E7DFCF] px-4 py-3 flex items-center justify-between shadow-2xl">
         <div>
           <span className="text-[9px] uppercase font-bold text-[#5E6778] tracking-wider block">
             Asking Price
