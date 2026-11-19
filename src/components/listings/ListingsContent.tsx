@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   Search,
@@ -40,6 +40,19 @@ export default function ListingsContent() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("featured");
   const [mobileFilterOpen, setMobileFilterOpen] = useState<boolean>(false);
+
+  // Synchronize component state whenever URL query parameters change (e.g. from bottom nav tabs)
+  useEffect(() => {
+    setCategory((searchParams.get("category") as PropertyCategory) || "");
+    setPurpose((searchParams.get("purpose") as PropertyPurpose) || "");
+    setCommunity(searchParams.get("community") || "");
+    setRegion(searchParams.get("region") || "");
+    setPropertyType(searchParams.get("type") || "");
+    setBeds(searchParams.get("beds") || "");
+    setMinPrice(searchParams.get("minPrice") || "");
+    setMaxPrice(searchParams.get("maxPrice") || "");
+    setSearchQuery(searchParams.get("search") || "");
+  }, [searchParams]);
 
   // Filter listings dynamically
   const filteredListings = useMemo(() => {

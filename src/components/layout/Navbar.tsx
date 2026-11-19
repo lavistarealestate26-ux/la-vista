@@ -436,6 +436,7 @@ export default function Navbar() {
                             <Link
                               key={item.name}
                               href={item.href}
+                              onClick={() => setMobileMenuOpen(false)}
                               className="block py-1.5 text-sm text-[#5E6778] hover:text-[#C99A3B]"
                             >
                               <div className="font-medium text-[#111111]">{item.name}</div>
@@ -450,6 +451,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={section.href || "#"}
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block py-2 text-base font-medium text-[#111111] hover:text-[#C99A3B]"
                     >
                       {section.label}
@@ -462,11 +464,11 @@ export default function Navbar() {
             {/* Quick Contact & Details in Drawer */}
             <div className="py-6 space-y-3">
               <a
-                href="tel:+97144298888"
+                href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`}
                 className="flex items-center gap-3 text-sm text-[#111111] py-2"
               >
                 <Phone className="w-4 h-4 text-[#C99A3B]" />
-                <span>+971 4 429 8888</span>
+                <span>{CONTACT_INFO.phone}</span>
               </a>
               <div className="flex items-center gap-2 text-xs text-[#5E6778]">
                 <Globe className="w-4 h-4 text-[#C99A3B]" />
@@ -508,7 +510,10 @@ export default function Navbar() {
           {/* 1. Home */}
           <Link
             href="/"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className={`flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl transition-all active:scale-95 touch-manipulation cursor-pointer ${
               isHomePage && !mobileMenuOpen
                 ? "text-[#C99A3B] font-bold"
@@ -524,7 +529,10 @@ export default function Navbar() {
           {/* 2. Properties (All) */}
           <Link
             href="/listings"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className={`flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl transition-all active:scale-95 touch-manipulation cursor-pointer ${
               pathname === "/listings" && !mobileMenuOpen
                 ? "text-[#C99A3B] font-bold"
@@ -540,7 +548,10 @@ export default function Navbar() {
           {/* 3. Leasing */}
           <Link
             href="/listings?category=leasing"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] active:scale-95 touch-manipulation cursor-pointer transition-all"
           >
             <KeyRound className="w-5 h-5 shrink-0" />
@@ -552,7 +563,10 @@ export default function Navbar() {
           {/* 4. Commercial */}
           <Link
             href="/listings?category=commercial"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="flex flex-col items-center justify-center gap-1 w-full h-full py-1 rounded-xl text-[#5E6778] hover:text-[#C99A3B] active:text-[#C99A3B] active:scale-95 touch-manipulation cursor-pointer transition-all"
           >
             <Briefcase className="w-5 h-5 shrink-0" />
