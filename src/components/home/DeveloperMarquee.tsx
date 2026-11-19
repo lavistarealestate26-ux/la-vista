@@ -8,13 +8,14 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function DeveloperMarquee() {
   const { t } = useLanguage();
-  // Duplicate array to ensure seamless infinite looping
-  const marqueeList = [...DEVELOPER_PARTNERS, ...DEVELOPER_PARTNERS];
+  // Repeat the 3 partner logos seamlessly across both halves of the marquee loop
+  const basePartners = [...DEVELOPER_PARTNERS, ...DEVELOPER_PARTNERS, ...DEVELOPER_PARTNERS, ...DEVELOPER_PARTNERS];
+  const marqueeList = [...basePartners, ...basePartners];
 
   return (
     <section
       aria-label="Developer Partners"
-      className="relative z-10 w-full bg-[#111111] border-b border-[#C99A3B]/20 py-6 overflow-hidden select-none"
+      className="relative z-10 w-full bg-[#111111] border-b border-[#C99A3B]/20 py-5 sm:py-6 overflow-hidden select-none"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -34,27 +35,24 @@ export default function DeveloperMarquee() {
       {/* Infinite Marquee Track */}
       <div className="relative w-full overflow-hidden flex items-center">
         {/* Soft fade masks on sides */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#111111] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#111111] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-[#111111] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-[#111111] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex items-center gap-8 sm:gap-14 py-2">
+        <div className="animate-marquee flex items-center gap-5 sm:gap-8 py-2">
           {marqueeList.map((dev, idx) => (
-            <div
+            <Link
               key={`${dev.name}-${idx}`}
-              className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#C99A3B]/60 hover:bg-white/10 transition-all duration-300 group cursor-pointer flex-shrink-0"
+              href="/developers"
+              title={`${dev.name} · ${dev.tier}`}
+              className="flex items-center justify-center px-5 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#C99A3B]/60 hover:bg-white/[0.08] transition-all duration-300 group cursor-pointer flex-shrink-0 h-14 sm:h-18 md:h-20 min-w-[160px] sm:min-w-[220px]"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#C99A3B]/10 flex items-center justify-center text-[#C99A3B] group-hover:scale-110 transition-transform">
-                <Award className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-white/70 group-hover:text-white transition-colors tracking-wide">
-                  {dev.name}
-                </span>
-                <span className="text-[10px] text-[#C99A3B] font-medium tracking-wider uppercase">
-                  {dev.tier}
-                </span>
-              </div>
-            </div>
+              <img
+                src={dev.logo}
+                alt={dev.name}
+                className="h-6 sm:h-8 md:h-9 w-auto max-w-[130px] sm:max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </Link>
           ))}
         </div>
       </div>

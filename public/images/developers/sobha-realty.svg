@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" width="420" height="120">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C378"/>
+      <stop offset="50%" stop-color="#C99A3B"/>
+      <stop offset="100%" stop-color="#8A6420"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <!-- Emblem -->
+    <g transform="translate(15, 20)">
+      <rect x="0" y="0" width="80" height="80" rx="16" fill="url(#goldGrad)" fill-opacity="0.12" stroke="url(#goldGrad)" stroke-width="2"/>
+      <path d="M40 18 L62 36 L62 64 L40 64 L18 64 L18 36 Z" stroke="url(#goldGrad)" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+      <text x="40" y="52" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif" font-size="22" font-weight="700" fill="url(#goldGrad)" text-anchor="middle">S</text>
+    </g>
+    <!-- Brand Typography -->
+    <text x="115" y="58" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif" font-size="38" font-weight="700" letter-spacing="4" fill="#FFFFFF">SOBHA</text>
+    <text x="117" y="84" font-family="'Montserrat', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="10" fill="url(#goldGrad)">REALTY</text>
+  </g>
+</svg>

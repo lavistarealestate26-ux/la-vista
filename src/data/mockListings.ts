@@ -438,39 +438,25 @@ export const MOCK_LISTINGS: Listing[] = [
 
 export const MOCK_DEVELOPERS = [
   {
+    name: "Citi Developers",
+    logo: "/images/developers/citi-developer-gold.svg",
+    tier: "Master Developer",
+    projects: "Prime Luxury & Waterfront Developments",
+    description: "Leading international developer recognized for high-end luxury residences, innovative architectural design, and master-planned destinations across the UAE."
+  },
+  {
+    name: "Khadamat",
+    logo: "/images/developers/khadamat.png",
+    tier: "Strategic Facilities Partner",
+    projects: "Strategic Facilities & Infrastructure",
+    description: "Premier institutional services and facilities partner managing prime developments and infrastructure across the UAE."
+  },
+  {
     name: "Sobha Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Sobha_Realty_Logo.svg",
+    logo: "/images/developers/sobha-realty.svg",
     tier: "Signature Island Partner",
     projects: "Al Sinniyah Island & Coastal Developments",
     description: "Renowned for backward-integrated European craftsmanship and luxury waterfront master-plans across Umm Al Quwain and the wider UAE."
-  },
-  {
-    name: "Emaar Properties",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Emaar_Properties_logo.svg",
-    tier: "Master Developer",
-    projects: "Prime UAE Enclaves",
-    description: "The UAE's premier global developer, creating integrated master-planned communities, luxury residences, and landmark destinations."
-  },
-  {
-    name: "Nakheel",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Nakheel_logo.svg",
-    tier: "Waterfront Pioneer",
-    projects: "Iconic Coastal & Island Developments",
-    description: "Master creator of iconic waterfront archipelagos, coastal living, and premier residential destinations across the UAE."
-  },
-  {
-    name: "DAMAC Properties",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/DAMAC_Properties_Logo.svg",
-    tier: "Luxury Branded Living",
-    projects: "Signature Branded Residences",
-    description: "Pioneering branded luxury living in partnership with de GRISOGONO, Cavalli, and world-renowned fashion icons."
-  },
-  {
-    name: "Aldar Properties",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Aldar_Properties_logo.svg",
-    tier: "National Pioneer",
-    projects: "Sustainable Master Communities",
-    description: "Leading the development of sustainable, high-growth coastal and urban communities across the United Arab Emirates."
   }
 ];
 

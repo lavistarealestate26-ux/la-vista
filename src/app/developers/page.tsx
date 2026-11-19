@@ -37,8 +37,8 @@ export default function DevelopersPage() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#111111] text-[#C99A3B] flex items-center justify-center font-serif font-bold text-lg">
-                    {dev.name.charAt(0)}
+                  <div className="h-12 w-32 px-2.5 rounded-xl bg-[#111111] flex items-center justify-center border border-[#C99A3B]/30 shrink-0">
+                    <img src={dev.logo} alt={dev.name} className="h-7 max-w-[110px] w-auto object-contain" />
                   </div>
                   <span className="text-xs font-semibold text-[#C99A3B] bg-[#F7F3EA] px-2.5 py-1 rounded-md border border-[#E7DFCF]">
                     {dev.tier}
