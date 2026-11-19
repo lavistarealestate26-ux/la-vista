@@ -1,10 +1,10 @@
 export const CONTACT_INFO = {
   companyName: "La Vista Real Estate",
   tagline: "Premier Real Estate Brokerage in Umm Al Quwain & Wider UAE",
-  phone: "+971 6 766 8888",
-  phoneDisplay: "+971 6 766 8888",
-  mobile: "+971 50 123 4567",
-  whatsappNumber: "971501234567",
+  phone: "+971 6 767 5181",
+  phoneDisplay: "+971 6 767 5181",
+  mobile: "+971 6 767 5181",
+  whatsappNumber: "97167675181",
   whatsappMessage: encodeURIComponent(
     "Hello La Vista Real Estate, I would like to inquire about properties in Umm Al Quwain and the wider UAE."
   ),

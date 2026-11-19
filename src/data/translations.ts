@@ -103,7 +103,7 @@ export const DICTIONARY: Record<Language, Translations> = {
     nav_about: "About Us",
     nav_careers: "Careers",
     nav_valuation: "Free Valuation",
-    nav_phone: "+971 6 766 8888",
+    nav_phone: "+971 6 767 5181",
     nav_home: "Home",
     nav_properties: "Properties",
     nav_menu: "Menu",
@@ -155,7 +155,7 @@ export const DICTIONARY: Record<Language, Translations> = {
 
     float_social: "Social Media",
     float_whatsapp: "Chat on WhatsApp",
-    float_call: "Call +971 6 766 8888",
+    float_call: "Call +971 6 767 5181",
     float_enquiry: "Register Enquiry",
 
     why_badge: "The La Vista Standard",
@@ -181,7 +181,7 @@ export const DICTIONARY: Record<Language, Translations> = {
     nav_about: "من نحن",
     nav_careers: "الوظائف",
     nav_valuation: "تقييم مجاني",
-    nav_phone: "+971 6 766 8888",
+    nav_phone: "+971 6 767 5181",
     nav_home: "الرئيسية",
     nav_properties: "عقارات",
     nav_menu: "القائمة",
