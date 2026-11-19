@@ -263,6 +263,7 @@ export default function ListingsContent() {
                 <optgroup label="Umm Al Quwain">
                   <option value="Al Sinniyah Island">Al Sinniyah Island</option>
                   <option value="Al Salamah">Al Salamah</option>
+                  <option value="Al Haditha">Al Haditha (King Faisal Road)</option>
                   <option value="UAQ Marina">UAQ Marina</option>
                   <option value="Mangrove Beachfront">Mangrove Beachfront</option>
                   <option value="Al Ramlah">Al Ramlah & Al Raudah</option>

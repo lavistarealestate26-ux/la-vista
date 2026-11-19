@@ -14,6 +14,7 @@ import {
 const UAQ_AREAS = [
   "Al Sinniyah Island",
   "Al Salamah",
+  "Al Haditha",
   "UAQ Marina",
   "Mangrove Beachfront",
   "Al Ramlah",
