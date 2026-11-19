@@ -143,18 +143,29 @@ export default function ContactPage() {
                   <div className="w-9 h-9 rounded-lg bg-[#F7F3EA] border border-[#E7DFCF] text-[#25D366] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <WhatsAppIcon className="w-4.5 h-4.5" />
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 space-y-1">
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       WhatsApp Private Desk
                     </strong>
-                    <a
-                      href={`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${CONTACT_INFO.whatsappMessage}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-semibold text-[#25D366] hover:underline block"
-                    >
-                      {CONTACT_INFO.whatsappDisplay}
-                    </a>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
+                      <a
+                        href={`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${CONTACT_INFO.whatsappMessage}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm sm:text-base font-semibold text-[#25D366] hover:underline"
+                      >
+                        {CONTACT_INFO.whatsappDisplay}
+                      </a>
+                      <span className="hidden sm:inline text-[#E7DFCF]">|</span>
+                      <a
+                        href={`https://wa.me/${CONTACT_INFO.whatsappNumber2}?text=${CONTACT_INFO.whatsappMessage}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm sm:text-base font-semibold text-[#25D366] hover:underline"
+                      >
+                        {CONTACT_INFO.whatsappDisplay2}
+                      </a>
+                    </div>
                     <span className="block text-xs text-[#5E6778]">Instant client support & property updates 24/7</span>
                   </div>
                 </div>

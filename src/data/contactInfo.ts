@@ -6,6 +6,8 @@ export const CONTACT_INFO = {
   mobile: "+971 6 767 5181",
   whatsappNumber: "971523235853",
   whatsappDisplay: "+971 52 323 5853",
+  whatsappNumber2: "971559062108",
+  whatsappDisplay2: "+971 55 906 2108",
   whatsappMessage: encodeURIComponent(
     "Hello La Vista Real Estate, I would like to inquire about properties in Umm Al Quwain and the wider UAE."
   ),
@@ -18,10 +20,9 @@ export const CONTACT_INFO = {
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=King+Faisal+Road+Al+Haditha+Umm+Al+Quwain",
   googleMapsEmbed: "https://maps.google.com/maps?q=King+Faisal+Road,+Al+Haditha,+Umm+Al+Quwain&t=&z=15&ie=UTF8&iwloc=&output=embed",
   socials: {
-    facebook: "https://facebook.com/lavistarealestateuae",
+    facebook: "https://www.facebook.com/share/1CjXU8H27b/",
     instagram: "https://www.instagram.com/lavistarealestate.ae?fqnt=MWhvbTFnanVsdnY5MA%3D%3D",
-    tiktok: "https://tiktok.com/@lavistarealestate",
-    linkedin: "https://linkedin.com/company/lavistarealestate",
+    tiktok: "https://www.tiktok.com/@lavistarealestate.ae?_r=1&_t=ZS-9BVHrWDfmzv",
   },
   licensing: {
     authority: "Umm Al Quwain Municipality & Land Department / Wider UAE Regulatory Authorities",

@@ -2,6 +2,7 @@ import HeroSection from "@/components/home/HeroSection";
 import DeveloperMarquee from "@/components/home/DeveloperMarquee";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
 import OffPlanHighlights from "@/components/home/OffPlanHighlights";
+import AmraShowcase from "@/components/home/AmraShowcase";
 import ExploreCommunities from "@/components/home/ExploreCommunities";
 import WhyLaVista from "@/components/home/WhyLaVista";
 import ValuationCtaBand from "@/components/home/ValuationCtaBand";
@@ -15,6 +16,9 @@ export default function Home() {
 
       {/* B2: Leading UAE Developers Marquee Loop */}
       <DeveloperMarquee />
+
+      {/* Prominent Landmark Feature: AMRA Integrative Wellness Resort Showcase */}
+      <AmraShowcase />
 
       {/* Featured Properties: Curated Luxury Listings */}
       <FeaturedProperties />
