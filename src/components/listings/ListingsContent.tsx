@@ -184,7 +184,7 @@ export default function ListingsContent() {
             </div>
 
             {/* Client Requested Primary Category Tabs: All, Commercial, Residential, Leasing */}
-            <div className="flex flex-wrap items-center gap-2 p-1.5 bg-white/10 rounded-2xl border border-white/15">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-white/10 rounded-xl sm:rounded-2xl border border-white/15 w-full sm:w-auto">
               {[
                 { id: "", label: "All Properties", icon: null },
                 { id: "residential", label: "Residential", icon: Home },
@@ -202,7 +202,7 @@ export default function ListingsContent() {
                         setPurpose("");
                       }
                     }}
-                    className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-xl transition-all ${
+                    className={`inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-semibold tracking-wide rounded-lg sm:rounded-xl transition-all ${
                       isActive
                         ? "bg-[#C99A3B] text-white shadow-md font-bold"
                         : "text-white/80 hover:text-white hover:bg-white/5"
@@ -219,24 +219,25 @@ export default function ListingsContent() {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-[1400px] mx-auto px-3.5 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Filter Bar */}
-        <div className="bg-white rounded-2xl shadow-sm border border-[#E7DFCF] p-4 sm:p-5 mb-8">
-          {/* Mobile Filter Toggle Button */}
-          <div className="flex sm:hidden items-center justify-between pb-3 mb-3 border-b border-[#E7DFCF]">
+        <div className="bg-white rounded-2xl shadow-sm border border-[#E7DFCF] p-3.5 sm:p-5 mb-8">
+          {/* Mobile Filter Toggle Header (Compact, balanced and non-overlapping) */}
+          <div className="flex sm:hidden items-center justify-between gap-2 pb-3 mb-3 border-b border-[#E7DFCF]">
             <button
               onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#111111] text-[#C99A3B] text-xs font-semibold uppercase tracking-wider rounded-xl"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#111111] hover:bg-[#222222] text-[#C99A3B] text-xs font-medium rounded-lg border border-[#C99A3B]/40 active:scale-95 transition-all shadow-sm shrink-0"
+              aria-expanded={mobileFilterOpen}
             >
-              <SlidersHorizontal className="w-3.5 h-3.5" />
-              <span>{mobileFilterOpen ? "Hide Filter Options" : "Filter & Search Options"}</span>
+              <SlidersHorizontal className="w-3.5 h-3.5 shrink-0" />
+              <span>{mobileFilterOpen ? "Hide Filters" : "Filter & Search"}</span>
               {hasActiveFilters && (
-                <span className="w-2 h-2 rounded-full bg-[#C99A3B]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C99A3B] shrink-0" />
               )}
             </button>
 
-            <span className="text-xs font-semibold text-[#111111]">
-              {filteredListings.length} Available
+            <span className="text-xs text-[#5E6778] font-medium shrink-0">
+              <strong className="text-[#111111] font-semibold">{filteredListings.length}</strong> {filteredListings.length === 1 ? "Available" : "Available"}
             </span>
           </div>
 
