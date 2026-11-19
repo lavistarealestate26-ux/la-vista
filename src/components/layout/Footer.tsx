@@ -208,7 +208,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 text-[11px] leading-relaxed hover:text-[#C99A3B] transition-colors"
                 >
-                  {CONTACT_INFO.address}
+                  {isRTL ? CONTACT_INFO.addressAr : CONTACT_INFO.address}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">

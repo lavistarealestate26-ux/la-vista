@@ -14,8 +14,10 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { CONTACT_INFO } from "@/data/contactInfo";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactPage() {
+  const { language } = useLanguage();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -102,7 +104,9 @@ export default function ContactPage() {
                     <strong className="block text-xs uppercase text-[#5E6778] tracking-wider mb-0.5">
                       Office Address
                     </strong>
-                    <span className="font-medium text-[#111111] block break-words">{CONTACT_INFO.address}</span>
+                    <span className="font-medium text-[#111111] block break-words">
+                      {language === "ar" ? CONTACT_INFO.addressAr : CONTACT_INFO.address}
+                    </span>
                     <a
                       href={CONTACT_INFO.googleMapsUrl}
                       target="_blank"
@@ -224,7 +228,9 @@ export default function ContactPage() {
               <div className="p-3.5 sm:p-4 bg-[#111111] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 <div className="min-w-0">
                   <h3 className="font-serif font-bold text-sm">Interactive Business Location</h3>
-                  <p className="text-white/70 text-xs break-words sm:truncate">{CONTACT_INFO.shortAddress}</p>
+                  <p className="text-white/70 text-xs break-words sm:truncate">
+                    {language === "ar" ? CONTACT_INFO.shortAddressAr : CONTACT_INFO.shortAddress}
+                  </p>
                 </div>
                 <a
                   href={CONTACT_INFO.googleMapsUrl}

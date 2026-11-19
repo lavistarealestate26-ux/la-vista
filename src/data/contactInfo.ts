@@ -11,7 +11,9 @@ export const CONTACT_INFO = {
   email: "info@lavistarealestate.ae",
   supportEmail: "inquiries@lavistarealestate.ae",
   address: "King Faisal Main Road, Al Haditha, Umm Al Quwain, United Arab Emirates",
+  addressAr: "شارع الملك فيصل الرئيسي، الحديثة، أم القيوين، الإمارات العربية المتحدة",
   shortAddress: "Al Haditha, King Faisal Main Road, Umm Al Quwain, UAE",
+  shortAddressAr: "الحديثة، شارع الملك فيصل الرئيسي، أم القيوين",
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=King+Faisal+Road+Al+Haditha+Umm+Al+Quwain",
   googleMapsEmbed: "https://maps.google.com/maps?q=King+Faisal+Road,+Al+Haditha,+Umm+Al+Quwain&t=&z=15&ie=UTF8&iwloc=&output=embed",
   socials: {
