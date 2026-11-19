@@ -53,7 +53,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Senior Luxury Partner",
       photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "41982"
     },
@@ -107,7 +107,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "UAQ Residential Specialist",
       photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "39201"
     },
@@ -162,7 +162,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Senior Leasing Advisor",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "52140"
     },
@@ -216,7 +216,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Commercial Investment Director",
       photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "41982"
     },
@@ -269,7 +269,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Commercial & Industrial Specialist",
       photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "39201"
     },
@@ -323,7 +323,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Senior Leasing Advisor",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "52140"
     },
@@ -375,7 +375,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Senior Luxury Partner",
       photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "41982"
     },
@@ -425,7 +425,7 @@ export const MOCK_LISTINGS: Listing[] = [
       title: "Senior Luxury Advisor",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
       phone: "+971 6 767 5181",
-      whatsapp: "97167675181",
+      whatsapp: "971523235853",
       email: "info@lavistarealestate.ae",
       brn: "52140"
     },

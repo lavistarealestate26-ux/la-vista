@@ -153,7 +153,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-base font-semibold text-[#25D366] hover:underline block"
                     >
-                      +{CONTACT_INFO.whatsappNumber}
+                      {CONTACT_INFO.whatsappDisplay}
                     </a>
                     <span className="block text-xs text-[#5E6778]">Instant client support & property updates 24/7</span>
                   </div>

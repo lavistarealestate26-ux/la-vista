@@ -4,7 +4,8 @@ export const CONTACT_INFO = {
   phone: "+971 6 767 5181",
   phoneDisplay: "+971 6 767 5181",
   mobile: "+971 6 767 5181",
-  whatsappNumber: "97167675181",
+  whatsappNumber: "971523235853",
+  whatsappDisplay: "+971 52 323 5853",
   whatsappMessage: encodeURIComponent(
     "Hello La Vista Real Estate, I would like to inquire about properties in Umm Al Quwain and the wider UAE."
   ),

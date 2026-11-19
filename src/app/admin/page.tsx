@@ -137,7 +137,7 @@ export default function AdminPage() {
           title: "Senior Luxury Partner",
           photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
           phone: "+971 6 767 5181",
-          whatsapp: "97167675181",
+          whatsapp: "971523235853",
           email: "info@lavistarealestate.ae",
           brn: "41982",
         },
