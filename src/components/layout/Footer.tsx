@@ -216,11 +216,16 @@ export default function Footer() {
                   {isRTL ? CONTACT_INFO.addressAr : CONTACT_INFO.address}
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0" />
-                <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`} className="hover:text-[#C99A3B] transition-colors text-[11px]">
-                  {CONTACT_INFO.phone}
-                </a>
+              <div className="flex items-start gap-2.5">
+                <Phone className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0 mt-0.5" />
+                <div className="space-y-1 text-[11px]">
+                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`} className="hover:text-[#C99A3B] transition-colors block">
+                    {CONTACT_INFO.phone}
+                  </a>
+                  <a href={`tel:${CONTACT_INFO.whatsappDisplay.replace(/\s+/g, "")}`} className="hover:text-[#C99A3B] transition-colors block">
+                    {CONTACT_INFO.whatsappDisplay}
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#C99A3B] flex-shrink-0" />
