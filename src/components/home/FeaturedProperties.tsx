@@ -9,12 +9,15 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function FeaturedProperties() {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<"all" | "residential" | "commercial" | "leasing">("all");
+  const [activeCategory, setActiveCategory] = useState<"all" | "residential" | "commercial" | "warehouse" | "leasing">("all");
 
   const filtered = MOCK_LISTINGS.filter((item) => {
     if (activeCategory === "all") return item.featured;
     if (activeCategory === "leasing") {
       return item.category === "leasing" || item.purpose === "rent" || item.purpose === "leasing";
+    }
+    if (activeCategory === "warehouse") {
+      return item.category === "warehouse" || item.propertyType === "warehouse";
     }
     return item.category === activeCategory;
   }).slice(0, 6);
@@ -23,8 +26,8 @@ export default function FeaturedProperties() {
     <section className="py-20 bg-[#F7F3EA]/50 border-b border-[#E7DFCF]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-[#C99A3B] text-xs font-semibold tracking-widest uppercase mb-2">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{t.feat_curated_badge}</span>
@@ -32,27 +35,28 @@ export default function FeaturedProperties() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#111111] tracking-tight">
               {t.feat_heading}
             </h2>
-            <p className="text-[#5E6778] text-sm sm:text-base max-w-xl mt-2 font-light">
+            <p className="text-[#5E6778] text-sm sm:text-base mt-2 font-light">
               {t.feat_subtitle}
             </p>
           </div>
 
-          {/* Filter Pills aligned with client categories (2 rows on mobile, 1 row on desktop) */}
-          <div className="grid grid-cols-2 sm:flex sm:items-center gap-1.5 mt-6 md:mt-0 p-1 sm:p-1.5 bg-white rounded-xl border border-[#E7DFCF] shadow-sm w-full sm:w-auto">
+          {/* Filter Pills aligned with client categories (Warehouses included - single clean row) */}
+          <div className="inline-flex items-center gap-1 p-1 sm:p-1.5 bg-white rounded-xl border border-[#E7DFCF] shadow-sm overflow-x-auto no-scrollbar max-w-full shrink-0">
             {(
               [
-                { id: "all", label: t.feat_filter_all || "All Curated" },
+                { id: "all", label: t.feat_filter_all || "All Categories" },
                 { id: "residential", label: t.feat_filter_residential || "Residential" },
                 { id: "commercial", label: t.feat_filter_commercial || "Commercial" },
+                { id: "warehouse", label: t.feat_filter_warehouses || "Warehouses" },
                 { id: "leasing", label: t.feat_filter_leasing || "Leasing" },
               ] as const
             ).map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id)}
-                className={`w-full sm:w-auto text-center px-3 sm:px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-lg transition-all whitespace-nowrap ${
+                className={`shrink-0 text-center px-3 sm:px-3.5 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold tracking-wider uppercase rounded-lg transition-all whitespace-nowrap ${
                   activeCategory === tab.id
-                    ? "bg-[#111111] text-[#C99A3B] shadow-sm"
+                    ? "bg-[#111111] text-[#C99A3B] shadow-sm font-bold"
                     : "text-[#5E6778] hover:text-[#111111] hover:bg-[#F7F3EA]/70"
                 }`}
               >

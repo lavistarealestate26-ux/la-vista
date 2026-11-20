@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   CheckCircle,
   Building,
+  Warehouse,
   QrCode,
   X,
   ChevronLeft,
@@ -183,13 +184,27 @@ export default function PropertyDetailClient({
             {/* Key Facts Bar */}
             <div className="bg-white rounded-2xl p-6 border border-[#E7DFCF] shadow-sm grid grid-cols-2 sm:grid-cols-4 gap-4 text-center divide-x divide-[#E7DFCF]">
               <div className="p-2">
-                <BedDouble className="w-5 h-5 text-[#C99A3B] mx-auto mb-1.5" />
-                <span className="text-[10px] uppercase font-bold text-[#5E6778] tracking-wider block">
-                  Bedrooms
-                </span>
-                <span className="text-lg font-serif font-bold text-[#111111]">
-                  {listing.beds === 0 ? "Studio" : `${listing.beds} Beds`}
-                </span>
+                {listing.propertyType === "warehouse" ? (
+                  <>
+                    <Warehouse className="w-5 h-5 text-[#C99A3B] mx-auto mb-1.5" />
+                    <span className="text-[10px] uppercase font-bold text-[#5E6778] tracking-wider block">
+                      Category
+                    </span>
+                    <span className="text-lg font-serif font-bold text-[#111111]">
+                      Industrial
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <BedDouble className="w-5 h-5 text-[#C99A3B] mx-auto mb-1.5" />
+                    <span className="text-[10px] uppercase font-bold text-[#5E6778] tracking-wider block">
+                      Bedrooms
+                    </span>
+                    <span className="text-lg font-serif font-bold text-[#111111]">
+                      {listing.beds === 0 ? "Studio" : `${listing.beds} Beds`}
+                    </span>
+                  </>
+                )}
               </div>
               <div className="p-2">
                 <Bath className="w-5 h-5 text-[#C99A3B] mx-auto mb-1.5" />

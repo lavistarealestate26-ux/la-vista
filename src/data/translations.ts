@@ -32,6 +32,7 @@ export interface Translations {
   hero_subtitle: string;
   hero_tab_residential: string;
   hero_tab_commercial: string;
+  hero_tab_warehouses: string;
   hero_tab_leasing: string;
   hero_tab_buy: string;
   hero_tab_rent: string;
@@ -60,6 +61,7 @@ export interface Translations {
   feat_filter_all: string;
   feat_filter_commercial: string;
   feat_filter_residential: string;
+  feat_filter_warehouses: string;
   feat_filter_leasing: string;
   feat_view_all: string;
 
@@ -119,6 +121,7 @@ export const DICTIONARY: Record<Language, Translations> = {
     hero_subtitle: "Exceptional beachfront villas, commercial investments, and premier residential leasing curated exclusively by La Vista Real Estate.",
     hero_tab_residential: "Residential",
     hero_tab_commercial: "Commercial",
+    hero_tab_warehouses: "Warehouses",
     hero_tab_leasing: "Leasing",
     hero_tab_buy: "Buy Properties",
     hero_tab_rent: "Rent Residences",
@@ -144,6 +147,7 @@ export const DICTIONARY: Record<Language, Translations> = {
     feat_filter_all: "All Categories",
     feat_filter_commercial: "Commercial",
     feat_filter_residential: "Residential",
+    feat_filter_warehouses: "Warehouses",
     feat_filter_leasing: "Leasing",
     feat_view_all: "Explore All Properties",
 
@@ -197,6 +201,7 @@ export const DICTIONARY: Record<Language, Translations> = {
     hero_subtitle: "فلل ساحلية فاخرة، عقارات تجارية استثمارية، ومحفظة تأجير راقية بإشراف مباشر من لا فيستا العقارية.",
     hero_tab_residential: "سكني",
     hero_tab_commercial: "تجاري",
+    hero_tab_warehouses: "مستودعات",
     hero_tab_leasing: "تأجير",
     hero_tab_buy: "شراء",
     hero_tab_rent: "إيجار",
@@ -222,6 +227,7 @@ export const DICTIONARY: Record<Language, Translations> = {
     feat_filter_all: "الكل",
     feat_filter_commercial: "تجاري",
     feat_filter_residential: "سكني",
+    feat_filter_warehouses: "مستودعات",
     feat_filter_leasing: "تأجير",
     feat_view_all: "استكشف جميع العقارات",
 

@@ -109,6 +109,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/listings?category=warehouse" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  {isRTL ? "مستودعات ومرافق صناعية" : "Warehouses & Logistics"}
+                </Link>
+              </li>
+              <li>
                 <Link href="/listings?category=leasing" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
                   {isRTL ? "عقارات ومحافظ التأجير" : "Leasing Properties"}
                 </Link>

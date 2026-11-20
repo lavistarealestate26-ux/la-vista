@@ -370,7 +370,8 @@ export default function ContactPage() {
                         className="w-full max-w-full truncate px-3.5 sm:px-4 py-3 text-sm border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B] bg-white box-border"
                       >
                         <option value="Residential Properties (Buying)">Residential Properties (Buying)</option>
-                        <option value="Commercial Properties (Office, Retail, Industrial)">Commercial Properties (Office, Retail, Industrial)</option>
+                        <option value="Commercial Properties (Office, Retail)">Commercial Properties (Office, Retail)</option>
+                        <option value="Warehouses & Logistics (Buying / Selling)">Warehouses & Logistics (Buying / Selling)</option>
                         <option value="Leasing Properties (Annual / Commercial Lease)">Leasing Properties (Annual / Commercial Lease)</option>
                         <option value="Off-Plan Waterfront Projects">Off-Plan Waterfront Projects</option>
                         <option value="Selling / Listing a Property">Selling / Listing a Property</option>

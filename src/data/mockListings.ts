@@ -117,6 +117,63 @@ export const MOCK_LISTINGS: Listing[] = [
     updatedAt: "2026-02-12T14:30:00Z"
   },
   {
+    id: "lv-prop-09",
+    slug: "uaq-freehold-logistics-distribution-warehouse-sale",
+    title: "Freehold Logistics & Distribution Mega-Warehouse for Sale",
+    tagline: "Prime 32,000 sqft high-bay warehouse facility with 350 kW power & dock levelers",
+    purpose: "buy",
+    category: "warehouse",
+    region: "Umm Al Quwain",
+    propertyType: "warehouse",
+    priceAED: 8900000,
+    community: "UAQ Industrial Area",
+    subCommunity: "Emirates Modern Industrial Area",
+    building: "UAQ Industrial Logistics Complex",
+    beds: 0,
+    baths: 4,
+    sizeSqft: 32000,
+    description: "Strategically situated in Umm Al Quwain's premier Emirates Modern Industrial Area with immediate access to Sheikh Mohammed Bin Zayed Road (E311), this premium industrial logistics facility is available for outright sale. Built to international logistics standards featuring 12-meter clear internal height, heavy 350 kW 3-phase connected power, insulated fire-rated sandwich panel cladding, 4 hydraulic container dock levelers, and a dedicated 2-storey administrative office wing.",
+    highlights: [
+      "Freehold title ownership suitable for UAE/GCC nationals and foreign investors",
+      "12-meter clear ceiling clearance ideal for high-density pallet racking",
+      "350 kW high-load 3-phase electrical connection",
+      "4 hydraulic dock levelers with direct 40ft container access",
+      "Fully approved Civil Defense fire alarm & sprinkler network",
+      "Independent fenced compound with 24/7 security gatehouse"
+    ],
+    amenities: [
+      "3-Phase Heavy Power",
+      "Hydraulic Dock Levelers",
+      "Civil Defense Approved Sprinklers",
+      "Container Truck Apron",
+      "Administrative Office Suite",
+      "Staff Canteen & Washrooms",
+      "Insulated Sandwich Panels",
+      "24/7 Gated Security",
+      "CCTV Surveillance"
+    ],
+    images: [
+      "/images/properties/warehouses/warehouse-logistics-hub.jpg",
+      "/images/properties/warehouses/warehouse-distribution-exterior.jpg",
+      "/images/properties/warehouses/warehouse-cold-storage.jpg"
+    ],
+    developer: "UAQ Industrial Development Authority",
+    permitNumber: "UAQ-IND-2026-701",
+    agent: {
+      name: "Tariq Mansoor",
+      title: "Commercial & Industrial Director",
+      photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 767 5181",
+      whatsapp: "971523235853",
+      email: "info@lavistarealestate.ae",
+      brn: "41982"
+    },
+    status: "available",
+    featured: true,
+    createdAt: "2026-02-12T09:00:00Z",
+    updatedAt: "2026-02-18T14:00:00Z"
+  },
+  {
     id: "lv-prop-03",
     slug: "uaq-marina-waterfront-residence-lease",
     title: "Panoramic Waterfront Residence in Umm Al Quwain Marina",
@@ -231,7 +288,7 @@ export const MOCK_LISTINGS: Listing[] = [
     title: "Modern Industrial Logistics & Distribution Hub for Lease",
     tagline: "High-spec 22,000 sqft warehouse and storage facility with 3-phase power",
     purpose: "leasing",
-    category: "commercial",
+    category: "warehouse",
     region: "Umm Al Quwain",
     propertyType: "warehouse",
     priceAED: 280000,
@@ -259,8 +316,9 @@ export const MOCK_LISTINGS: Listing[] = [
       "24/7 Security"
     ],
     images: [
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
+      "/images/properties/warehouses/warehouse-distribution-exterior.jpg",
+      "/images/properties/warehouses/warehouse-logistics-hub.jpg",
+      "/images/properties/warehouses/warehouse-cold-storage.jpg"
     ],
     developer: "UAQ Industrial Development Authority",
     permitNumber: "UAQ-COMM-2026-442",
@@ -433,6 +491,116 @@ export const MOCK_LISTINGS: Listing[] = [
     featured: false,
     createdAt: "2026-01-22T12:00:00Z",
     updatedAt: "2026-02-14T18:00:00Z"
+  },
+  {
+    id: "lv-prop-10",
+    slug: "uaq-cold-storage-fmcg-logistics-center-sale",
+    title: "Turnkey Cold Storage & FMCG Distribution Center for Sale",
+    tagline: "High-spec 45,000 sqft temperature-controlled warehouse with multi-zone chillers",
+    purpose: "buy",
+    category: "warehouse",
+    region: "Umm Al Quwain",
+    propertyType: "warehouse",
+    priceAED: 14500000,
+    community: "UAQ Industrial Area",
+    subCommunity: "Umm Al Thaoub Industrial Park",
+    building: "ColdChain Logistics Hub",
+    beds: 0,
+    baths: 6,
+    sizeSqft: 45000,
+    description: "A state-of-the-art industrial cold storage and FMCG distribution hub located in Umm Al Thaoub Industrial Park, UAQ. Designed for regional food, pharmaceutical, and perishables supply chains, featuring dedicated deep-freeze (-25°C), chilled (+2°C to +8°C), and ambient storage zones, 6 automated dock shelters, 500 kW connected power with automated generator switch, and expansive interlock trailer parking yard.",
+    highlights: [
+      "Turnkey cold storage facility with German Bitzer refrigeration compressors",
+      "Multi-temperature zones: deep freeze, chiller, and ambient dispatch",
+      "500 kW connected power plus backup industrial diesel generator",
+      "6 automated hydraulic dock shelters with seal cushions",
+      "Expansive interlock yard accommodating 15+ heavy articulated trucks",
+      "HACCP and ISO food-safety standards compliant"
+    ],
+    amenities: [
+      "Multi-Zone Cold Storage",
+      "Backup Generator",
+      "Automated Dock Shelters",
+      "Civil Defense Certified",
+      "Heavy Truck Parking Yard",
+      "Corporate Reception & Offices",
+      "Forklift Charging Station",
+      "Guardhouse & CCTV"
+    ],
+    images: [
+      "/images/properties/warehouses/warehouse-cold-storage.jpg",
+      "/images/properties/warehouses/warehouse-logistics-hub.jpg",
+      "/images/properties/warehouses/warehouse-industrial-crane.jpg"
+    ],
+    developer: "Gulf Logistics Infrastructure",
+    permitNumber: "UAQ-IND-2026-702",
+    agent: {
+      name: "Rashid Al-Nuaimi",
+      title: "Commercial & Industrial Specialist",
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 767 5181",
+      whatsapp: "971523235853",
+      email: "info@lavistarealestate.ae",
+      brn: "39201"
+    },
+    status: "available",
+    featured: true,
+    createdAt: "2026-02-14T10:00:00Z",
+    updatedAt: "2026-02-19T11:00:00Z"
+  },
+  {
+    id: "lv-prop-11",
+    slug: "uaq-light-industrial-warehouse-workshop-sale",
+    title: "Light Industrial Warehouse & Manufacturing Workshop for Sale",
+    tagline: "Versatile 18,500 sqft facility with 10-ton overhead gantry crane & offices",
+    purpose: "buy",
+    category: "warehouse",
+    region: "Umm Al Quwain",
+    propertyType: "warehouse",
+    priceAED: 5200000,
+    community: "UAQ Industrial Area",
+    subCommunity: "Industrial Sector 2",
+    building: "Al Etihad Industrial Works",
+    beds: 0,
+    baths: 3,
+    sizeSqft: 18500,
+    description: "High-utility commercial warehouse and light industrial workshop facility for sale in UAQ Industrial Sector 2. Featuring heavy reinforced industrial concrete flooring (5 ton/sqm load capacity), an installed 10-ton overhead gantry crane spanning the full length of the bay, 200 kW power supply, dedicated vehicular drive-in roller shutter doors, and premium furnished executive offices.",
+    highlights: [
+      "Equipped with 10-ton electric overhead gantry crane",
+      "Reinforced 5-ton/sqm industrial concrete flooring with epoxy coating",
+      "200 kW 3-phase power with industrial distribution boards",
+      "Dual 6-meter motorized roller shutter entrance bays",
+      "Direct truck access to Emirates Road (E611) within 5 minutes"
+    ],
+    amenities: [
+      "Overhead Gantry Crane (10T)",
+      "Reinforced Concrete Floor",
+      "Motorized Roller Shutters",
+      "3-Phase 200 kW Power",
+      "Executive Office Block",
+      "Civil Defense Sprinklers",
+      "Staff Rest Area"
+    ],
+    images: [
+      "/images/properties/warehouses/warehouse-industrial-crane.jpg",
+      "/images/properties/warehouses/warehouse-distribution-exterior.jpg",
+      "/images/properties/warehouses/warehouse-cold-storage.jpg"
+    ],
+    developer: "UAQ Industrial Authority",
+    permitNumber: "UAQ-IND-2026-703",
+    agent: {
+      name: "Rashid Al-Nuaimi",
+      title: "Commercial & Industrial Specialist",
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      phone: "+971 6 767 5181",
+      whatsapp: "971523235853",
+      email: "info@lavistarealestate.ae",
+      brn: "39201"
+    },
+    status: "available",
+    featured: true,
+    createdAt: "2026-02-15T14:00:00Z",
+    updatedAt: "2026-02-19T16:00:00Z"
   }
 ];
 

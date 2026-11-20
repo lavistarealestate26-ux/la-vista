@@ -42,6 +42,13 @@ const PRICE_RANGES = {
     { label: "AED 5M – AED 12,000,000", min: "5000000", max: "12000000" },
     { label: "AED 12M – AED 25,000,000+", min: "12000000", max: "25000000" },
   ],
+  warehouse: [
+    { label: "Any Budget", min: "", max: "" },
+    { label: "Under AED 4,000,000", min: "", max: "4000000" },
+    { label: "AED 4M – AED 8,000,000", min: "4000000", max: "8000000" },
+    { label: "AED 8M – AED 15,000,000", min: "8000000", max: "15000000" },
+    { label: "AED 15,000,000+", min: "15000000", max: "" },
+  ],
   leasing: [
     { label: "Any Lease Rate", min: "", max: "" },
     { label: "Up to AED 60,000 / yr", min: "", max: "60000" },
@@ -58,7 +65,7 @@ export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // States
-  const [activeTab, setActiveTab] = useState<"residential" | "commercial" | "leasing">("residential");
+  const [activeTab, setActiveTab] = useState<"residential" | "commercial" | "warehouse" | "leasing">("residential");
   const [searchArea, setSearchArea] = useState("");
   const [selectedBeds, setSelectedBeds] = useState("");
   const [selectedPriceIndex, setSelectedPriceIndex] = useState(0);
@@ -194,14 +201,15 @@ export default function HeroSection() {
 
         {/* Search Bar Component */}
         <div className="relative z-30 w-full max-w-5xl bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_24px_70px_-15px_rgba(0,0,0,0.35)] p-3.5 sm:p-6 border border-[#E7DFCF]/80 text-[#111111]">
-          {/* Categories Segmented Control: Residential | Commercial | Leasing */}
+          {/* Categories Segmented Control: Residential | Commercial | Warehouses | Leasing */}
           <div className="flex items-center justify-between mb-3 pb-2.5 sm:mb-4 sm:pb-3 border-b border-[#E7DFCF]/70">
-            <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto p-1 bg-[#F7F3EA] rounded-xl border border-[#E7DFCF] gap-1">
+            <div className="grid grid-cols-4 sm:inline-flex w-full sm:w-auto p-1 bg-[#F7F3EA] rounded-xl border border-[#E7DFCF] gap-1">
               {(
                 [
-                  { id: "residential", label: t.hero_tab_residential },
-                  { id: "commercial", label: t.hero_tab_commercial },
-                  { id: "leasing", label: t.hero_tab_leasing },
+                  { id: "residential", label: t.hero_tab_residential || "Residential" },
+                  { id: "commercial", label: t.hero_tab_commercial || "Commercial" },
+                  { id: "warehouse", label: t.hero_tab_warehouses || "Warehouses" },
+                  { id: "leasing", label: t.hero_tab_leasing || "Leasing" },
                 ] as const
               ).map((tab) => {
                 const isActive = activeTab === tab.id;
@@ -213,7 +221,7 @@ export default function HeroSection() {
                       setActiveTab(tab.id);
                       setSelectedPriceIndex(0);
                     }}
-                    className={`px-1.5 sm:px-5 py-1.5 sm:py-2 text-[11px] sm:text-[13px] font-bold tracking-normal sm:tracking-wider uppercase rounded-lg transition-all text-center justify-center whitespace-nowrap truncate ${
+                    className={`px-1 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-[13px] font-bold tracking-normal sm:tracking-wider uppercase rounded-lg transition-all text-center justify-center whitespace-nowrap truncate ${
                       isActive
                         ? "bg-[#111111] text-[#C99A3B] shadow-sm"
                         : "text-[#5E6778] hover:text-[#111111] hover:bg-white/60"

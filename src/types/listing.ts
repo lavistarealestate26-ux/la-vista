@@ -1,5 +1,5 @@
 export type PropertyPurpose = "buy" | "rent" | "off-plan" | "leasing";
-export type PropertyCategory = "commercial" | "residential" | "leasing";
+export type PropertyCategory = "commercial" | "residential" | "leasing" | "warehouse";
 export type PropertyType = "apartment" | "villa" | "townhouse" | "penthouse" | "plot" | "commercial" | "office" | "retail" | "warehouse" | "industrial";
 export type PropertyStatus = "available" | "sold" | "rented";
 export type PropertyRegion = "Umm Al Quwain" | "Wider UAE";

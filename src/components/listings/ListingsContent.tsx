@@ -10,6 +10,7 @@ import {
   Building2,
   KeyRound,
   Home,
+  Warehouse,
 } from "lucide-react";
 import { MOCK_LISTINGS } from "@/data/mockListings";
 import PropertyCard from "@/components/properties/PropertyCard";
@@ -57,11 +58,15 @@ export default function ListingsContent() {
   // Filter listings dynamically
   const filteredListings = useMemo(() => {
     return MOCK_LISTINGS.filter((item) => {
-      // Category filter (commercial | residential | leasing)
+      // Category filter (commercial | residential | leasing | warehouse)
       if (category) {
         if (category === "leasing") {
           // If category is leasing, match category === "leasing" or purpose === "rent" / "leasing"
           if (item.category !== "leasing" && item.purpose !== "rent" && item.purpose !== "leasing") {
+            return false;
+          }
+        } else if (category === "warehouse") {
+          if (item.category !== "warehouse" && item.propertyType !== "warehouse") {
             return false;
           }
         } else if (item.category !== category) {
@@ -89,8 +94,14 @@ export default function ListingsContent() {
       }
 
       // Property type filter
-      if (propertyType && item.propertyType !== propertyType) {
-        return false;
+      if (propertyType) {
+        if (propertyType === "warehouse" || propertyType === "industrial") {
+          if (item.propertyType !== "warehouse" && item.propertyType !== "industrial") {
+            return false;
+          }
+        } else if (item.propertyType !== propertyType) {
+          return false;
+        }
       }
 
       // Beds filter
@@ -170,6 +181,8 @@ export default function ListingsContent() {
                   ? "Commercial Properties & Assets"
                   : category === "residential"
                   ? "Residential Luxury Homes & Villas"
+                  : category === "warehouse"
+                  ? "Industrial Warehouses & Logistics Hubs"
                   : category === "leasing"
                   ? "Leasing Properties & Rental Portfolios"
                   : purpose === "buy"
@@ -183,12 +196,13 @@ export default function ListingsContent() {
               </p>
             </div>
 
-            {/* Client Requested Primary Category Tabs: All, Commercial, Residential, Leasing */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-white/10 rounded-xl sm:rounded-2xl border border-white/15 w-full sm:w-auto">
+            {/* Client Requested Primary Category Tabs: All, Residential, Commercial, Warehouses, Leasing */}
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-white/10 rounded-xl sm:rounded-2xl border border-white/15 w-full sm:w-auto">
               {[
                 { id: "", label: "All Properties", icon: null },
                 { id: "residential", label: "Residential", icon: Home },
                 { id: "commercial", label: "Commercial", icon: Building2 },
+                { id: "warehouse", label: "Warehouses", icon: Warehouse },
                 { id: "leasing", label: "Leasing", icon: KeyRound },
               ].map((tab) => {
                 const Icon = tab.icon;
@@ -323,7 +337,8 @@ export default function ListingsContent() {
                 <option value="penthouse">Penthouses</option>
                 <option value="townhouse">Townhouses</option>
                 <option value="commercial">Commercial / Office</option>
-                <option value="industrial">Industrial / Warehouse</option>
+                <option value="warehouse">Warehouses & Logistics</option>
+                <option value="industrial">Industrial Facilities</option>
               </select>
             </div>
 
@@ -338,7 +353,7 @@ export default function ListingsContent() {
                 className="w-full px-3 py-2 text-xs bg-[#F7F3EA]/60 border border-[#E7DFCF] rounded-xl focus:outline-none focus:border-[#C99A3B]"
               >
                 <option value="">Any Beds</option>
-                <option value="0">Studio</option>
+                <option value="0">Studio / Commercial</option>
                 <option value="1">1 Bedroom</option>
                 <option value="2">2 Bedrooms</option>
                 <option value="3">3 Bedrooms</option>
@@ -357,7 +372,7 @@ export default function ListingsContent() {
 
               {category && (
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#F7F3EA] text-[#111111] text-[11px] font-semibold rounded-lg border border-[#E7DFCF]">
-                  Category: {category.charAt(0).toUpperCase() + category.slice(1)}
+                  Category: {category === "warehouse" ? "Warehouses" : category.charAt(0).toUpperCase() + category.slice(1)}
                   <button onClick={() => setCategory("")} className="hover:text-red-500">
                     <X className="w-3 h-3" />
                   </button>

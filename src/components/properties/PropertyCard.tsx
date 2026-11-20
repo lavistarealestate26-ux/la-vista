@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BedDouble, Bath, Maximize, MapPin, Heart, ArrowUpRight } from "lucide-react";
+import { BedDouble, Bath, Maximize, MapPin, Heart, ArrowUpRight, Warehouse } from "lucide-react";
 import { Listing } from "@/types/listing";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -98,10 +98,19 @@ export default function PropertyCard({ listing, priority = false }: PropertyCard
           {/* Specs Bar (Beds, Baths, Sqft) */}
           <div className="flex items-center justify-between py-2.5 border-y border-[#E7DFCF] text-[11px] sm:text-xs text-[#5E6778] mb-3 sm:mb-4">
             <div className="flex items-center gap-1 sm:gap-1.5">
-              <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C99A3B] shrink-0" />
-              <span className="font-semibold text-[#111111] whitespace-nowrap">
-                {listing.beds === 0 ? t.spec_studio : `${listing.beds} ${t.spec_beds}`}
-              </span>
+              {listing.propertyType === "warehouse" ? (
+                <>
+                  <Warehouse className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C99A3B] shrink-0" />
+                  <span className="font-semibold text-[#111111] whitespace-nowrap">Warehouse</span>
+                </>
+              ) : (
+                <>
+                  <BedDouble className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C99A3B] shrink-0" />
+                  <span className="font-semibold text-[#111111] whitespace-nowrap">
+                    {listing.beds === 0 ? t.spec_studio : `${listing.beds} ${t.spec_beds}`}
+                  </span>
+                </>
+              )}
             </div>
             <div className="flex items-center gap-1 sm:gap-1.5">
               <Bath className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C99A3B] shrink-0" />
