@@ -165,10 +165,13 @@ export default function HeroSection() {
           loop
           playsInline
           preload="auto"
-          poster="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85"
+          poster="https://res.cloudinary.com/dtiabtxb/video/upload/so_0,q_auto,f_auto/v1795279937/dubai.jpg"
           className="w-full h-full object-cover select-none scale-105 transform duration-1000 ease-out"
         >
-          <source src="/videos/hero-uaq-coastal.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/dtiabtxb/video/upload/q_auto,f_auto/v1795279937/dubai.mp4"
+            type="video/mp4"
+          />
         </video>
 
         {/* Dedicated top scrim ensuring navbar always has rich dark contrast behind it */}
