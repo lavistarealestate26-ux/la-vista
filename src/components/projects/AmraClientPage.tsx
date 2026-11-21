@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { CONTACT_INFO } from "@/data/contactInfo";
+import { sendLead } from "@/lib/sendLead";
 
 const AMRA_GALLERY = [
   {
@@ -131,17 +132,29 @@ export default function AmraClientPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const msg = `Inquiry for AMRA Integrative Wellness Resort - Preferred Unit: ${inquiryUnit}`;
+      await Promise.allSettled([
+        sendLead({
           name: inquiryName,
           email: inquiryEmail,
           phone: inquiryPhone,
           purpose: "AMRA Off-Plan VIP Allocation",
-          message: `Inquiry for AMRA Integrative Wellness Resort - Preferred Unit: ${inquiryUnit}`,
+          propertyTitle: `AMRA Residences (${inquiryUnit})`,
+          location: "Al Sinniyah Island / Coastal UAQ",
+          message: msg,
         }),
-      });
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: inquiryName,
+            email: inquiryEmail,
+            phone: inquiryPhone,
+            purpose: "AMRA Off-Plan VIP Allocation",
+            message: msg,
+          }),
+        }),
+      ]);
       setSubmitted(true);
     } catch {
       setSubmitted(true);

@@ -22,6 +22,7 @@ import {
 import { Listing } from "@/types/listing";
 import PropertyCard from "@/components/properties/PropertyCard";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
+import { sendLead } from "@/lib/sendLead";
 
 interface PropertyDetailClientProps {
   listing: Listing;
@@ -56,6 +57,15 @@ export default function PropertyDetailClient({
   const handleEnquirySubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setEnquirySent(true);
+    sendLead({
+      name: viewerName,
+      phone: viewerPhone,
+      email: viewerEmail,
+      purpose: `Property Inspection Booking (AED ${formatPrice(listing.priceAED)})`,
+      propertyTitle: listing.title,
+      location: `${listing.community}, ${listing.region || "UAQ"}`,
+      message: `Client requested private showing for ${listing.title}. Assigned Agent: ${listing.agent.name} (${listing.agent.phone}).`,
+    }).catch(console.error);
   };
 
   return (

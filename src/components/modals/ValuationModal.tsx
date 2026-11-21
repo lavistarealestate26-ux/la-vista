@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { X, CheckCircle2, Calculator } from "lucide-react";
+import { sendLead } from "@/lib/sendLead";
 
 interface ValuationModalProps {
   isOpen: boolean;
@@ -25,17 +26,29 @@ export default function ValuationModal({ isOpen, onClose }: ValuationModalProps)
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const summaryMsg = `Property Type: ${propertyType}, Area: ${community}, Beds: ${beds}, Size: ${sizeSqft} sqft`;
+      await Promise.allSettled([
+        sendLead({
           name: ownerName,
           phone,
           email,
-          purpose: "valuation",
-          message: `Property Type: ${propertyType}, Area: ${community}, Beds: ${beds}, Size: ${sizeSqft} sqft`,
+          purpose: "Property Valuation Request",
+          propertyTitle: `${propertyType} in ${community}`,
+          location: community,
+          message: summaryMsg,
         }),
-      });
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: ownerName,
+            phone,
+            email,
+            purpose: "valuation",
+            message: summaryMsg,
+          }),
+        }),
+      ]);
       setSubmitted(true);
     } catch (err) {
       console.error(err);

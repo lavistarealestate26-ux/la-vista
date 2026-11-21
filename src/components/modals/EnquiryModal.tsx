@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { X, Send, CheckCircle2, Phone, Mail, User, MessageSquare } from "lucide-react";
+import { sendLead } from "@/lib/sendLead";
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -32,16 +33,15 @@ export default function EnquiryModal({
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, message, purpose, propertyTitle }),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setSubmitted(true);
-      }
+      await Promise.allSettled([
+        sendLead({ name, phone, email, message, purpose, propertyTitle }),
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, phone, email, message, purpose, propertyTitle }),
+        }),
+      ]);
+      setSubmitted(true);
     } catch (err) {
       console.error(err);
       setSubmitted(true);

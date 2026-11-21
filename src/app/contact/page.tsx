@@ -15,6 +15,7 @@ import {
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { CONTACT_INFO } from "@/data/contactInfo";
 import { useLanguage } from "@/context/LanguageContext";
+import { sendLead } from "@/lib/sendLead";
 
 export default function ContactPage() {
   const { language } = useLanguage();
@@ -35,24 +36,29 @@ export default function ContactPage() {
     setErrorMessage("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      // Direct Web3Forms delivery to verified client email + internal tracking
+      await Promise.allSettled([
+        sendLead({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           purpose: formData.interest,
           message: formData.message,
         }),
-      });
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            purpose: formData.interest,
+            message: formData.message,
+          }),
+        }),
+      ]);
 
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setSubmitted(true);
-      } else {
-        setErrorMessage(data.error || "Failed to submit your message. Please try again or reach us via WhatsApp.");
-      }
+      setSubmitted(true);
     } catch {
       setErrorMessage("Network error. Please try again or reach us via WhatsApp.");
     } finally {

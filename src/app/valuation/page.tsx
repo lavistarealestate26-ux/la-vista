@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Calculator, CheckCircle2, ShieldCheck } from "lucide-react";
+import { sendLead } from "@/lib/sendLead";
 
 export default function ValuationPage() {
   const [submitting, setSubmitting] = useState(false);
@@ -24,24 +25,33 @@ export default function ValuationPage() {
     setErrorMessage("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const summaryMsg = `Valuation details: Property type: ${formData.propertyType}, Category: ${formData.category}, Location: ${formData.community}, Beds: ${formData.beds}, Size: ${formData.sizeSqft} sqft.`;
+      const purposeStr = `Valuation Request (${formData.category}): ${formData.propertyType} in ${formData.community}`;
+
+      await Promise.allSettled([
+        sendLead({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          purpose: `Valuation Request (${formData.category}): ${formData.propertyType} in ${formData.community} (${formData.beds} beds, ${formData.sizeSqft} sqft)`,
-          message: `Valuation details: Property type: ${formData.propertyType}, Category: ${formData.category}, Location: ${formData.community}, Beds: ${formData.beds}, Size: ${formData.sizeSqft} sqft.`,
+          purpose: purposeStr,
+          propertyTitle: `${formData.propertyType} (${formData.community})`,
+          location: formData.community,
+          message: summaryMsg,
         }),
-      });
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            purpose: purposeStr,
+            message: summaryMsg,
+          }),
+        }),
+      ]);
 
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setSubmitted(true);
-      } else {
-        setErrorMessage(data.error || "Failed to submit valuation request. Please try again.");
-      }
+      setSubmitted(true);
     } catch {
       setErrorMessage("Network error. Please try again or reach us via WhatsApp.");
     } finally {
