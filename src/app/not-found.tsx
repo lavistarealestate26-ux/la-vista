@@ -65,27 +65,32 @@ export default function NotFound() {
 
       <div className="relative max-w-4xl mx-auto w-full text-center z-10">
         {/* Luxury Monogram Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C99A3B]/40 bg-[#161B26]/80 backdrop-blur-md text-[#D4AF37] text-xs font-semibold uppercase tracking-[0.22em] mb-6 shadow-lg shadow-[#000000]/40">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C99A3B]/40 bg-[#161B26]/80 backdrop-blur-md text-[#D4AF37] text-xs font-semibold uppercase tracking-[0.22em] mb-4 shadow-lg shadow-[#000000]/40">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C99A3B] animate-pulse" />
-          <span>Error 404 • Destination Unmapped</span>
+          <span>Destination Unmapped</span>
         </div>
 
-        {/* Large Architectural 404 Display */}
-        <div className="relative mb-4 select-none">
-          <span className="text-8xl sm:text-9xl md:text-[11rem] font-serif font-bold tracking-tight bg-gradient-to-b from-[#FAF7F2] via-[#E8DFD1] to-[#7A6B52] bg-clip-text text-transparent leading-none">
+        {/* Large Architectural 404 Display (Clean Spacing, No Overlap) */}
+        <div className="mb-6 select-none flex flex-col items-center">
+          <div className="text-8xl sm:text-9xl md:text-[10.5rem] font-serif font-bold tracking-tight bg-gradient-to-b from-[#FAF7F2] via-[#E8DFD1] to-[#998361] bg-clip-text text-transparent leading-none drop-shadow-sm">
             404
-          </span>
-          <p className="absolute inset-x-0 bottom-1 sm:bottom-2 text-xs sm:text-sm uppercase tracking-[0.35em] text-[#C99A3B]/90 font-medium">
-            Address Not Found
-          </p>
+          </div>
+
+          <div className="inline-flex items-center gap-3 mt-4">
+            <span className="h-[1px] w-8 sm:w-14 bg-gradient-to-r from-transparent to-[#C99A3B]" />
+            <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-[#C99A3B] font-semibold">
+              Address Not Found
+            </span>
+            <span className="h-[1px] w-8 sm:w-14 bg-gradient-to-l from-transparent to-[#C99A3B]" />
+          </div>
         </div>
 
         {/* Serif Headline & Explanation */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-[#FAF7F2] mb-4 tracking-wide">
-          The property or page you are seeking is no longer available.
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#FAF7F2] mb-3 tracking-wide font-normal">
+          This Page or Property Cannot Be Located
         </h1>
-        <p className="text-sm sm:text-base text-[#9DA4B3] max-w-2xl mx-auto mb-10 font-sans leading-relaxed">
-          The link you followed may have expired, changed its address, or the listing has been acquired. Let our licensed Umm Al Quwain advisory team guide you back to premier properties.
+        <p className="text-sm sm:text-base text-[#9DA4B3] max-w-xl mx-auto mb-10 font-sans leading-relaxed">
+          The link you followed may have expired, changed its URL, or the property has been acquired. Let our licensed Umm Al Quwain advisory team guide you back to premier properties.
         </p>
 
         {/* Primary Action Buttons */}
