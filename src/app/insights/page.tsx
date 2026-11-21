@@ -3,9 +3,14 @@ import { LATEST_INSIGHTS } from "@/data/mockListings";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Real Estate Market Insights & Reports | Umm Al Quwain & Wider UAE | La Vista",
+  title: "Umm Al Quwain Property Market Insights | La Vista",
   description:
-    "Authoritative market research, coastal appreciation trends, commercial development, and leasing guides across Umm Al Quwain and the wider UAE.",
+    "Market reports, buying guides and investor analysis on Umm Al Quwain and the wider UAE, written by La Vista's local property advisors.",
+  openGraph: {
+    title: "Umm Al Quwain Property Market Insights | La Vista",
+    description:
+      "Market reports, buying guides and investor analysis on Umm Al Quwain and the wider UAE, written by La Vista's local property advisors.",
+  },
 };
 
 export default function InsightsPage() {

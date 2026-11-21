@@ -2,9 +2,14 @@ import React from "react";
 import { ShieldCheck, Award, Users, Gem } from "lucide-react";
 
 export const metadata = {
-  title: "About La Vista Real Estate | Umm Al Quwain & Wider UAE Brokerage",
+  title: "About La Vista | Real Estate Company in Umm Al Quwain",
   description:
-    "Learn about La Vista Real Estate, our private client advisors, and our commitment to prime real estate advisory in Umm Al Quwain and the wider UAE.",
+    "Meet La Vista Real Estate, a locally based brokerage on King Faisal Road, Umm Al Quwain, advising buyers, tenants and investors across the UAE.",
+  openGraph: {
+    title: "About La Vista | Real Estate Company in Umm Al Quwain",
+    description:
+      "Meet La Vista Real Estate, a locally based brokerage on King Faisal Road, Umm Al Quwain, advising buyers, tenants and investors across the UAE.",
+  },
 };
 
 export default function AboutPage() {

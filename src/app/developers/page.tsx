@@ -4,9 +4,14 @@ import { MOCK_DEVELOPERS } from "@/data/mockListings";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Master Developers | Umm Al Quwain & Wider UAE | La Vista Partners",
+  title: "Real Estate Developers in Umm Al Quwain | La Vista",
   description:
-    "Official developer partners including Sobha Realty, Emaar, Nakheel, DAMAC, and Aldar across Umm Al Quwain and the wider UAE.",
+    "The master developers shaping Umm Al Quwain and the wider UAE, their current projects, and how La Vista helps you buy directly at launch prices.",
+  openGraph: {
+    title: "Real Estate Developers in Umm Al Quwain | La Vista",
+    description:
+      "The master developers shaping Umm Al Quwain and the wider UAE, their current projects, and how La Vista helps you buy directly at launch prices.",
+  },
 };
 
 export default function DevelopersPage() {

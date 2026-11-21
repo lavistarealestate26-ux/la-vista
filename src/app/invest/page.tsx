@@ -4,9 +4,14 @@ import { CheckCircle2 } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contactInfo";
 
 export const metadata = {
-  title: "Real Estate Investment & UAE Golden Visa | La Vista Real Estate",
+  title: "Invest in Umm Al Quwain Property | Golden Visa Guide",
   description:
-    "Learn how to qualify for the 10-year UAE Golden Visa via property investment in Umm Al Quwain and the wider UAE.",
+    "Why investors are looking at Umm Al Quwain: entry prices, rental returns, off-plan payment plans and how property can qualify you for a UAE Golden Visa.",
+  openGraph: {
+    title: "Invest in Umm Al Quwain Property | Golden Visa Guide",
+    description:
+      "Why investors are looking at Umm Al Quwain: entry prices, rental returns, off-plan payment plans and how property can qualify you for a UAE Golden Visa.",
+  },
 };
 
 export default function InvestPage() {

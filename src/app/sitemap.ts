@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { MOCK_LISTINGS } from "@/data/mockListings";
+import { MOCK_LISTINGS, LATEST_INSIGHTS } from "@/data/mockListings";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://lavista.ae";
 
@@ -37,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/projects/amra`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
     {
       url: `${BASE_URL}/services`,
@@ -96,5 +102,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...propertyRoutes];
+  // Dynamic Insight Article Pages
+  const insightRoutes: MetadataRoute.Sitemap = LATEST_INSIGHTS.map((article) => ({
+    url: `${BASE_URL}/insights/${article.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.75,
+  }));
+
+  return [...staticRoutes, ...propertyRoutes, ...insightRoutes];
 }

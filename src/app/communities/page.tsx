@@ -4,9 +4,14 @@ import { MOCK_COMMUNITIES } from "@/data/mockListings";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Communities Guide | Umm Al Quwain & Wider UAE | La Vista Real Estate",
+  title: "Best Areas to Live & Invest in Umm Al Quwain | La Vista",
   description:
-    "Explore premier residential and coastal communities across Umm Al Quwain and the wider UAE: Al Sinniyah Island, Al Salamah, UAQ Marina, and Mangrove Beachfront.",
+    "A local guide to Umm Al Quwain's communities, from Siniya Island and UAQ Marina to Al Salamah and Al Ramlah, with prices and lifestyle notes.",
+  openGraph: {
+    title: "Best Areas to Live & Invest in Umm Al Quwain | La Vista",
+    description:
+      "A local guide to Umm Al Quwain's communities, from Siniya Island and UAQ Marina to Al Salamah and Al Ramlah, with prices and lifestyle notes.",
+  },
 };
 
 export default function CommunitiesPage() {

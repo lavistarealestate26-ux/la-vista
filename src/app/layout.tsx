@@ -28,9 +28,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lavista.ae"),
-  title: "La Vista Real Estate | Umm Al Quwain & Wider UAE Properties",
+  title: "Umm Al Quwain Real Estate: Buy, Rent & Invest | La Vista",
   description:
-    "La Vista Real Estate is a premier boutique brokerage specializing in luxury waterfront estates, commercial assets, and leasing properties across Umm Al Quwain and the wider UAE.",
+    "Licensed real estate brokerage in Umm Al Quwain. Buy, rent or invest in beachfront villas, off-plan projects, commercial units and warehouses.",
   keywords: [
     "La Vista Real Estate",
     "Umm Al Quwain real estate",
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     "Commercial real estate UAE",
     "Leasing properties Umm Al Quwain",
     "UAE Golden Visa",
+    "Warehouses Umm Al Quwain",
   ],
   authors: [{ name: "La Vista Real Estate LLC" }],
   icons: {
@@ -52,9 +53,9 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: "La Vista Real Estate | Umm Al Quwain & Wider UAE",
+    title: "Umm Al Quwain Real Estate: Buy, Rent & Invest | La Vista",
     description:
-      "Discover the finest selection of ultra-prime properties, commercial assets, and leasing opportunities in Umm Al Quwain and the wider UAE with La Vista Real Estate.",
+      "Licensed real estate brokerage in Umm Al Quwain. Buy, rent or invest in beachfront villas, off-plan projects, commercial units and warehouses.",
     url: "https://lavista.ae",
     siteName: "La Vista Real Estate",
     images: [

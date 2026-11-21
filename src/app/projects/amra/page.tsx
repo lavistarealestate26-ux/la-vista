@@ -2,9 +2,14 @@ import React from "react";
 import AmraClientPage from "@/components/projects/AmraClientPage";
 
 export const metadata = {
-  title: "AMRA Integrative Wellness Resort | Umm Al Quwain | Citi Developers | La Vista",
+  title: "AMRA Residences Umm Al Quwain | Prices & Payment Plan",
   description:
-    "Explore AMRA, the world's first integrative wellness resort in Umm Al Quwain by Citi Developers. 5 beachfront towers, 688k sq.ft wellness amenities, 70/30 post-handover payment plan.",
+    "AMRA by Citi Developers in Al Raudah, UAQ: fully furnished sea-view residences, wellness amenities, payment plan and brochure. Enquire with La Vista.",
+  openGraph: {
+    title: "AMRA Residences Umm Al Quwain | Prices & Payment Plan",
+    description:
+      "AMRA by Citi Developers in Al Raudah, UAQ: fully furnished sea-view residences, wellness amenities, payment plan and brochure. Enquire with La Vista.",
+  },
 };
 
 export default function AmraProjectPage() {

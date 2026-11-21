@@ -1,5 +1,16 @@
 import React from "react";
 
+export const metadata = {
+  title: "Privacy Policy | La Vista Real Estate",
+  description:
+    "How La Vista Real Estate collects, uses and protects your personal data when you browse our website, send an enquiry or contact our advisors.",
+  openGraph: {
+    title: "Privacy Policy | La Vista Real Estate",
+    description:
+      "How La Vista Real Estate collects, uses and protects your personal data when you browse our website, send an enquiry or contact our advisors.",
+  },
+};
+
 export default function PrivacyPage() {
   return (
     <div className="pt-32 pb-20 max-w-4xl mx-auto px-4 sm:px-6 text-[#111111]">

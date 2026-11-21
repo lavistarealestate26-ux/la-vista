@@ -1,5 +1,16 @@
 import React from "react";
 
+export const metadata = {
+  title: "Terms of Use | La Vista Real Estate",
+  description:
+    "The terms that apply when you use the La Vista Real Estate website, including listing information, enquiries, pricing and intellectual property.",
+  openGraph: {
+    title: "Terms of Use | La Vista Real Estate",
+    description:
+      "The terms that apply when you use the La Vista Real Estate website, including listing information, enquiries, pricing and intellectual property.",
+  },
+};
+
 export default function TermsPage() {
   return (
     <div className="pt-32 pb-20 max-w-4xl mx-auto px-4 sm:px-6 text-[#111111]">
