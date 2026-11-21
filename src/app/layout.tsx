@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lavista.ae"),
+  metadataBase: new URL("https://www.lavistarealestate.ae"),
   title: "Umm Al Quwain Real Estate: Buy, Rent & Invest | La Vista",
   description:
     "Licensed real estate brokerage in Umm Al Quwain. Buy, rent or invest in beachfront villas, off-plan projects, commercial units and warehouses.",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Umm Al Quwain Real Estate: Buy, Rent & Invest | La Vista",
     description:
       "Licensed real estate brokerage in Umm Al Quwain. Buy, rent or invest in beachfront villas, off-plan projects, commercial units and warehouses.",
-    url: "https://lavista.ae",
+    url: "https://www.lavistarealestate.ae",
     siteName: "La Vista Real Estate",
     images: [
       {
